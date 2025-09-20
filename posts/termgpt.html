@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termgpt - bah</title>
+
+    
+<meta name="description" content="A programming and system administration assistant, powered by chatGPT!">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">Termgpt</h1>
+            
+            
+            <div class="post-standalone-description">
+                A programming and system administration assistant, powered by chatGPT!
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">May 07, 2023</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">1 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <!-- more -->
+<h2>Install</h2>
+<h3>Cargo</h3>
+<pre class="highlight"><code class="language-bash">cargo install termgpt
+termgpt --help
+</code></pre>
+<h3>From source</h3>
+<pre class="highlight"><code class="language-bash">git clone git@github.com:bahdotsh/termgpt.git
+cd termgpt
+cargo install --path .
+</code></pre>
+<h2>Usage</h2>
+<p>For the first time you have to to enter your <a href="https://platform.openai.com/account/api-keys">OpenAI API key</a>.</p>
+<pre class="highlight"><code class="language-">termgpt --api &lt;your api-key&gt;
+</code></pre>
+<p>This key will then be saved to:</p>
+<pre class="highlight"><code class="language-">// Linux:   /home/alice/.config/termgpt
+// Windows: C:\Users\Alice\AppData\Roaming\Foo Corp\termgpt
+// macOS:   /Users/Alice/Library/Application Support/termgpt
+</code></pre>
+<p>To be reused later</p>
+<h3>Questions</h3>
+<p>For now you can ask ChatGPT anything related to managing your operating system or writing code. Eventually you'll be able to ask any question to ChatGPT (couple more prompts to go) with termgpt (P.S try to avoid using '?' at the end of your questions for now).</p>
+<pre class="highlight"><code class="language-bash">termgpt &lt;any question&gt;
+</code></pre>
+<h3>Executing commands</h3>
+<p>You can ask to execute the generated command using <code>--exec</code> argument.</p>
+<pre class="highlight"><code class="language-bash">termgpt --exec list all the files in this folder
+</code></pre>
+<h3>Help message</h3>
+<pre class="highlight"><code class="language-bash">termgpt --help
+
+
+A cli tool to interact with ChatGPT
+
+Usage: termgpt [OPTIONS] [CHAT]...
+
+Arguments:
+  [CHAT]...
+
+Options:
+      --api &lt;API&gt;  Your API key for OpenAPI
+  -e, --exec       Execute the commands generated
+  -h, --help       Print help
+  -V, --version    Print version
+</code></pre>
+<h2>Example questions</h2>
+<pre class="highlight"><code class="language-">termgpt How do I list all files in the current directory
+termgpt How can I find the number of lines in a file
+termgpt How do I create a new directory
+termgpt How can I check the available disk space
+termgpt How do I delete a file
+termgpt How can I search for a specific string in a file
+termgpt How do I copy a file to a different location
+termgpt How can I see the contents of a file
+termgpt How do I move a file to a different location
+termgpt How can I change the permissions of a file or directory
+</code></pre>
+<h2>Inspirations</h2>
+<ul>
+<li><a href="https://github.com/TheR1D/shell_gpt">shell-gpt</a></li>
+<li><a href="https://github.com/rigwild/shell-gpt-rs">shell-gpt-rs</a></li>
+</ul>
+
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

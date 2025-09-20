@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>giff - bah</title>
+
+    
+<meta name="description" content="git diff terminal visualizer">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">giff</h1>
+            
+            
+            <div class="post-standalone-description">
+                git diff terminal visualizer
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">August 06, 2024</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">1 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <h1>giff</h1>
+<p><a href="https://github.com/bahdotsh/giff">giff</a> visualizes the differences between the current <code>HEAD</code> and a specified branch in a git repository using a formatted</p>
+<!-- more -->
+<p>table output in your terminal. The differences are displayed with color-coded additions and deletions for better readability.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Branch Comparison</strong>: Compare changes between the current HEAD and a specified branch.</li>
+<li><strong>Color-coded Output</strong>: Additions are displayed in green and deletions in red.</li>
+<li><strong>Table Formatting</strong>: Uses <code>comfy_table</code> to format the output.</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Rust (latest stable version)</li>
+<li>Git</li>
+<li>A terminal supporting ANSI escape codes for color output</li>
+</ul>
+<h2>Dependencies</h2>
+<p>This project uses the following Rust crates:</p>
+<ul>
+<li><code>clap</code>: For command-line argument parsing.</li>
+<li><code>comfy_table</code>: For creating and formatting tables.</li>
+<li><code>crossterm</code>: For terminal manipulation.</li>
+<li><code>regex</code>: For parsing git diff output.</li>
+</ul>
+<h2>Installation</h2>
+<pre class="highlight"><code class="language-">cargo install giff
+</code></pre>
+<h2>From source</h2>
+<pre class="highlight"><code class="language-">git clone https://github.com/bahdotsh/giff.git
+cd giff
+cargo install --path .
+</code></pre>
+<h2>Usage</h2>
+<pre class="highlight"><code class="language-">giff -b branch //by default, the branch will be main
+</code></pre>
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

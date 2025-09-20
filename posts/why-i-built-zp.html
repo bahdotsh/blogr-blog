@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I built zp! - bah</title>
+
+    
+<meta name="description" content="Talks about the process behind building zp!">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">Why I built zp!</h1>
+            
+            
+            <div class="post-standalone-description">
+                Talks about the process behind building zp!
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">April 12, 2023</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">2 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <p>For those of you who don't know, (which is going to be most of you), I recently published my very first crate; <a href="https://github.com/bahdotsh/zp">zp</a>. <code>zp</code> is just a simple tool to copy contents from a file. I built zp so that I can learn rust properly. And by properly, I mean learning something and understanding it in a way I can use it to build cool/useful things in the future.</p>
+<!-- more -->
+<p>The process was relatively simple than I expected and as everyone says, the toughest thing was deciding what to build. Thankfully, I didn't overthink it this time and decided to build something not complex at all. My problem statement was simple, &quot;I need a tool to copy things from inside a file to the clipboard from my terminal&quot;. Since the problem statement was so clear, I was able to break it down into smaller parts and publish it in a day!</p>
+<p>I was really excited when the development reached the final stages as it was working exactly how I wanted it to work. I don't know if you know, but the following are the steps to publish your crate to <a href="https://crates.io/">crates.io</a> :</p>
+<ul>
+<li>Add a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">license</a> to your project.</li>
+<li>Put up a proper <code>README.md</code> file.</li>
+<li>Set your package information like version, description, license, etc. in the <code>Cargo.toml</code> file.</li>
+<li>Build your project, <code>cargo build --release</code></li>
+<li>And finally, publish your project with <code>cargo publish</code> (you need to first create an account in crates.io and generate an API key to log in to your account from the terminal).</li>
+</ul>
+<p>Yup, that's it! You have now published your crate. And what that means is that people will see your project and may even use it! That reality hit me a little late. I was really proud of my accomplishment and posted it everywhere I could think of.</p>
+<p>This is when the reality of other people using my project hit kind of hard. A couple of developers used it and as it turns out, my project doesn't work at all in Linux and Windows! I should've checked it, but I didn't. My embarrassment has never reached highs like this before and was kind of hard to deal with.</p>
+<p>Followed by this, an interesting phenomenon started to happen, people started giving me suggestions to improve my project. It was so refreshing and humbling to see really cool people giving me some really cool feedback!</p>
+<p>What that means is that I will get to learn rust a little bit more in-depth, and of course, improve my project in the process. The first obvious feedback I'm going to work on is to make my project cross-platform compatible, and will soon be dropping a blog on that later.</p>
+<p>Also since you have read this much, do check out my <a href="https://gokuls.in/blog/">blog</a>!</p>
+
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

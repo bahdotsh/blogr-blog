@@ -6,7 +6,7 @@
     <atom:link href="https://bahdotsh.github.io/blogr-blog/rss.xml" rel="self" type="application/rss+xml" />
     <description><![CDATA[A blog by bahdotsh]]></description>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Sep 2025 15:47:58 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Sep 2025 15:55:13 +0000</lastBuildDate>
     <generator>Blogr Static Site Generator</generator>
     <item>
       <title><![CDATA[Welcome to My Blog]]></title>
@@ -181,6 +181,671 @@ show_author = true
 <p><strong>Last updated:</strong> 2025-09-20</p>
 ]]></description>
       <pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[sudoku]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/sudoku.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/sudoku.html</guid>
+      <description><![CDATA[<h1>Sudoku</h1>
+<p>A modern, interactive Sudoku game built with React, featuring multiple difficulty levels, solving assistance, and a clean, responsive design.</p>
+<p>This app is deployed on <a href="https://sudoku.gokuls.in">https://sudoku.gokuls.in</a>!</p>
+<!-- more -->
+<h2>Features</h2>
+<ul>
+<li><strong>Multiple Difficulty Levels</strong>: Choose from Easy, Medium, Hard, and Expert puzzles</li>
+<li><strong>Intelligent Puzzle Generation</strong>: Create random, solvable Sudoku puzzles</li>
+<li><strong>Solving Assistance</strong>:
+<ul>
+<li>Check your progress at any time</li>
+<li>Get hints when stuck</li>
+<li>Auto-solve the current puzzle</li>
+</ul>
+</li>
+<li><strong>Game Timer</strong>: Track your solving time</li>
+<li><strong>Error Highlighting</strong>: Visual feedback for incorrect entries</li>
+<li><strong>Mobile Friendly</strong>: Responsive design with virtual keyboard for touch devices</li>
+<li><strong>Clean UI</strong>: Modern, intuitive interface</li>
+</ul>
+<h2>Installation</h2>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre class="highlight"><code class="language-bash">git clone https://github.com/bahdotsh/sudoku.git
+cd sudoku
+</code></pre></li>
+<li>
+<p>Install dependencies:</p>
+<pre class="highlight"><code class="language-bash">npm install
+</code></pre></li>
+<li>
+<p>Start the development server:</p>
+<pre class="highlight"><code class="language-bash">npm start
+</code></pre></li>
+<li>
+<p>Open your browser and navigate to <code>http://localhost:3000</code></p>
+</li>
+</ol>
+<h2>How to Play</h2>
+<ol>
+<li>Select a difficulty level from the dropdown menu</li>
+<li>Click &quot;Generate New Puzzle&quot; to start a new game</li>
+<li>Click on a cell to select it</li>
+<li>Enter a number (1-9) in the selected cell
+<ul>
+<li>On desktop: Use your keyboard</li>
+<li>On mobile: Use the virtual keyboard</li>
+</ul>
+</li>
+<li>Use the control buttons to:
+<ul>
+<li>Check your solution</li>
+<li>Get a hint</li>
+<li>Solve the puzzle automatically</li>
+<li>Reset the puzzle</li>
+<li>Clear the board</li>
+</ul>
+</li>
+</ol>
+<h2>Project Structure</h2>
+<pre class="highlight"><code class="language-">sudoku/src/
+├── App.js                  # Main application component
+├── App.css                 # Application styles
+├── components/             # UI components
+│   ├── Cell.js             # Individual sudoku cell
+│   ├── Controls.js         # Game control buttons
+│   ├── SudokuBoard.js      # The sudoku grid
+│   └── VirtualKeyboard.js  # Mobile number input
+└── utils/
+    └── sudokuUtils.js      # Puzzle generation and solving algorithms
+</code></pre>
+<h2>Technology Stack</h2>
+<ul>
+<li>React</li>
+<li>JavaScript (ES6+)</li>
+<li>CSS3</li>
+</ul>
+<h2>Algorithm Highlights</h2>
+<ul>
+<li><strong>Puzzle Generation</strong>: Creates valid, unique Sudoku puzzles with varying difficulty</li>
+<li><strong>Backtracking Solver</strong>: Efficiently solves Sudoku puzzles using a recursive backtracking algorithm</li>
+<li><strong>Solution Validation</strong>: Checks if the current board state is valid according to Sudoku rules</li>
+</ul>
+<h2>Future Enhancements</h2>
+<ul>
+<li>Save game progress in local storage</li>
+<li>User accounts and leaderboards</li>
+<li>Additional puzzle types (Killer Sudoku, etc.)</li>
+<li>Dark mode theme</li>
+<li>Sound effects and animations</li>
+</ul>
+<h2>Contributing</h2>
+<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create your feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'Add some amazing feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/amazing-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+]]></description>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[giff]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/giff.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/giff.html</guid>
+      <description><![CDATA[<h1>giff</h1>
+<p><a href="https://github.com/bahdotsh/giff">giff</a> visualizes the differences between the current <code>HEAD</code> and a specified branch in a git repository using a formatted</p>
+<!-- more -->
+<p>table output in your terminal. The differences are displayed with color-coded additions and deletions for better readability.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Branch Comparison</strong>: Compare changes between the current HEAD and a specified branch.</li>
+<li><strong>Color-coded Output</strong>: Additions are displayed in green and deletions in red.</li>
+<li><strong>Table Formatting</strong>: Uses <code>comfy_table</code> to format the output.</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Rust (latest stable version)</li>
+<li>Git</li>
+<li>A terminal supporting ANSI escape codes for color output</li>
+</ul>
+<h2>Dependencies</h2>
+<p>This project uses the following Rust crates:</p>
+<ul>
+<li><code>clap</code>: For command-line argument parsing.</li>
+<li><code>comfy_table</code>: For creating and formatting tables.</li>
+<li><code>crossterm</code>: For terminal manipulation.</li>
+<li><code>regex</code>: For parsing git diff output.</li>
+</ul>
+<h2>Installation</h2>
+<pre class="highlight"><code class="language-">cargo install giff
+</code></pre>
+<h2>From source</h2>
+<pre class="highlight"><code class="language-">git clone https://github.com/bahdotsh/giff.git
+cd giff
+cargo install --path .
+</code></pre>
+<h2>Usage</h2>
+<pre class="highlight"><code class="language-">giff -b branch //by default, the branch will be main
+</code></pre>]]></description>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Termgpt]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/termgpt.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/termgpt.html</guid>
+      <description><![CDATA[<!-- more -->
+<h2>Install</h2>
+<h3>Cargo</h3>
+<pre class="highlight"><code class="language-bash">cargo install termgpt
+termgpt --help
+</code></pre>
+<h3>From source</h3>
+<pre class="highlight"><code class="language-bash">git clone git@github.com:bahdotsh/termgpt.git
+cd termgpt
+cargo install --path .
+</code></pre>
+<h2>Usage</h2>
+<p>For the first time you have to to enter your <a href="https://platform.openai.com/account/api-keys">OpenAI API key</a>.</p>
+<pre class="highlight"><code class="language-">termgpt --api &lt;your api-key&gt;
+</code></pre>
+<p>This key will then be saved to:</p>
+<pre class="highlight"><code class="language-">// Linux:   /home/alice/.config/termgpt
+// Windows: C:\Users\Alice\AppData\Roaming\Foo Corp\termgpt
+// macOS:   /Users/Alice/Library/Application Support/termgpt
+</code></pre>
+<p>To be reused later</p>
+<h3>Questions</h3>
+<p>For now you can ask ChatGPT anything related to managing your operating system or writing code. Eventually you'll be able to ask any question to ChatGPT (couple more prompts to go) with termgpt (P.S try to avoid using '?' at the end of your questions for now).</p>
+<pre class="highlight"><code class="language-bash">termgpt &lt;any question&gt;
+</code></pre>
+<h3>Executing commands</h3>
+<p>You can ask to execute the generated command using <code>--exec</code> argument.</p>
+<pre class="highlight"><code class="language-bash">termgpt --exec list all the files in this folder
+</code></pre>
+<h3>Help message</h3>
+<pre class="highlight"><code class="language-bash">termgpt --help
+
+
+A cli tool to interact with ChatGPT
+
+Usage: termgpt [OPTIONS] [CHAT]...
+
+Arguments:
+  [CHAT]...
+
+Options:
+      --api &lt;API&gt;  Your API key for OpenAPI
+  -e, --exec       Execute the commands generated
+  -h, --help       Print help
+  -V, --version    Print version
+</code></pre>
+<h2>Example questions</h2>
+<pre class="highlight"><code class="language-">termgpt How do I list all files in the current directory
+termgpt How can I find the number of lines in a file
+termgpt How do I create a new directory
+termgpt How can I check the available disk space
+termgpt How do I delete a file
+termgpt How can I search for a specific string in a file
+termgpt How do I copy a file to a different location
+termgpt How can I see the contents of a file
+termgpt How do I move a file to a different location
+termgpt How can I change the permissions of a file or directory
+</code></pre>
+<h2>Inspirations</h2>
+<ul>
+<li><a href="https://github.com/TheR1D/shell_gpt">shell-gpt</a></li>
+<li><a href="https://github.com/rigwild/shell-gpt-rs">shell-gpt-rs</a></li>
+</ul>
+]]></description>
+      <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Why I built zp!]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/why-i-built-zp.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/why-i-built-zp.html</guid>
+      <description><![CDATA[<p>For those of you who don't know, (which is going to be most of you), I recently published my very first crate; <a href="https://github.com/bahdotsh/zp">zp</a>. <code>zp</code> is just a simple tool to copy contents from a file. I built zp so that I can learn rust properly. And by properly, I mean learning something and understanding it in a way I can use it to build cool/useful things in the future.</p>
+<!-- more -->
+<p>The process was relatively simple than I expected and as everyone says, the toughest thing was deciding what to build. Thankfully, I didn't overthink it this time and decided to build something not complex at all. My problem statement was simple, &quot;I need a tool to copy things from inside a file to the clipboard from my terminal&quot;. Since the problem statement was so clear, I was able to break it down into smaller parts and publish it in a day!</p>
+<p>I was really excited when the development reached the final stages as it was working exactly how I wanted it to work. I don't know if you know, but the following are the steps to publish your crate to <a href="https://crates.io/">crates.io</a> :</p>
+<ul>
+<li>Add a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">license</a> to your project.</li>
+<li>Put up a proper <code>README.md</code> file.</li>
+<li>Set your package information like version, description, license, etc. in the <code>Cargo.toml</code> file.</li>
+<li>Build your project, <code>cargo build --release</code></li>
+<li>And finally, publish your project with <code>cargo publish</code> (you need to first create an account in crates.io and generate an API key to log in to your account from the terminal).</li>
+</ul>
+<p>Yup, that's it! You have now published your crate. And what that means is that people will see your project and may even use it! That reality hit me a little late. I was really proud of my accomplishment and posted it everywhere I could think of.</p>
+<p>This is when the reality of other people using my project hit kind of hard. A couple of developers used it and as it turns out, my project doesn't work at all in Linux and Windows! I should've checked it, but I didn't. My embarrassment has never reached highs like this before and was kind of hard to deal with.</p>
+<p>Followed by this, an interesting phenomenon started to happen, people started giving me suggestions to improve my project. It was so refreshing and humbling to see really cool people giving me some really cool feedback!</p>
+<p>What that means is that I will get to learn rust a little bit more in-depth, and of course, improve my project in the process. The first obvious feedback I'm going to work on is to make my project cross-platform compatible, and will soon be dropping a blog on that later.</p>
+<p>Also since you have read this much, do check out my <a href="https://gokuls.in/blog/">blog</a>!</p>
+]]></description>
+      <pubDate>Wed, 12 Apr 2023 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Zp]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/zp.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/zp.html</guid>
+      <description><![CDATA[<h1>zp</h1>
+<p><a href="https://github.com/bahdotsh/zp">zp</a> is a cli command to copy the contents of the source file or of the std output buffer to the clipboard. To use the <code>zp</code>,</p>
+<!-- more -->
+<p>simply open your terminal or command prompt (well install it first) and type <code>zp</code> followed by the name of the source file. For example:</p>
+<pre class="highlight"><code class="language-">zp my_file.txt
+</code></pre>
+<p>To get the first <code>n</code> words of the  file :</p>
+<pre class="highlight"><code class="language-">zp -s n my_file.txt
+</code></pre>
+<p>To get the lines between a range, i.e., to get lines from <code>n</code> till <code>m</code> of the file:</p>
+<pre class="highlight"><code class="language-">zp -s n -e m my_file.txt
+</code></pre>
+<p>Also you can use zp to copy from the std output buffer :</p>
+<pre class="highlight"><code class="language-">cat sample_file.txt | zp
+</code></pre>
+<p>This copies the entire output of the file.</p>
+<p>You can use get a range of lines and the first n words also from the std output buffer :</p>
+<pre class="highlight"><code class="language-">cat sample_file.txt | zp -s 2
+
+cat sample_file.txt | zp -s 2 -e 5
+</code></pre>
+<p>This gets the first 2 words and lines from 2 to 5 of the sample_file.txt respectively</p>
+<p>This will copy the contents of &quot;myFile.txt&quot; to the clipboard.</p>
+<h3>Logs and History</h3>
+<p>Every copied content is saved to a history file, allowing you to revisit previously copied entries. To view the copy history, use:</p>
+<pre class="highlight"><code class="language-">zp --logs
+</code></pre>
+<p>The &quot;zp&quot; command is particularly useful for quickly copying text or data from one file to another without having to manually select and copy the text. This can save time and effort, especially when working with large or complex files.</p>
+<h2>Install</h2>
+<p>It's best to use rustup to get setup with a Rust toolchain, then you can run:</p>
+<p><code>cargo install zp</code></p>
+<h3>From source</h3>
+<pre class="highlight"><code class="language-">git clone https://github.com/bahdotsh/zp.git
+cd zp
+cargo install --path .
+</code></pre>]]></description>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Art, Time and Life]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/art-time-life.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/art-time-life.html</guid>
+      <description><![CDATA[<p>He drew in haste. He had deadlines to meet. It was ridiculous. This is not how it was supposed to be. You can never rush art. But he had to. He was bringing art to the realm of time. And he knew that it would bounce. He had no choice. The world is moving fast and he had to keep up with it.</p>
+<!-- more -->
+<p>You can never complete a work of art on time. Art never belonged to that dimension. The concept of time is foreign to Art. And in a way, it’s the gateway out of it. You can submerge yourself in art and let time fly by. And since art doesn’t belong to the dimension of time, you can never define art with time. The equations would seem completely ridiculous. Art is concentrated patience. It demands patience, to create, and to enjoy.</p>
+<p>The moment you realize that patience creates art, why not make your life an art? Be patient and be prepared. Remember, art is really powerful, as it can change not only you but also the people around you. Immerse yourself in your art, whatever it is, and witness the magic that would unfold. And if you’re waiting till you find something that you’re good at, don’t forget that the one thing you can be good at is living your life and that one thing is all that matters.</p>
+]]></description>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Are your thoughts really yours?]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/thoughts.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/thoughts.html</guid>
+      <description><![CDATA[<p>Are your thoughts really yours? You may be wondering why I’m asking such a bizarre question again and again. Of course, my thoughts are mine, you may say. But, are they? That may take some time. So, let’s just focus on “the how” part for now. How do you think? Well, all of us think in some kind of a language. Most probably our mother tongue. If you are someone whose mother tongue is English, then most probably you would be thinking in English, you just have 26 letters to form the words for your thoughts.</p>
+<!-- more -->
+<p>Why are there only 26 letters in the English alphabet? In my mother tongue, which is Malayalam, I have 52 letters to form the words for my thoughts. Does that mean I have the potential to think more(double) than what an English speaking folk can?</p>
+<p>Now as we have messed up the ‘how’ part let’s move back to the ‘what’ part. Whatever your mother tongue is, it was taught to you by the people around you. Not only your mother tongue, whatever language you learn, somebody taught it to you. They taught you that language not to make you a poet or a writer, but to exchange their opinions and believes onto you.</p>
+<p>What does this mean? Your thoughts are not yours. Your thoughts are the byproduct of your interactions with an “educated” environment. You are getting influenced everyday. You are totally blind to what you are learning. You are only thinking what you are supposed to think. The reason you can’t think beyond the 26 letters of the English alphabets is only because you don’t have to. Everybody around you thinks with those 26 letters. You’re just thinking whatever you’re thinking only because you want to co-exist with the people around you.</p>
+<p>If our thoughts are not really ours, then what do we have?</p>
+<p>Let me end with something one of my professors said</p>
+<blockquote>
+<p>“Whatever you have learnt was taught to you. And whatever taught to you were somebody else’s opinions”</p>
+</blockquote>
+<p>I don’t think this thought is mine. And I can’t be right, can I?</p>
+]]></description>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[How does the blockchain work? Part 2]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-2.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-2.html</guid>
+      <description><![CDATA[<p>Before looking at Merkle trees, let’s see what a tree actually is when it comes to programming. In simple terms, trees are nothing but representations of how data is stored in the memory.</p>
+<!-- more -->
+<h3>Trees</h3>
+<pre class="highlight"><code class="language-">               P (Root)
+              /      \
+            Q          R
+           / \        /  \
+         A   B      C    D
+                    |
+                    M
+                   / \
+                  H   I (Leaf nodes)
+                 (Leaf nodes)
+</code></pre><pre class="highlight"><code class="language-">           L (Parent)
+         /  |  \
+        E   F   G (Children)
+</code></pre>
+<hr />
+<p>When you look at the above picture you’ll see some of the terms we use while defining trees. P is the <em><strong>root node</strong></em>. Root node is the node which is present at the topmost part of the tree. <em><strong>Keys</strong></em> are the values stored inside each of the nodes. <em><strong>Edges</strong></em> are the connection between one node and the other. <em><strong>Parent nodes</strong></em>(R is the parent of C and D)are nodes which have a branch from one node to the another and the <em><strong>child nodes</strong></em>(A and B are the child nodes of Q) are the nodes connected to the parent nodes. The children of the same parent node are called <em><strong>sibling nodes</strong></em>(E, F, G and A, B and C, D and H, I and Q, R are all siblings respectively). And the nodes with no children are called <em><strong>leaf nodes</strong></em>(H, I, D, and B are all leaf nodes). Now the number of edges between a node and the root node is called the depth of the node. For example, let’s take the node ‘A’. A is connected to Q and Q is connected to P(root node). There are two edges between A and P. Therefore the depth of A is 2. Note that the depth of the root node is 0. Level of a node is nothing but depth of the node + 1. Which means the level of A is 3.</p>
+<p>Whew, that was a lot of definitions. The good news is you don’t have to try hard and remember any of those. Once you have compared the definitions to the picture of the tree above, you can easily understand what they mean. And then the next time you see a tree, you can easily understand them in a glance.</p>
+<p>So after knowing the terms used in building trees, we can say that a tree is nothing but a collection of nodes.</p>
+<h3>Merkle Trees</h3>
+<p>Ok, as you are now familiar with trees let’s get to business. What are these Merkle trees? Merkle trees are a fundamental part of blockchain technology. One of the main reasons why blockchain is super famous is because of the security and efficient storage of data. Merkle trees are used to achieve this. It helps in efficient and secure verification of content in a large body of data.</p>
+<p>If you forgot what hashing means, quickly go to my previous <a href="https://blog.gokuls.in/how-does-blockchain-work-1/">previous</a> article and read up on it and come back. It’ll only take you a few minutes and will help you understand what I’m going to tell you next better.</p>
+<p>In a Merkle tree, each leaf node is a hash of a block of data, and each parent node is a hash of its children. Yeah, that’s it. It’s that simple. Also to make things more simpler, Merkle trees usually have a branching factor of 2. Don’t frown, my friend, it just means that each node has children. Merkle trees are created by repeatedly hashing pairs of nodes until there is only one hash left (this hash is called the <em><strong>Root Hash</strong></em>, or the <em><strong>Merkle Root</strong></em>). They are constructed from the bottom up, from hashes of individual transactions. The Merkle Root summarizes all of the data in the related transactions and is stored in the block header (a block header is the unique identity of a particular block on a blockchain and is hashed by miners for rewards). It maintains the integrity of the data. If a single detail in any of the transactions or the order of the transactions changes, so does the Merkle Root. Using a Merkle tree allows for a quick and simple test of whether a specific transaction is included in the set or not.</p>
+<p>Merkle trees are powerful and indispensable tools for miners and users on the blockchain. They are extremely robust and are at the heart of several peer-to-peer networks such as BitTorrent, Git, Bitcoin, and Ethereum.</p>
+]]></description>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[How does the blockchain work? Part 1]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-1.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-1.html</guid>
+      <description><![CDATA[<p>Blockchain is a combination of several different technologies. For making it easier for you, I have broken it down into simpler parts. This is the first part of this series and it’s all about one of the most important technologies used in blockchain; <em><strong>cryptography</strong></em></p>
+<!-- more -->
+<p>What is cryptography?
+The prefix “crypt” means “hidden” and the suffix “graphy” means “writing.” Since that is out of the way, let’s see what it is. But before that let’s do something fun. Let’s create a secret code. Exciting, isn’t it? Let’s say that we have to subtract ‘1’ from each of the letters in our code to find the original letter. Cool. Since we have created a code and both of us know how to read it, if I write “BQQMF” both of us can easily understand what that means. But if you show it to your friend who has no clue about our secret code, it’d just be a senseless word for him.</p>
+<p>This is what cryptography is. It’s a technique to secure information and communications through codes which only the sender and receiver can understand. When I changed “APPLE” to “BQQMF” what I did was encryption. And when you cracked the code, what you did is called decryption</p>
+<p>When you learn about a particular technique you’ll have to remember some terms associated with it. Like encryption and decryption, there are a bunch of other simple words associated with cryptography. Let’s see what they mean.</p>
+<p>Let’s take our example. In the world of cryptography, the word APPLE which we encrypted is called plain text, and the code BQQMF is called ciphertext. You won’t be able to read BQQMF as APPLE if I didn’t tell you how to read it, that is, to subtract 1 from each letter. So ‘-1’ is what we call the key of our cryptographic algorithm. Without which we won’t be able to understand what each of us is saying.</p>
+<p>Now let’s see some of the types of cryptography.</p>
+<h3>Symmetric Key Cryptography</h3>
+<p>In this system both the sender and receiver use a single key for encryption and decryption. Our cryptographic algorithm is an example of Symmetric key cryptography.</p>
+<h3>Asymmetric Key Cryptography</h3>
+<p>You can easily guess what this would mean from the previous definitions. Yes, you’re correct, in this cryptographic system, there are two types of keys, a <em><strong>public key</strong></em> and a <em><strong>private key</strong></em>. The public key is used for encryption and the private key is used for decryption. Both the keys would be different. Even if the public key is known to everyone, only the intended receiver can decode it because he alone knows the private key.</p>
+<p>Asymmetric encryption can be likened to a mailbox on the street. The mailbox is completely public — anyone who knows its location could go to it and drop in a letter. However, only the owner of the mailbox has a key which allows him to access it and read the letters. The location of the mailbox is the public key, something that is known to the public. The private key is with the owner of the mailbox, which is used to access the mailbox.</p>
+<h3>Hash Functions</h3>
+<p>In this algorithm, there is no key. These functions change the entire plain text to a new encrypted form, called the hash value. The hash value will be of the same length for whatever plain text fed into it. Since there is no key it is nearly impossible for the contents of the plain text to be recovered.</p>
+<p>Public key cryptography and hash functions are used throughout blockchain. There is also another interesting cryptographic technique used inside blockchain called <em><strong>Merkle Trees</strong></em>. A Merkle tree (or hash tree) is a tree that utilizes cryptographic hash functions to store hash outputs instead of raw data in each node. We’ll see what they mean in-depth in the coming articles.</p>
+]]></description>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[The Blockchain Dictionary]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/blockchain-dictionary.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/blockchain-dictionary.html</guid>
+      <description><![CDATA[<p>Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our <a href="https://gokuls.in/blog/blockchain/">previous</a>  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.</p>
+<!-- more -->
+<h3>Cryptocoin or cryptocurrency</h3>
+<p>Cryptocurrency is a fancy word. But its meaning is boringly simple. It’s just money. The only difference is that this money is completely digital. Which means, it doesn’t exist out of your computer. And you can use it just as how you’d use the conventional money; to buy things.</p>
+<h3>Bitcoin</h3>
+<p>Bitcoin is one of the reasons why blockchain became a common term. Bitcoin is a cryptocurrency implemented using blockchain technology. It is the world’s first decentralized cryptocurrency. It was invented in 2008 by an unknown person or a group of people using the name Satoshi Nakamoto. There’s no central bank or any single intermediary administrator to control the issue and supply of bitcoins. This is one of the reasons why bitcoin became very famous.</p>
+<h3>Mining and Miners</h3>
+<p>For a transaction to occur inside the blockchain network it should be validated by a group of members inside the network. This group of people who validate each transactions are called Miners. And this process of validation is called Mining.</p>
+<h3>Smart Contract</h3>
+<p>A contract is an agreement between two or more parties to do something. A smart contract is the digital version of this contract. Smart contracts help you to exchange anything of value in a transparent, conflict-free way while avoiding the services of a middleman. It is a self-executing or self-enforcing agreement. Which means that, if the rules of the agreement are met, the agreement is automatically enforced.</p>
+<h3>Ethereum</h3>
+<p>Launched in 2015, Ethereum is an open-source, blockchain-based, decentralized software platform used for its own cryptocurrency, ether. It enables Smart Contracts and Distributed Applications (DApps) to be built and run without any downtime, fraud, control, or interference from a third party.</p>
+<p>Hyperledger
+Hyperledger is a blockchain framework to develop blockchain-based applications, mainly for enterprises.</p>
+<h3>Tokens</h3>
+<p>Tokens are digital assets in a blockchain network. Ok, don’t scratch your head. You have been to a gaming arcade, right? So what did you do there? You gave some money in the counter and got a card in which you can swipe on the gaming consoles of the games you wanted to play. That card acts like money in that particular arcade and you got to enjoy the games without any hassle and worry of payment. But if you take that card to Starbucks and demanded a caramel frappuccino the only thing you’d get would be a disappointment. This is exactly how a token works. They can act as a stand-in for money in a particular blockchain network. And outside that network, the tokens are basically worthless.</p>
+]]></description>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Blockchain: A short sneak peek]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/blockchain.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/blockchain.html</guid>
+      <description><![CDATA[<p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?</p>
+<!-- more -->
+<p>To get an idea about all this first let’s understand how the “current Internet” shares information. We know that ,“<strong>the internet is a collection of computers that share information</strong>”. All the data shared in this network is centralized. This means that if we take an instance of data sharing inside this network, there will be only two participants. No computer acts as an observer or as a validator when two other computers are sharing data.</p>
+<p>Blockchain on the other hand is de-centralized. Which means that the exchange of information must be observed and validated (approved) by everyone on the network. If the validation doesn’t happen, then, the transactions(exchange of information) will be invalid.</p>
+<p><strong>This change is the revolution</strong>. This brings transparency, authenticity and immutability to the network ; everything which was missing from “the internet”.</p>
+<p>Now let’s see what a blockchain is. “Blockchain is a distributed, de-centralized, public ledger”. Nope, it’s not that difficult as this definition. Blockchain is literally just a chain of blocks. The blocks contains information about the various data transactions in the network and they are connected with each other through cryptographic chains.</p>
+<p>That was easier to understand, right? But then what kind of information does the block hold? We know that blockchain is all about transactions and the blocks are a way to register these transactions. Suppose both of us are inside a blockchain network and we engage in a transaction. The block that records our transaction will have the date and time of the transaction, both our names (our names recorded in the block won’t be our actual names but would be our corresponding “digital singnatures”). It will also have information about what the transaction was all about. This block will be validated by other members present in the network and if they approve, it will be added to the rest of the blocks already inside the network. So in simple terms a block is an instance of a transaction.</p>
+<p>As you can visualize the block now, imagine hashing the contents of the block using a hashing algorithm (SHA-256). But what the hell is this hashing? Don’t sweat your brows, hashing simply means that we are taking an input string of any length and giving out an output of a fixed length. The SHA-256 is an algorithm to achieve this. This is how the block exists in the network.</p>
+<p>We have just discussed about a single transaction. But in reality a block can hold upto 1 MB of data. This means that a single block can house a few thousand transactions(depending on the size of each transactions).</p>
+<p>This is just a basic introduction about blockchain. Let’s look into the working of blockchain and all it’s intricasies in the coming articles.</p>
+<p>While reading about this revolution you may come face to face with some interesting words. Bitcoin, Ethereum, Hyperledger, smart contracts etc. I will explain what some of these means in the articles which will drop soon.</p>
+]]></description>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Random rant about silence]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/silence.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/silence.html</guid>
+      <description><![CDATA[<p>Can you hear it, the sound the sunlight make when it first hits the ground?</p>
+<!-- more -->
+<p>Or the sound the raindrops make, when they gently kiss your forehead? Can’t you hear it, the sound darkness make, as it gently floods the dusk? Yes, you can! All you have to do is listen. Close your eyes and listen. And as you listen, notice that your heart is surprisingly in rhythm with this beautiful music of silence. Intoxicating, isn’t? Now go ahead and set the tempo. Dance around and smile. Don’t be afraid, of falling out of rhythm, because you are the one who sets it.</p>
+]]></description>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[The Jump]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/thejump.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/thejump.html</guid>
+      <description><![CDATA[<p>His heart started beating faster as he climbed.</p>
+<p>Every new step pumped an ounce more adrenaline to his veins.</p>
+<p>He was breathing faster.</p>
+<p>The wind soothed him.</p>
+<p>But at this moment peace terrorised him.</p>
+<!-- more -->
+<p>The walk to the edge was the toughest.</p>
+<p>It was as if he forgot how to walk.</p>
+<p>Trembling on every step, he reached the edge.</p>
+<p>He knew he wasn’t brave enough to be there.</p>
+<p>Yet there he was.</p>
+<p>He didn’t have the courage to look down.</p>
+<p>The wind rustled beneath his feet and played with his hair.</p>
+<p>The silence and calmness up there contrasted with the busy street below.</p>
+<p>Far below.</p>
+<p>The sky seemed conquerable from here.</p>
+<p>He would soon do that anyway.</p>
+<p>He loved the view.</p>
+<p>He felt like God.</p>
+<p>The wind beckoned him.</p>
+<p>He looked up to the sky,</p>
+<p>It looked like an ocean beside a desert.</p>
+<p>Soon he would be swimming in that ocean.</p>
+<p>He just had to let go of his fears.</p>
+<p>He took two more steps.</p>
+<p>Now, there’s nothing in-front of him.</p>
+<p>Nothing solid.</p>
+<p>He had to arch a bit backwards so as to counter the pull of the wind.</p>
+<p>Gravity seemed to get stronger with every second.</p>
+<p>Gravity was the one thing that he longed to defeat, his greatest enemy.</p>
+<p>He was sure though, that he would be the one who wins tonight,</p>
+<p>Not gravity.</p>
+<p>He took a deep breath and then held it.</p>
+<p>His heartbeat made him deaf.</p>
+<p>He raised both his hands to his shoulders.</p>
+<p>Straightened up.</p>
+<p>And dove.</p>
+<p>Weightless.</p>
+<p>He was flying.</p>
+<p>His heart was beating so fast, he couldn’t hear it anymore.</p>
+<p>Adrenaline replaced blood.</p>
+<p>He won!</p>
+<p>The world was getting closer.</p>
+<p>He was laughing.</p>
+<p>He closed his eyes.</p>
+<p>He loved it.</p>
+<p>Everything stopped.</p>
+<p>He was numb.</p>
+<p>The sky seemed so far right now.</p>
+<p>He was suddenly so sleepy.</p>
+<p>He fought to keep his eyes open.</p>
+<p>He tried to raise his hand.</p>
+<p>Nope. He was so tired.</p>
+<p>He was afraid that he won’t be able to open his eyes if he closed them.</p>
+<p>He had to.</p>
+<p>He did.</p>
+]]></description>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Life]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/life.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/life.html</guid>
+      <description><![CDATA[<p>Smoke, Heavy head, Lights.</p>
+<p>Cough, breathe, repeat!</p>
+<p>Blurry vision and weightless body.</p>
+<p>Seeing life as if in a Cinema.</p>
+<p>Echoing sounds and blurry vision.</p>
+<!-- more -->
+<p>Focused and unfocused at the same time,</p>
+<p>He ran, not really. But he did anyway.</p>
+<p>Where to? He didn’t knew.</p>
+<p>Why? Because he could.</p>
+<p>Mind couldn’t catch up with his thoughts.</p>
+<p>Cough,breathe, repeat!</p>
+<p>Animated life.</p>
+<p>Life!</p>
+<p>“What does it mean?” He asked.</p>
+<p>“Does it matter?”</p>
+<p>Nope, it doesn’t!</p>
+<p>Run, fly, walk, breathe!</p>
+<p>Forget about life and focus on living.</p>
+]]></description>
+      <pubDate>Mon, 15 Oct 2018 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[The answer]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/theanswer.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/theanswer.html</guid>
+      <description><![CDATA[<p>“And they lived happily ever after”</p>
+<p>The story ended.</p>
+<p>The thought didn’t.</p>
+<p>“Happily ever after”!</p>
+<!-- more -->
+<p>The thought echoed.</p>
+<p>Did the author had a typo?</p>
+<p>Did he forget to put a question mark at the end?</p>
+<p>Does happiness last for ever?</p>
+<p>Maybe happiness is for royalty.</p>
+<p>How can a hungry stomach be happy?</p>
+<p>How can a thirsty mouth smile?</p>
+<p>Hunger made him hate food and</p>
+<p>Thirst made him hate water.</p>
+<p>There was no happiness in his world.</p>
+<p>Hate defined his life.</p>
+<p>His wandering mind was suddenly at peace</p>
+<p>his hungry stomached stopped growling at him,</p>
+<p>his thirsty mouth sealed shut,</p>
+<p>his tired eyes stopped blinking.</p>
+<p>And as he saw her smile</p>
+<p>He knew</p>
+<p>Love was the answer.</p>
+]]></description>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Beyond actual hues]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/bah.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/bah.html</guid>
+      <description><![CDATA[<p>green? red? yellow?</p>
+<p>no! no!</p>
+<p>yellow? orange? white</p>
+<p>no! no!</p>
+<p>black. pitch black!</p>
+<p>what was it?</p>
+<!-- more -->
+<p>a dream!?</p>
+<p>a story!?</p>
+<p>a poem!?</p>
+<p>no! no!</p>
+<p>it was life!</p>
+<p>was it colorful?</p>
+<p>yeah it was. i saw all the colors. you did too!</p>
+<p>it was beautiful,wasn’t it?!</p>
+<p>as beautiful as the colorful dark sky without the moon in the darkest night.</p>
+<p>well of course,</p>
+<p>black is the most colorful color.</p>
+<p>when you go beyond all the actual hues.</p>
+]]></description>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[The night]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/night.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/night.html</guid>
+      <description><![CDATA[<p>Night.</p>
+<p>The moon, the stars.</p>
+<p>The wind kissed the trees.</p>
+<p>Owls shrieked.</p>
+<p>Wolves howled.</p>
+<!-- more -->
+<p>A lively night.</p>
+<p>A beautiful night.</p>
+<p>A scream.</p>
+<p>A girl.</p>
+<p>Two men.</p>
+<p>No! no! Two animals.</p>
+<p>Blood.</p>
+<p>Night.</p>
+<p>The moon, the stars.</p>
+<p>The wind kissed the trees.</p>
+<p>Owls shrieked.</p>
+<p>Wolves howled.</p>
+<p>A lively night.</p>
+<p>A beautiful night?</p>
+]]></description>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      <author>bahdotsh</author>
+    </item>
+    <item>
+      <title><![CDATA[Death]]></title>
+      <link>https://bahdotsh.github.io/blogr-blog/posts/death.html</link>
+      <guid>https://bahdotsh.github.io/blogr-blog/posts/death.html</guid>
+      <description><![CDATA[<p>“Breathe! Breathe!”</p>
+<p>she couldn’t</p>
+<p>she forgot</p>
+<p>“Come on beth, open your eyes!”</p>
+<p>she couldn’t</p>
+<p>she forgot</p>
+<!-- more -->
+<p>“Say something!”</p>
+<p>she couldn’t</p>
+<p>she forgot</p>
+<p>“Where am I?”</p>
+<p>she doesn’t know</p>
+<p>her eyes won’t open</p>
+<p>or was it really dark?</p>
+<p>she couldn’t tell</p>
+<p>“Just breathe”</p>
+<p>she couldn’t</p>
+<p>it was easy</p>
+<p>she knew</p>
+<p>but couldn’t</p>
+<p>“Help me!”</p>
+<p>she screamed</p>
+<p>she couldn’t hear herself</p>
+<p>“Is this a dream!?”</p>
+<p>she never knew</p>
+<p>“You’re dying!”</p>
+<p>“No,I’m not!”</p>
+<p>Wait who was that?</p>
+<p>Who said that?</p>
+<p>Is somebody there with her</p>
+<p>“Who is this?”</p>
+<p>No answer</p>
+<p>“You’re going to die”</p>
+<p>The voice came again</p>
+<p>“Who’s this? Answer me!”</p>
+<p>No reply</p>
+<p>She was angry</p>
+<p>She started smiling</p>
+<p>Suddenly she cried</p>
+<p>She laughed</p>
+<p>She screamed</p>
+<p>She saw darkness</p>
+<p>She felt at ease</p>
+<p>“No, no I can’t give in”</p>
+<p>“I won’t die”</p>
+<p>“I simply won’t”</p>
+<p>Death smiled</p>
+<p>He never lose.</p>
+]]></description>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       <author>bahdotsh</author>
     </item>
   </channel>

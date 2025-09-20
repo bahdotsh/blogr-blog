@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zp - bah</title>
+
+    
+<meta name="description" content="A cli tool to copy things!">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">Zp</h1>
+            
+            
+            <div class="post-standalone-description">
+                A cli tool to copy things!
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">April 10, 2023</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">1 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <h1>zp</h1>
+<p><a href="https://github.com/bahdotsh/zp">zp</a> is a cli command to copy the contents of the source file or of the std output buffer to the clipboard. To use the <code>zp</code>,</p>
+<!-- more -->
+<p>simply open your terminal or command prompt (well install it first) and type <code>zp</code> followed by the name of the source file. For example:</p>
+<pre class="highlight"><code class="language-">zp my_file.txt
+</code></pre>
+<p>To get the first <code>n</code> words of the  file :</p>
+<pre class="highlight"><code class="language-">zp -s n my_file.txt
+</code></pre>
+<p>To get the lines between a range, i.e., to get lines from <code>n</code> till <code>m</code> of the file:</p>
+<pre class="highlight"><code class="language-">zp -s n -e m my_file.txt
+</code></pre>
+<p>Also you can use zp to copy from the std output buffer :</p>
+<pre class="highlight"><code class="language-">cat sample_file.txt | zp
+</code></pre>
+<p>This copies the entire output of the file.</p>
+<p>You can use get a range of lines and the first n words also from the std output buffer :</p>
+<pre class="highlight"><code class="language-">cat sample_file.txt | zp -s 2
+
+cat sample_file.txt | zp -s 2 -e 5
+</code></pre>
+<p>This gets the first 2 words and lines from 2 to 5 of the sample_file.txt respectively</p>
+<p>This will copy the contents of &quot;myFile.txt&quot; to the clipboard.</p>
+<h3>Logs and History</h3>
+<p>Every copied content is saved to a history file, allowing you to revisit previously copied entries. To view the copy history, use:</p>
+<pre class="highlight"><code class="language-">zp --logs
+</code></pre>
+<p>The &quot;zp&quot; command is particularly useful for quickly copying text or data from one file to another without having to manually select and copy the text. This can save time and effort, especially when working with large or complex files.</p>
+<h2>Install</h2>
+<p>It's best to use rustup to get setup with a Rust toolchain, then you can run:</p>
+<p><code>cargo install zp</code></p>
+<h3>From source</h3>
+<pre class="highlight"><code class="language-">git clone https://github.com/bahdotsh/zp.git
+cd zp
+cargo install --path .
+</code></pre>
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sudoku - bah</title>
+
+    
+<meta name="description" content="sudoku game">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">sudoku</h1>
+            
+            
+            <div class="post-standalone-description">
+                sudoku game
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">March 22, 2025</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">2 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <h1>Sudoku</h1>
+<p>A modern, interactive Sudoku game built with React, featuring multiple difficulty levels, solving assistance, and a clean, responsive design.</p>
+<p>This app is deployed on <a href="https://sudoku.gokuls.in">https://sudoku.gokuls.in</a>!</p>
+<!-- more -->
+<h2>Features</h2>
+<ul>
+<li><strong>Multiple Difficulty Levels</strong>: Choose from Easy, Medium, Hard, and Expert puzzles</li>
+<li><strong>Intelligent Puzzle Generation</strong>: Create random, solvable Sudoku puzzles</li>
+<li><strong>Solving Assistance</strong>:
+<ul>
+<li>Check your progress at any time</li>
+<li>Get hints when stuck</li>
+<li>Auto-solve the current puzzle</li>
+</ul>
+</li>
+<li><strong>Game Timer</strong>: Track your solving time</li>
+<li><strong>Error Highlighting</strong>: Visual feedback for incorrect entries</li>
+<li><strong>Mobile Friendly</strong>: Responsive design with virtual keyboard for touch devices</li>
+<li><strong>Clean UI</strong>: Modern, intuitive interface</li>
+</ul>
+<h2>Installation</h2>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre class="highlight"><code class="language-bash">git clone https://github.com/bahdotsh/sudoku.git
+cd sudoku
+</code></pre></li>
+<li>
+<p>Install dependencies:</p>
+<pre class="highlight"><code class="language-bash">npm install
+</code></pre></li>
+<li>
+<p>Start the development server:</p>
+<pre class="highlight"><code class="language-bash">npm start
+</code></pre></li>
+<li>
+<p>Open your browser and navigate to <code>http://localhost:3000</code></p>
+</li>
+</ol>
+<h2>How to Play</h2>
+<ol>
+<li>Select a difficulty level from the dropdown menu</li>
+<li>Click &quot;Generate New Puzzle&quot; to start a new game</li>
+<li>Click on a cell to select it</li>
+<li>Enter a number (1-9) in the selected cell
+<ul>
+<li>On desktop: Use your keyboard</li>
+<li>On mobile: Use the virtual keyboard</li>
+</ul>
+</li>
+<li>Use the control buttons to:
+<ul>
+<li>Check your solution</li>
+<li>Get a hint</li>
+<li>Solve the puzzle automatically</li>
+<li>Reset the puzzle</li>
+<li>Clear the board</li>
+</ul>
+</li>
+</ol>
+<h2>Project Structure</h2>
+<pre class="highlight"><code class="language-">sudoku/src/
+├── App.js                  # Main application component
+├── App.css                 # Application styles
+├── components/             # UI components
+│   ├── Cell.js             # Individual sudoku cell
+│   ├── Controls.js         # Game control buttons
+│   ├── SudokuBoard.js      # The sudoku grid
+│   └── VirtualKeyboard.js  # Mobile number input
+└── utils/
+    └── sudokuUtils.js      # Puzzle generation and solving algorithms
+</code></pre>
+<h2>Technology Stack</h2>
+<ul>
+<li>React</li>
+<li>JavaScript (ES6+)</li>
+<li>CSS3</li>
+</ul>
+<h2>Algorithm Highlights</h2>
+<ul>
+<li><strong>Puzzle Generation</strong>: Creates valid, unique Sudoku puzzles with varying difficulty</li>
+<li><strong>Backtracking Solver</strong>: Efficiently solves Sudoku puzzles using a recursive backtracking algorithm</li>
+<li><strong>Solution Validation</strong>: Checks if the current board state is valid according to Sudoku rules</li>
+</ul>
+<h2>Future Enhancements</h2>
+<ul>
+<li>Save game progress in local storage</li>
+<li>User accounts and leaderboards</li>
+<li>Additional puzzle types (Killer Sudoku, etc.)</li>
+<li>Dark mode theme</li>
+<li>Sound effects and animations</li>
+</ul>
+<h2>Contributing</h2>
+<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create your feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'Add some amazing feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/amazing-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

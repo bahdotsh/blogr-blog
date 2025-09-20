@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How does the blockchain work? Part 1 - bah</title>
+
+    
+<meta name="description" content="How does the blockchain work? Part 1">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">How does the blockchain work? Part 1</h1>
+            
+            
+            <div class="post-standalone-description">
+                How does the blockchain work? Part 1
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">July 31, 2020</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">3 minute read</span>
+                
+            </div>
+
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <p>Blockchain is a combination of several different technologies. For making it easier for you, I have broken it down into simpler parts. This is the first part of this series and it’s all about one of the most important technologies used in blockchain; <em><strong>cryptography</strong></em></p>
+<!-- more -->
+<p>What is cryptography?
+The prefix “crypt” means “hidden” and the suffix “graphy” means “writing.” Since that is out of the way, let’s see what it is. But before that let’s do something fun. Let’s create a secret code. Exciting, isn’t it? Let’s say that we have to subtract ‘1’ from each of the letters in our code to find the original letter. Cool. Since we have created a code and both of us know how to read it, if I write “BQQMF” both of us can easily understand what that means. But if you show it to your friend who has no clue about our secret code, it’d just be a senseless word for him.</p>
+<p>This is what cryptography is. It’s a technique to secure information and communications through codes which only the sender and receiver can understand. When I changed “APPLE” to “BQQMF” what I did was encryption. And when you cracked the code, what you did is called decryption</p>
+<p>When you learn about a particular technique you’ll have to remember some terms associated with it. Like encryption and decryption, there are a bunch of other simple words associated with cryptography. Let’s see what they mean.</p>
+<p>Let’s take our example. In the world of cryptography, the word APPLE which we encrypted is called plain text, and the code BQQMF is called ciphertext. You won’t be able to read BQQMF as APPLE if I didn’t tell you how to read it, that is, to subtract 1 from each letter. So ‘-1’ is what we call the key of our cryptographic algorithm. Without which we won’t be able to understand what each of us is saying.</p>
+<p>Now let’s see some of the types of cryptography.</p>
+<h3>Symmetric Key Cryptography</h3>
+<p>In this system both the sender and receiver use a single key for encryption and decryption. Our cryptographic algorithm is an example of Symmetric key cryptography.</p>
+<h3>Asymmetric Key Cryptography</h3>
+<p>You can easily guess what this would mean from the previous definitions. Yes, you’re correct, in this cryptographic system, there are two types of keys, a <em><strong>public key</strong></em> and a <em><strong>private key</strong></em>. The public key is used for encryption and the private key is used for decryption. Both the keys would be different. Even if the public key is known to everyone, only the intended receiver can decode it because he alone knows the private key.</p>
+<p>Asymmetric encryption can be likened to a mailbox on the street. The mailbox is completely public — anyone who knows its location could go to it and drop in a letter. However, only the owner of the mailbox has a key which allows him to access it and read the letters. The location of the mailbox is the public key, something that is known to the public. The private key is with the owner of the mailbox, which is used to access the mailbox.</p>
+<h3>Hash Functions</h3>
+<p>In this algorithm, there is no key. These functions change the entire plain text to a new encrypted form, called the hash value. The hash value will be of the same length for whatever plain text fed into it. Since there is no key it is nearly impossible for the contents of the plain text to be recovered.</p>
+<p>Public key cryptography and hash functions are used throughout blockchain. There is also another interesting cryptographic technique used inside blockchain called <em><strong>Merkle Trees</strong></em>. A Merkle tree (or hash tree) is a tree that utilizes cryptographic hash functions to store hash outputs instead of raw data in each node. We’ll see what they mean in-depth in the coming articles.</p>
+
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>
