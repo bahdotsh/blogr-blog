@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Blog - bah</title>
+
+    
+<meta name="description" content="Welcome to bah! This is your first blog post to help you get started.">
+<meta name="author" content="bahdotsh">
+
+
+    <!-- Artistic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    
+</head>
+<body>
+    <div class="page-container">
+        <!-- Minimal header with just title -->
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">bah</a>
+            </h1>
+            
+            <p class="site-subtitle">A blog by bahdotsh</p>
+            
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            
+<article class="post-standalone">
+    <!-- Artistic header -->
+    <header class="post-standalone-header">
+        <div class="post-title-area">
+            <h1 class="post-standalone-title">Welcome to My Blog</h1>
+            
+            
+            <div class="post-standalone-description">
+                Welcome to bah! This is your first blog post to help you get started.
+            </div>
+            
+        </div>
+
+        <div class="post-standalone-meta">
+            <div class="meta-row">
+                <time class="post-date">September 20, 2025</time>
+                
+                
+                <span class="post-author">bahdotsh</span>
+                
+                
+                
+                <span class="reading-time">3 minute read</span>
+                
+            </div>
+
+            
+            <div class="post-tags-standalone">
+                <span class="tags-intro">exploring:</span>
+                
+                <a href="/tags/welcome.html" class="tag-link-standalone">welcome</a>, 
+                
+                <a href="/tags/getting-started.html" class="tag-link-standalone">getting-started</a>, 
+                
+                <a href="/tags/first-post.html" class="tag-link-standalone">first-post</a>
+                
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Content with artistic typography -->
+    <div class="post-standalone-content">
+        <h1>Welcome to bah!</h1>
+<p>Congratulations! 🎉 You've successfully set up your new blog with <strong>Blogr</strong>. This is your first blog post, and it's here to help you understand how everything works.</p>
+<h2>What is Blogr?</h2>
+<p>Blogr is a modern CLI static site generator specifically designed for blogs. It focuses on:</p>
+<ul>
+<li><strong>Simplicity</strong> - Easy to use command-line interface</li>
+<li><strong>Speed</strong> - Fast builds and optimized output</li>
+<li><strong>Developer Experience</strong> - Live reload, hot reloading, and great tooling</li>
+<li><strong>Themes</strong> - Beautiful, customizable themes</li>
+<li><strong>GitHub Integration</strong> - Seamless deployment to GitHub Pages</li>
+</ul>
+<h2>Getting Started</h2>
+<p>Here are some commands to help you get started:</p>
+<h3>Create a New Post</h3>
+<pre class="highlight"><code class="language-bash">blogr new &quot;My Second Post&quot;
+</code></pre>
+<p>This will create a new markdown file in your <code>posts/</code> directory with the proper front matter.</p>
+<h3>Start Development Server</h3>
+<pre class="highlight"><code class="language-bash">blogr serve
+</code></pre>
+<p>This starts a local development server with live reload. Any changes you make to your posts or configuration will automatically update in your browser.</p>
+<h3>Build Your Site</h3>
+<pre class="highlight"><code class="language-bash">blogr build
+</code></pre>
+<p>This generates the static files for your blog in the <code>dist/</code> directory.</p>
+<h3>Deploy to GitHub Pages</h3>
+<pre class="highlight"><code class="language-bash">blogr deploy
+</code></pre>
+<p>This builds and deploys your site to GitHub Pages automatically.</p>
+<h2>Writing Posts</h2>
+<p>All your blog posts go in the <code>posts/</code> directory as Markdown files. Each post needs <strong>front matter</strong> at the top with metadata:</p>
+<pre class="highlight"><code class="language-yaml">---
+title: &quot;Your Post Title&quot;
+date: &quot;2024-01-15&quot;
+author: &quot;Your Name&quot;
+description: &quot;Brief description for SEO and previews&quot;
+tags: [&quot;tag1&quot;, &quot;tag2&quot;, &quot;tag3&quot;]
+status: &quot;published&quot;  # or &quot;draft&quot;
+slug: &quot;url-friendly-slug&quot;
+featured: false      # Set to true for featured posts
+---
+</code></pre>
+<h3>Supported Markdown Features</h3>
+<p>Blogr supports all standard Markdown features plus some extras:</p>
+<ul>
+<li><strong>Headers</strong> - Use <code>#</code>, <code>##</code>, <code>###</code>, etc.</li>
+<li><strong>Links</strong> - <code>[Link text](https://example.com)</code></li>
+<li><strong>Images</strong> - <code>![Alt text](path/to/image.png)</code></li>
+<li><strong>Code blocks</strong> - Syntax highlighting included</li>
+<li><strong>Tables</strong> - Standard markdown table syntax</li>
+<li><strong>Lists</strong> - Both ordered and unordered</li>
+</ul>
+<h3>Code Syntax Highlighting</h3>
+<p>Code blocks are automatically highlighted:</p>
+<pre class="highlight"><code class="language-rust">fn main() {
+    println!(&quot;Hello, Blogr!&quot;);
+}
+</code></pre><pre class="highlight"><code class="language-javascript">function greet(name) {
+    console.log(`Hello, ${name}!`);
+}
+</code></pre><pre class="highlight"><code class="language-python">def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+</code></pre>
+<h2>Customizing Your Blog</h2>
+<h3>Theme Configuration</h3>
+<p>Your blog uses the <strong>Minimal Retro</strong> theme. You can customize colors, fonts, and other settings in your <code>blogr.toml</code> file:</p>
+<pre class="highlight"><code class="language-toml">[theme.config]
+primary_color = &quot;#FF6B35&quot;
+secondary_color = &quot;#F7931E&quot;
+background_color = &quot;#2D1B0F&quot;
+font_family = &quot;Monaco, 'Courier New', monospace&quot;
+show_reading_time = true
+show_author = true
+</code></pre>
+<h3>Static Files</h3>
+<p>Put images, custom CSS, JavaScript, and other static files in the <code>static/</code> directory. They'll be copied to your built site automatically.</p>
+<h2>Project Structure</h2>
+<pre class="highlight"><code class="language-">your-blog/
+├── blogr.toml          # Configuration
+├── posts/              # Your blog posts
+│   ├── welcome.md      # This post
+│   └── about.md        # About page
+├── static/             # Static assets
+│   ├── images/
+│   ├── css/
+│   └── js/
+├── themes/             # Custom theme files (optional)
+└── dist/               # Built site (generated)
+</code></pre>
+<h2>Tips for Blogging Success</h2>
+<ol>
+<li><strong>Write consistently</strong> - Regular posting keeps readers engaged</li>
+<li><strong>Use good titles</strong> - Make them descriptive and SEO-friendly</li>
+<li><strong>Add descriptions</strong> - These appear in previews and search results</li>
+<li><strong>Use tags wisely</strong> - Help readers find related content</li>
+<li><strong>Include images</strong> - Visual content makes posts more engaging</li>
+<li><strong>Preview before publishing</strong> - Use <code>blogr serve</code> to check how posts look</li>
+</ol>
+<h2>Next Steps</h2>
+<p>Now that you have Blogr set up, here are some things you might want to do:</p>
+<ol>
+<li><strong>Edit this post</strong> - Customize it or delete it entirely</li>
+<li><strong>Create your About page</strong> - Tell readers about yourself</li>
+<li><strong>Write your first real post</strong> - Share something you're passionate about</li>
+<li><strong>Customize your theme</strong> - Make it match your personal style</li>
+<li><strong>Set up deployment</strong> - Get your blog online for the world to see</li>
+</ol>
+<h2>Need Help?</h2>
+<ul>
+<li>Check out the <a href="https://github.com/bahdotsh/blogr">Blogr documentation</a></li>
+<li>Run <code>blogr --help</code> for command reference</li>
+<li>Use <code>blogr project check</code> to validate your setup</li>
+</ul>
+<hr />
+<p>Happy blogging! 🚀</p>
+<p><em>This post was automatically generated when you initialized your Blogr project. Feel free to edit or delete it.</em></p>
+
+    </div>
+
+    <!-- Minimal footer -->
+    <footer class="post-standalone-footer">
+        <div class="post-navigation">
+            <a href="/" class="nav-link">← all posts</a>
+            
+            
+            <div class="related-tags">
+                <span class="related-label">more in:</span>
+                
+                <a href="/tags/welcome.html" class="related-tag">welcome</a>, 
+                
+                <a href="/tags/getting-started.html" class="related-tag">getting-started</a>, 
+                
+                <a href="/tags/first-post.html" class="related-tag">first-post</a>
+                
+            </div>
+            
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <!-- Minimal footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="author-credit">bahdotsh</p>
+                <div class="footer-links">
+                    
+                    <a href="https://github.com/bahdotsh/blogr-blog" 
+                       target="_blank" rel="noopener" class="github-link">github</a>
+                    
+                    <span class="separator">·</span>
+                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+</body>
+</html>

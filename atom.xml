@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[bah]]></title>
+  <link href="https://bahdotsh.github.io/blogr-blog"/>
+  <link href="https://bahdotsh.github.io/blogr-blog/atom.xml" rel="self"/>
+  <id>https://bahdotsh.github.io/blogr-blog</id>
+  <updated>2025-09-20T15:47:30+0000</updated>
+  <subtitle><![CDATA[A blog by bahdotsh]]></subtitle>
+  <generator>Blogr Static Site Generator</generator>
+  <entry>
+    <title><![CDATA[Welcome to My Blog]]></title>
+    <link href="https://bahdotsh.github.io/blogr-blog/posts/welcome.html"/>
+    <id>https://bahdotsh.github.io/blogr-blog/posts/welcome.html</id>
+    <updated>2025-09-20T00:00:00+0000</updated>
+    <summary><![CDATA[Welcome to bah! This is your first blog post to help you get started.]]></summary>
+    <content type="html"><![CDATA[<h1>Welcome to bah!</h1>
+<p>Congratulations! 🎉 You've successfully set up your new blog with <strong>Blogr</strong>. This is your first blog post, and it's here to help you understand how everything works.</p>
+<h2>What is Blogr?</h2>
+<p>Blogr is a modern CLI static site generator specifically designed for blogs. It focuses on:</p>
+<ul>
+<li><strong>Simplicity</strong> - Easy to use command-line interface</li>
+<li><strong>Speed</strong> - Fast builds and optimized output</li>
+<li><strong>Developer Experience</strong> - Live reload, hot reloading, and great tooling</li>
+<li><strong>Themes</strong> - Beautiful, customizable themes</li>
+<li><strong>GitHub Integration</strong> - Seamless deployment to GitHub Pages</li>
+</ul>
+<h2>Getting Started</h2>
+<p>Here are some commands to help you get started:</p>
+<h3>Create a New Post</h3>
+<pre class="highlight"><code class="language-bash">blogr new &quot;My Second Post&quot;
+</code></pre>
+<p>This will create a new markdown file in your <code>posts/</code> directory with the proper front matter.</p>
+<h3>Start Development Server</h3>
+<pre class="highlight"><code class="language-bash">blogr serve
+</code></pre>
+<p>This starts a local development server with live reload. Any changes you make to your posts or configuration will automatically update in your browser.</p>
+<h3>Build Your Site</h3>
+<pre class="highlight"><code class="language-bash">blogr build
+</code></pre>
+<p>This generates the static files for your blog in the <code>dist/</code> directory.</p>
+<h3>Deploy to GitHub Pages</h3>
+<pre class="highlight"><code class="language-bash">blogr deploy
+</code></pre>
+<p>This builds and deploys your site to GitHub Pages automatically.</p>
+<h2>Writing Posts</h2>
+<p>All your blog posts go in the <code>posts/</code> directory as Markdown files. Each post needs <strong>front matter</strong> at the top with metadata:</p>
+<pre class="highlight"><code class="language-yaml">---
+title: &quot;Your Post Title&quot;
+date: &quot;2024-01-15&quot;
+author: &quot;Your Name&quot;
+description: &quot;Brief description for SEO and previews&quot;
+tags: [&quot;tag1&quot;, &quot;tag2&quot;, &quot;tag3&quot;]
+status: &quot;published&quot;  # or &quot;draft&quot;
+slug: &quot;url-friendly-slug&quot;
+featured: false      # Set to true for featured posts
+---
+</code></pre>
+<h3>Supported Markdown Features</h3>
+<p>Blogr supports all standard Markdown features plus some extras:</p>
+<ul>
+<li><strong>Headers</strong> - Use <code>#</code>, <code>##</code>, <code>###</code>, etc.</li>
+<li><strong>Links</strong> - <code>[Link text](https://example.com)</code></li>
+<li><strong>Images</strong> - <code>![Alt text](path/to/image.png)</code></li>
+<li><strong>Code blocks</strong> - Syntax highlighting included</li>
+<li><strong>Tables</strong> - Standard markdown table syntax</li>
+<li><strong>Lists</strong> - Both ordered and unordered</li>
+</ul>
+<h3>Code Syntax Highlighting</h3>
+<p>Code blocks are automatically highlighted:</p>
+<pre class="highlight"><code class="language-rust">fn main() {
+    println!(&quot;Hello, Blogr!&quot;);
+}
+</code></pre><pre class="highlight"><code class="language-javascript">function greet(name) {
+    console.log(`Hello, ${name}!`);
+}
+</code></pre><pre class="highlight"><code class="language-python">def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+</code></pre>
+<h2>Customizing Your Blog</h2>
+<h3>Theme Configuration</h3>
+<p>Your blog uses the <strong>Minimal Retro</strong> theme. You can customize colors, fonts, and other settings in your <code>blogr.toml</code> file:</p>
+<pre class="highlight"><code class="language-toml">[theme.config]
+primary_color = &quot;#FF6B35&quot;
+secondary_color = &quot;#F7931E&quot;
+background_color = &quot;#2D1B0F&quot;
+font_family = &quot;Monaco, 'Courier New', monospace&quot;
+show_reading_time = true
+show_author = true
+</code></pre>
+<h3>Static Files</h3>
+<p>Put images, custom CSS, JavaScript, and other static files in the <code>static/</code> directory. They'll be copied to your built site automatically.</p>
+<h2>Project Structure</h2>
+<pre class="highlight"><code class="language-">your-blog/
+├── blogr.toml          # Configuration
+├── posts/              # Your blog posts
+│   ├── welcome.md      # This post
+│   └── about.md        # About page
+├── static/             # Static assets
+│   ├── images/
+│   ├── css/
+│   └── js/
+├── themes/             # Custom theme files (optional)
+└── dist/               # Built site (generated)
+</code></pre>
+<h2>Tips for Blogging Success</h2>
+<ol>
+<li><strong>Write consistently</strong> - Regular posting keeps readers engaged</li>
+<li><strong>Use good titles</strong> - Make them descriptive and SEO-friendly</li>
+<li><strong>Add descriptions</strong> - These appear in previews and search results</li>
+<li><strong>Use tags wisely</strong> - Help readers find related content</li>
+<li><strong>Include images</strong> - Visual content makes posts more engaging</li>
+<li><strong>Preview before publishing</strong> - Use <code>blogr serve</code> to check how posts look</li>
+</ol>
+<h2>Next Steps</h2>
+<p>Now that you have Blogr set up, here are some things you might want to do:</p>
+<ol>
+<li><strong>Edit this post</strong> - Customize it or delete it entirely</li>
+<li><strong>Create your About page</strong> - Tell readers about yourself</li>
+<li><strong>Write your first real post</strong> - Share something you're passionate about</li>
+<li><strong>Customize your theme</strong> - Make it match your personal style</li>
+<li><strong>Set up deployment</strong> - Get your blog online for the world to see</li>
+</ol>
+<h2>Need Help?</h2>
+<ul>
+<li>Check out the <a href="https://github.com/bahdotsh/blogr">Blogr documentation</a></li>
+<li>Run <code>blogr --help</code> for command reference</li>
+<li>Use <code>blogr project check</code> to validate your setup</li>
+</ul>
+<hr />
+<p>Happy blogging! 🚀</p>
+<p><em>This post was automatically generated when you initialized your Blogr project. Feel free to edit or delete it.</em></p>
+]]></content>
+    <author>
+      <name>bahdotsh</name>
+    </author>
+  </entry>
+  <entry>
+    <title><![CDATA[About]]></title>
+    <link href="https://bahdotsh.github.io/blogr-blog/posts/about.html"/>
+    <id>https://bahdotsh.github.io/blogr-blog/posts/about.html</id>
+    <updated>2025-09-20T00:00:00+0000</updated>
+    <summary><![CDATA[Learn more about bahdotsh and bah]]></summary>
+    <content type="html"><![CDATA[<h1>About Me</h1>
+<p>Hello! I'm <strong>bahdotsh</strong>, and welcome to <strong>bah</strong>.</p>
+<h2>Who Am I?</h2>
+<p><em>This is where you can introduce yourself to your readers. Consider including:</em></p>
+<ul>
+<li>Your background and experience</li>
+<li>What you're passionate about</li>
+<li>Why you started this blog</li>
+<li>What readers can expect to find here</li>
+</ul>
+<h2>What I Write About</h2>
+<p><em>Describe the topics you cover on your blog. For example:</em></p>
+<ul>
+<li>Technology and programming</li>
+<li>Personal experiences and lessons learned</li>
+<li>Industry insights and trends</li>
+<li>Tutorials and how-to guides</li>
+</ul>
+<h2>My Journey</h2>
+<p><em>Share your story - what led you to start blogging? What experiences shaped your perspective?</em></p>
+<h2>Connect With Me</h2>
+<p><em>Add your contact information and social media links:</em></p>
+<ul>
+<li>Email: your.email@example.com</li>
+<li>Twitter: <a href="https://twitter.com/yourusername">@yourusername</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/yourprofile">Your Name</a></li>
+<li>GitHub: <a href="https://github.com/yourusername">@yourusername</a></li>
+</ul>
+<h2>About This Blog</h2>
+<p>This blog is built with <a href="https://github.com/bahdotsh/blogr">Blogr</a>, a modern CLI static site generator. The site uses the <strong>Minimal Retro</strong> theme, chosen for its clean design and focus on readability.</p>
+<h2>Fun Facts</h2>
+<p><em>Share some interesting or fun facts about yourself:</em></p>
+<ul>
+<li>I've been coding for X years</li>
+<li>I love coffee and usually drink X cups per day</li>
+<li>My favorite programming language is X</li>
+<li>When I'm not coding, I enjoy X</li>
+</ul>
+<hr />
+<p><em>Thanks for visiting! Feel free to reach out if you have any questions or just want to chat.</em></p>
+<p><strong>Last updated:</strong> 2025-09-20</p>
+]]></content>
+    <author>
+      <name>bahdotsh</name>
+    </author>
+  </entry>
+</feed>
