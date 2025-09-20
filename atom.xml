@@ -4,7 +4,7 @@
   <link href="https://bahdotsh.github.io/blogr-blog"/>
   <link href="https://bahdotsh.github.io/blogr-blog/atom.xml" rel="self"/>
   <id>https://bahdotsh.github.io/blogr-blog</id>
-  <updated>2025-09-20T15:55:13+0000</updated>
+  <updated>2025-09-20T15:58:36+0000</updated>
   <subtitle><![CDATA[A blog by bahdotsh]]></subtitle>
   <generator>Blogr Static Site Generator</generator>
   <entry>
@@ -183,118 +183,6 @@ show_author = true
 <hr />
 <p><em>Thanks for visiting! Feel free to reach out if you have any questions or just want to chat.</em></p>
 <p><strong>Last updated:</strong> 2025-09-20</p>
-]]></content>
-    <author>
-      <name>bahdotsh</name>
-    </author>
-  </entry>
-  <entry>
-    <title><![CDATA[sudoku]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/sudoku.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/sudoku.html</id>
-    <updated>2025-03-22T00:00:00+0000</updated>
-    <summary><![CDATA[sudoku game]]></summary>
-    <content type="html"><![CDATA[<h1>Sudoku</h1>
-<p>A modern, interactive Sudoku game built with React, featuring multiple difficulty levels, solving assistance, and a clean, responsive design.</p>
-<p>This app is deployed on <a href="https://sudoku.gokuls.in">https://sudoku.gokuls.in</a>!</p>
-<!-- more -->
-<h2>Features</h2>
-<ul>
-<li><strong>Multiple Difficulty Levels</strong>: Choose from Easy, Medium, Hard, and Expert puzzles</li>
-<li><strong>Intelligent Puzzle Generation</strong>: Create random, solvable Sudoku puzzles</li>
-<li><strong>Solving Assistance</strong>:
-<ul>
-<li>Check your progress at any time</li>
-<li>Get hints when stuck</li>
-<li>Auto-solve the current puzzle</li>
-</ul>
-</li>
-<li><strong>Game Timer</strong>: Track your solving time</li>
-<li><strong>Error Highlighting</strong>: Visual feedback for incorrect entries</li>
-<li><strong>Mobile Friendly</strong>: Responsive design with virtual keyboard for touch devices</li>
-<li><strong>Clean UI</strong>: Modern, intuitive interface</li>
-</ul>
-<h2>Installation</h2>
-<ol>
-<li>
-<p>Clone the repository:</p>
-<pre class="highlight"><code class="language-bash">git clone https://github.com/bahdotsh/sudoku.git
-cd sudoku
-</code></pre></li>
-<li>
-<p>Install dependencies:</p>
-<pre class="highlight"><code class="language-bash">npm install
-</code></pre></li>
-<li>
-<p>Start the development server:</p>
-<pre class="highlight"><code class="language-bash">npm start
-</code></pre></li>
-<li>
-<p>Open your browser and navigate to <code>http://localhost:3000</code></p>
-</li>
-</ol>
-<h2>How to Play</h2>
-<ol>
-<li>Select a difficulty level from the dropdown menu</li>
-<li>Click &quot;Generate New Puzzle&quot; to start a new game</li>
-<li>Click on a cell to select it</li>
-<li>Enter a number (1-9) in the selected cell
-<ul>
-<li>On desktop: Use your keyboard</li>
-<li>On mobile: Use the virtual keyboard</li>
-</ul>
-</li>
-<li>Use the control buttons to:
-<ul>
-<li>Check your solution</li>
-<li>Get a hint</li>
-<li>Solve the puzzle automatically</li>
-<li>Reset the puzzle</li>
-<li>Clear the board</li>
-</ul>
-</li>
-</ol>
-<h2>Project Structure</h2>
-<pre class="highlight"><code class="language-">sudoku/src/
-├── App.js                  # Main application component
-├── App.css                 # Application styles
-├── components/             # UI components
-│   ├── Cell.js             # Individual sudoku cell
-│   ├── Controls.js         # Game control buttons
-│   ├── SudokuBoard.js      # The sudoku grid
-│   └── VirtualKeyboard.js  # Mobile number input
-└── utils/
-    └── sudokuUtils.js      # Puzzle generation and solving algorithms
-</code></pre>
-<h2>Technology Stack</h2>
-<ul>
-<li>React</li>
-<li>JavaScript (ES6+)</li>
-<li>CSS3</li>
-</ul>
-<h2>Algorithm Highlights</h2>
-<ul>
-<li><strong>Puzzle Generation</strong>: Creates valid, unique Sudoku puzzles with varying difficulty</li>
-<li><strong>Backtracking Solver</strong>: Efficiently solves Sudoku puzzles using a recursive backtracking algorithm</li>
-<li><strong>Solution Validation</strong>: Checks if the current board state is valid according to Sudoku rules</li>
-</ul>
-<h2>Future Enhancements</h2>
-<ul>
-<li>Save game progress in local storage</li>
-<li>User accounts and leaderboards</li>
-<li>Additional puzzle types (Killer Sudoku, etc.)</li>
-<li>Dark mode theme</li>
-<li>Sound effects and animations</li>
-</ul>
-<h2>Contributing</h2>
-<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
-<ol>
-<li>Fork the repository</li>
-<li>Create your feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
-<li>Commit your changes (<code>git commit -m 'Add some amazing feature'</code>)</li>
-<li>Push to the branch (<code>git push origin feature/amazing-feature</code>)</li>
-<li>Open a Pull Request</li>
-</ol>
 ]]></content>
     <author>
       <name>bahdotsh</name>
@@ -902,6 +790,44 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
 <p>“I simply won’t”</p>
 <p>Death smiled</p>
 <p>He never lose.</p>
+]]></content>
+    <author>
+      <name>bahdotsh</name>
+    </author>
+  </entry>
+  <entry>
+    <title><![CDATA[The Moth]]></title>
+    <link href="https://bahdotsh.github.io/blogr-blog/posts/moth.html"/>
+    <id>https://bahdotsh.github.io/blogr-blog/posts/moth.html</id>
+    <updated>2018-05-16T00:00:00+0000</updated>
+    <summary><![CDATA[The moth's perspective! ]]></summary>
+    <content type="html"><![CDATA[<p>Nobody knows why,</p>
+<p>why I follow the light</p>
+<p>People think I crave it</p>
+<p>They think I’m afraid of the darkness</p>
+<p>And that I will die without it</p>
+<!-- more -->
+<p>But no,</p>
+<p>I love darkness</p>
+<p>It never hurts you</p>
+<p>Nothing’s as peaceful as darkness,</p>
+<p>as silent as it is,</p>
+<p>And nobody as great a listener.</p>
+<p>Wait, let’s stick to the actual question.</p>
+<p>Why I go to the light when I love darkness so much</p>
+<p>Well, haven’t you noticed?</p>
+<p>The light’s always alone.</p>
+<p>It’s always angry.</p>
+<p>Screaming its anger at the world.</p>
+<p>And every time I kiss the light,</p>
+<p>it screams a little less.</p>
+<p>It calms down.</p>
+<p>And one day I’m sure</p>
+<p>I will save it</p>
+<p>From all it’s miseries</p>
+<p>I will take away the pain from the light</p>
+<p>And make it happy</p>
+<p>Like how darkness always is</p>
 ]]></content>
     <author>
       <name>bahdotsh</name>
