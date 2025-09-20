@@ -1,0 +1,148 @@
+{
+  "has_more": false,
+  "limit": 10,
+  "page": 2,
+  "posts": [
+    {
+      "content": "<p>Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our <a href=\"https://gokuls.in/blog/blockchain/\">previous</a>  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.</p>\n<!-- more -->\n<h3>Cryptocoin or cryptocurrency</h3>\n<p>Cryptocurrency is a fancy word. But its meaning is boringly simple. It’s just money. The only difference is that this money is completely digital. Which means, it doesn’t exist out of your computer. And you can use it just as how you’d use the conventional money; to buy things.</p>\n<h3>Bitcoin</h3>\n<p>Bitcoin is one of the reasons why blockchain became a common term. Bitcoin is a cryptocurrency implemented using blockchain technology. It is the world’s first decentralized cryptocurrency. It was invented in 2008 by an unknown person or a group of people using the name Satoshi Nakamoto. There’s no central bank or any single intermediary administrator to control the issue and supply of bitcoins. This is one of the reasons why bitcoin became very famous.</p>\n<h3>Mining and Miners</h3>\n<p>For a transaction to occur inside the blockchain network it should be validated by a group of members inside the network. This group of people who validate each transactions are called Miners. And this process of validation is called Mining.</p>\n<h3>Smart Contract</h3>\n<p>A contract is an agreement between two or more parties to do something. A smart contract is the digital version of this contract. Smart contracts help you to exchange anything of value in a transparent, conflict-free way while avoiding the services of a middleman. It is a self-executing or self-enforcing agreement. Which means that, if the rules of the agreement are met, the agreement is automatically enforced.</p>\n<h3>Ethereum</h3>\n<p>Launched in 2015, Ethereum is an open-source, blockchain-based, decentralized software platform used for its own cryptocurrency, ether. It enables Smart Contracts and Distributed Applications (DApps) to be built and run without any downtime, fraud, control, or interference from a third party.</p>\n<p>Hyperledger\nHyperledger is a blockchain framework to develop blockchain-based applications, mainly for enterprises.</p>\n<h3>Tokens</h3>\n<p>Tokens are digital assets in a blockchain network. Ok, don’t scratch your head. You have been to a gaming arcade, right? So what did you do there? You gave some money in the counter and got a card in which you can swipe on the gaming consoles of the games you wanted to play. That card acts like money in that particular arcade and you got to enjoy the games without any hassle and worry of payment. But if you take that card to Starbucks and demanded a caramel frappuccino the only thing you’d get would be a disappointment. This is exactly how a token works. They can act as a stand-in for money in a particular blockchain network. And outside that network, the tokens are basically worthless.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2020-07-29T00:00:00Z",
+        "description": "Get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.",
+        "featured": false,
+        "slug": "blockchain-dictionary",
+        "status": "published",
+        "tags": [],
+        "title": "The Blockchain Dictionary"
+      },
+      "reading_time": 2
+    },
+    {
+      "content": "<p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?</p>\n<!-- more -->\n<p>To get an idea about all this first let’s understand how the “current Internet” shares information. We know that ,“<strong>the internet is a collection of computers that share information</strong>”. All the data shared in this network is centralized. This means that if we take an instance of data sharing inside this network, there will be only two participants. No computer acts as an observer or as a validator when two other computers are sharing data.</p>\n<p>Blockchain on the other hand is de-centralized. Which means that the exchange of information must be observed and validated (approved) by everyone on the network. If the validation doesn’t happen, then, the transactions(exchange of information) will be invalid.</p>\n<p><strong>This change is the revolution</strong>. This brings transparency, authenticity and immutability to the network ; everything which was missing from “the internet”.</p>\n<p>Now let’s see what a blockchain is. “Blockchain is a distributed, de-centralized, public ledger”. Nope, it’s not that difficult as this definition. Blockchain is literally just a chain of blocks. The blocks contains information about the various data transactions in the network and they are connected with each other through cryptographic chains.</p>\n<p>That was easier to understand, right? But then what kind of information does the block hold? We know that blockchain is all about transactions and the blocks are a way to register these transactions. Suppose both of us are inside a blockchain network and we engage in a transaction. The block that records our transaction will have the date and time of the transaction, both our names (our names recorded in the block won’t be our actual names but would be our corresponding “digital singnatures”). It will also have information about what the transaction was all about. This block will be validated by other members present in the network and if they approve, it will be added to the rest of the blocks already inside the network. So in simple terms a block is an instance of a transaction.</p>\n<p>As you can visualize the block now, imagine hashing the contents of the block using a hashing algorithm (SHA-256). But what the hell is this hashing? Don’t sweat your brows, hashing simply means that we are taking an input string of any length and giving out an output of a fixed length. The SHA-256 is an algorithm to achieve this. This is how the block exists in the network.</p>\n<p>We have just discussed about a single transaction. But in reality a block can hold upto 1 MB of data. This means that a single block can house a few thousand transactions(depending on the size of each transactions).</p>\n<p>This is just a basic introduction about blockchain. Let’s look into the working of blockchain and all it’s intricasies in the coming articles.</p>\n<p>While reading about this revolution you may come face to face with some interesting words. Bitcoin, Ethereum, Hyperledger, smart contracts etc. I will explain what some of these means in the articles which will drop soon.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2020-07-27T00:00:00Z",
+        "description": "A short sneak peek about blockchain",
+        "featured": false,
+        "slug": "blockchain",
+        "status": "published",
+        "tags": [],
+        "title": "Blockchain: A short sneak peek"
+      },
+      "reading_time": 2
+    },
+    {
+      "content": "<p>Can you hear it, the sound the sunlight make when it first hits the ground?</p>\n<!-- more -->\n<p>Or the sound the raindrops make, when they gently kiss your forehead? Can’t you hear it, the sound darkness make, as it gently floods the dusk? Yes, you can! All you have to do is listen. Close your eyes and listen. And as you listen, notice that your heart is surprisingly in rhythm with this beautiful music of silence. Intoxicating, isn’t? Now go ahead and set the tempo. Dance around and smile. Don’t be afraid, of falling out of rhythm, because you are the one who sets it.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2020-02-06T00:00:00Z",
+        "description": "Rant about silence!",
+        "featured": false,
+        "slug": "silence",
+        "status": "published",
+        "tags": [],
+        "title": "Random rant about silence"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>His heart started beating faster as he climbed.</p>\n<p>Every new step pumped an ounce more adrenaline to his veins.</p>\n<p>He was breathing faster.</p>\n<p>The wind soothed him.</p>\n<p>But at this moment peace terrorised him.</p>\n<!-- more -->\n<p>The walk to the edge was the toughest.</p>\n<p>It was as if he forgot how to walk.</p>\n<p>Trembling on every step, he reached the edge.</p>\n<p>He knew he wasn’t brave enough to be there.</p>\n<p>Yet there he was.</p>\n<p>He didn’t have the courage to look down.</p>\n<p>The wind rustled beneath his feet and played with his hair.</p>\n<p>The silence and calmness up there contrasted with the busy street below.</p>\n<p>Far below.</p>\n<p>The sky seemed conquerable from here.</p>\n<p>He would soon do that anyway.</p>\n<p>He loved the view.</p>\n<p>He felt like God.</p>\n<p>The wind beckoned him.</p>\n<p>He looked up to the sky,</p>\n<p>It looked like an ocean beside a desert.</p>\n<p>Soon he would be swimming in that ocean.</p>\n<p>He just had to let go of his fears.</p>\n<p>He took two more steps.</p>\n<p>Now, there’s nothing in-front of him.</p>\n<p>Nothing solid.</p>\n<p>He had to arch a bit backwards so as to counter the pull of the wind.</p>\n<p>Gravity seemed to get stronger with every second.</p>\n<p>Gravity was the one thing that he longed to defeat, his greatest enemy.</p>\n<p>He was sure though, that he would be the one who wins tonight,</p>\n<p>Not gravity.</p>\n<p>He took a deep breath and then held it.</p>\n<p>His heartbeat made him deaf.</p>\n<p>He raised both his hands to his shoulders.</p>\n<p>Straightened up.</p>\n<p>And dove.</p>\n<p>Weightless.</p>\n<p>He was flying.</p>\n<p>His heart was beating so fast, he couldn’t hear it anymore.</p>\n<p>Adrenaline replaced blood.</p>\n<p>He won!</p>\n<p>The world was getting closer.</p>\n<p>He was laughing.</p>\n<p>He closed his eyes.</p>\n<p>He loved it.</p>\n<p>Everything stopped.</p>\n<p>He was numb.</p>\n<p>The sky seemed so far right now.</p>\n<p>He was suddenly so sleepy.</p>\n<p>He fought to keep his eyes open.</p>\n<p>He tried to raise his hand.</p>\n<p>Nope. He was so tired.</p>\n<p>He was afraid that he won’t be able to open his eyes if he closed them.</p>\n<p>He had to.</p>\n<p>He did.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-11-21T00:00:00Z",
+        "description": "Jump!",
+        "featured": false,
+        "slug": "thejump",
+        "status": "published",
+        "tags": [],
+        "title": "The Jump"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>Smoke, Heavy head, Lights.</p>\n<p>Cough, breathe, repeat!</p>\n<p>Blurry vision and weightless body.</p>\n<p>Seeing life as if in a Cinema.</p>\n<p>Echoing sounds and blurry vision.</p>\n<!-- more -->\n<p>Focused and unfocused at the same time,</p>\n<p>He ran, not really. But he did anyway.</p>\n<p>Where to? He didn’t knew.</p>\n<p>Why? Because he could.</p>\n<p>Mind couldn’t catch up with his thoughts.</p>\n<p>Cough,breathe, repeat!</p>\n<p>Animated life.</p>\n<p>Life!</p>\n<p>“What does it mean?” He asked.</p>\n<p>“Does it matter?”</p>\n<p>Nope, it doesn’t!</p>\n<p>Run, fly, walk, breathe!</p>\n<p>Forget about life and focus on living.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-10-15T00:00:00Z",
+        "description": "Life!",
+        "featured": false,
+        "slug": "life",
+        "status": "published",
+        "tags": [],
+        "title": "Life"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>“And they lived happily ever after”</p>\n<p>The story ended.</p>\n<p>The thought didn’t.</p>\n<p>“Happily ever after”!</p>\n<!-- more -->\n<p>The thought echoed.</p>\n<p>Did the author had a typo?</p>\n<p>Did he forget to put a question mark at the end?</p>\n<p>Does happiness last for ever?</p>\n<p>Maybe happiness is for royalty.</p>\n<p>How can a hungry stomach be happy?</p>\n<p>How can a thirsty mouth smile?</p>\n<p>Hunger made him hate food and</p>\n<p>Thirst made him hate water.</p>\n<p>There was no happiness in his world.</p>\n<p>Hate defined his life.</p>\n<p>His wandering mind was suddenly at peace</p>\n<p>his hungry stomached stopped growling at him,</p>\n<p>his thirsty mouth sealed shut,</p>\n<p>his tired eyes stopped blinking.</p>\n<p>And as he saw her smile</p>\n<p>He knew</p>\n<p>Love was the answer.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-09-15T00:00:00Z",
+        "description": "The answer!",
+        "featured": false,
+        "slug": "theanswer",
+        "status": "published",
+        "tags": [],
+        "title": "The answer"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>green? red? yellow?</p>\n<p>no! no!</p>\n<p>yellow? orange? white</p>\n<p>no! no!</p>\n<p>black. pitch black!</p>\n<p>what was it?</p>\n<!-- more -->\n<p>a dream!?</p>\n<p>a story!?</p>\n<p>a poem!?</p>\n<p>no! no!</p>\n<p>it was life!</p>\n<p>was it colorful?</p>\n<p>yeah it was. i saw all the colors. you did too!</p>\n<p>it was beautiful,wasn’t it?!</p>\n<p>as beautiful as the colorful dark sky without the moon in the darkest night.</p>\n<p>well of course,</p>\n<p>black is the most colorful color.</p>\n<p>when you go beyond all the actual hues.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-08-15T00:00:00Z",
+        "description": "bah",
+        "featured": false,
+        "slug": "bah",
+        "status": "published",
+        "tags": [],
+        "title": "Beyond actual hues"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>Night.</p>\n<p>The moon, the stars.</p>\n<p>The wind kissed the trees.</p>\n<p>Owls shrieked.</p>\n<p>Wolves howled.</p>\n<!-- more -->\n<p>A lively night.</p>\n<p>A beautiful night.</p>\n<p>A scream.</p>\n<p>A girl.</p>\n<p>Two men.</p>\n<p>No! no! Two animals.</p>\n<p>Blood.</p>\n<p>Night.</p>\n<p>The moon, the stars.</p>\n<p>The wind kissed the trees.</p>\n<p>Owls shrieked.</p>\n<p>Wolves howled.</p>\n<p>A lively night.</p>\n<p>A beautiful night?</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-07-12T00:00:00Z",
+        "description": "Night time!",
+        "featured": false,
+        "slug": "night",
+        "status": "published",
+        "tags": [],
+        "title": "The night"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>“Breathe! Breathe!”</p>\n<p>she couldn’t</p>\n<p>she forgot</p>\n<p>“Come on beth, open your eyes!”</p>\n<p>she couldn’t</p>\n<p>she forgot</p>\n<!-- more -->\n<p>“Say something!”</p>\n<p>she couldn’t</p>\n<p>she forgot</p>\n<p>“Where am I?”</p>\n<p>she doesn’t know</p>\n<p>her eyes won’t open</p>\n<p>or was it really dark?</p>\n<p>she couldn’t tell</p>\n<p>“Just breathe”</p>\n<p>she couldn’t</p>\n<p>it was easy</p>\n<p>she knew</p>\n<p>but couldn’t</p>\n<p>“Help me!”</p>\n<p>she screamed</p>\n<p>she couldn’t hear herself</p>\n<p>“Is this a dream!?”</p>\n<p>she never knew</p>\n<p>“You’re dying!”</p>\n<p>“No,I’m not!”</p>\n<p>Wait who was that?</p>\n<p>Who said that?</p>\n<p>Is somebody there with her</p>\n<p>“Who is this?”</p>\n<p>No answer</p>\n<p>“You’re going to die”</p>\n<p>The voice came again</p>\n<p>“Who’s this? Answer me!”</p>\n<p>No reply</p>\n<p>She was angry</p>\n<p>She started smiling</p>\n<p>Suddenly she cried</p>\n<p>She laughed</p>\n<p>She screamed</p>\n<p>She saw darkness</p>\n<p>She felt at ease</p>\n<p>“No, no I can’t give in”</p>\n<p>“I won’t die”</p>\n<p>“I simply won’t”</p>\n<p>Death smiled</p>\n<p>He never lose.</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-06-11T00:00:00Z",
+        "description": "From the perspective of Death",
+        "featured": false,
+        "slug": "death",
+        "status": "published",
+        "tags": [],
+        "title": "Death"
+      },
+      "reading_time": 1
+    },
+    {
+      "content": "<p>Nobody knows why,</p>\n<p>why I follow the light</p>\n<p>People think I crave it</p>\n<p>They think I’m afraid of the darkness</p>\n<p>And that I will die without it</p>\n<!-- more -->\n<p>But no,</p>\n<p>I love darkness</p>\n<p>It never hurts you</p>\n<p>Nothing’s as peaceful as darkness,</p>\n<p>as silent as it is,</p>\n<p>And nobody as great a listener.</p>\n<p>Wait, let’s stick to the actual question.</p>\n<p>Why I go to the light when I love darkness so much</p>\n<p>Well, haven’t you noticed?</p>\n<p>The light’s always alone.</p>\n<p>It’s always angry.</p>\n<p>Screaming its anger at the world.</p>\n<p>And every time I kiss the light,</p>\n<p>it screams a little less.</p>\n<p>It calms down.</p>\n<p>And one day I’m sure</p>\n<p>I will save it</p>\n<p>From all it’s miseries</p>\n<p>I will take away the pain from the light</p>\n<p>And make it happy</p>\n<p>Like how darkness always is</p>\n",
+      "metadata": {
+        "author": "bahdotsh",
+        "date": "2018-05-16T00:00:00Z",
+        "description": "The moth's perspective! ",
+        "featured": false,
+        "slug": "moth",
+        "status": "published",
+        "tags": [],
+        "title": "The Moth"
+      },
+      "reading_time": 1
+    }
+  ],
+  "total": 20
+}
