@@ -1,0 +1,26 @@
+[blog]
+title = "bah"
+author = "bahdotsh"
+description = "A blog by bahdotsh"
+base_url = "https://bahdotsh.github.io/blogr-blog"
+language = "en"
+timezone = "UTC"
+
+[theme]
+name = "minimal-retro"
+
+[theme.config]
+
+[github]
+username = "bahdotsh"
+repository = "blogr-blog"
+branch = "main"
+
+[build]
+output_dir = "dist"
+drafts = false
+future_posts = false
+
+[dev]
+port = 3000
+auto_reload = true
