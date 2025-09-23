@@ -1,589 +1,967 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive - bah</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Archive - bah</title>
 
-    
-<meta name="description" content="Archive of all posts from bah">
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>"
+        />
+
+        
+<meta name="description" content="Archive of all posts from bah" />
 
 
-    <!-- Artistic Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <!-- Comprehensive fallback Obsidian-compatible styles -->
+        <style>
+            /* CSS Custom Properties for Obsidian theming */
+            :root {
+                --background-primary: #ffffff;
+                --background-secondary: #f2f3f5;
+                --background-modifier-border: #e9ecef;
+                --text-normal: #2e3338;
+                --text-muted: #7c7c7c;
+                --text-faint: #999999;
+                --text-accent: #7c3aed;
+                --text-accent-hover: #5b21b6;
+                --interactive-accent: #7c3aed;
+                --interactive-accent-hover: #5b21b6;
+                --background-modifier-hover: #f8f9fa;
+                --background-modifier-active: #e9ecef;
+                --tag-background: #e9ecef;
+                --tag-color: #6b7280;
+                --callout-info: #2196f3;
+                --callout-tip: #4caf50;
+                --callout-warning: #ff9800;
+                --callout-error: #f44336;
+                --callout-abstract: #00bcd4;
+                --callout-note: #ff9800;
+            }
 
-    <link rel="stylesheet" href="/css/style.css">
+            .theme-dark {
+                --background-primary: #202020;
+                --background-secondary: #161616;
+                --background-modifier-border: #2a2a2a;
+                --text-normal: #dcddde;
+                --text-muted: #999999;
+                --text-faint: #666666;
+                --text-accent: #a78bfa;
+                --text-accent-hover: #c4b5fd;
+                --interactive-accent: #a78bfa;
+                --interactive-accent-hover: #c4b5fd;
+                --background-modifier-hover: #2a2a2a;
+                --background-modifier-active: #333333;
+                --tag-background: #2a2a2a;
+                --tag-color: #999999;
+            }
 
-    
-</head>
-<body>
-    <div class="page-container">
-        <!-- Minimal header with just title -->
-        <header class="site-header">
-            <h1 class="site-title">
-                <a href="/">bah</a>
-            </h1>
+            .theme-light {
+                --background-primary: #ffffff;
+                --background-secondary: #f2f3f5;
+                --background-modifier-border: #e9ecef;
+                --text-normal: #2e3338;
+                --text-muted: #7c7c7c;
+                --text-faint: #999999;
+            }
+
+            /* Base Obsidian structure */
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Oxygen, Ubuntu, Cantarell, sans-serif;
+                background-color: var(--background-primary);
+                color: var(--text-normal);
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+            }
+
+            .app-container {
+                min-height: 100vh;
+                background-color: var(--background-primary);
+            }
+
+            .workspace {
+                display: flex;
+                width: 100%;
+                min-height: 100vh;
+            }
+
+            .workspace-leaf-content {
+                flex: 1;
+                background-color: var(--background-primary);
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .markdown-preview-view {
+                padding: 0;
+                background-color: var(--background-primary);
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .markdown-rendered {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 40px 20px;
+                font-size: 16px;
+                line-height: 1.6;
+                color: var(--text-normal);
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Typography */
+            .inline-title {
+                font-size: 2.25em;
+                font-weight: 700;
+                margin-bottom: 0.5em;
+                color: var(--text-normal);
+                border: none;
+                background: transparent;
+                display: block;
+                line-height: 1.2;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: var(--text-normal);
+                font-weight: 600;
+                margin-top: 1.5em;
+                margin-bottom: 0.5em;
+                line-height: 1.3;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.25em;
+            }
+            h4 {
+                font-size: 1.125em;
+            }
+            h5 {
+                font-size: 1em;
+            }
+            h6 {
+                font-size: 0.875em;
+            }
+
+            /* Links */
+            a {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            .internal-link {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            .internal-link:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            /* Callouts */
+            .callout {
+                padding: 16px;
+                margin: 16px 0;
+                border-radius: 8px;
+                border-left: 4px solid var(--interactive-accent);
+                background-color: var(--background-secondary);
+                position: relative;
+            }
+
+            .callout[data-callout="info"] {
+                border-left-color: var(--callout-info);
+            }
+
+            .callout[data-callout="tip"] {
+                border-left-color: var(--callout-tip);
+            }
+
+            .callout[data-callout="warning"] {
+                border-left-color: var(--callout-warning);
+            }
+
+            .callout[data-callout="error"] {
+                border-left-color: var(--callout-error);
+            }
+
+            .callout[data-callout="abstract"] {
+                border-left-color: var(--callout-abstract);
+            }
+
+            .callout[data-callout="note"] {
+                border-left-color: var(--callout-note);
+            }
+
+            .callout-title {
+                font-weight: 600;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .callout-content {
+                margin: 0;
+            }
+
+            /* Tags */
+            .tag {
+                background-color: var(--tag-background);
+                color: var(--tag-color);
+                padding: 4px 8px;
+                border-radius: 12px;
+                text-decoration: none;
+                font-size: 0.85em;
+                margin-right: 8px;
+                margin-bottom: 4px;
+                display: inline-block;
+                border: 1px solid var(--background-modifier-border);
+                transition: all 0.2s ease;
+            }
+
+            .tag:hover {
+                background-color: var(--interactive-accent);
+                color: white;
+                border-color: var(--interactive-accent);
+            }
+
+            .tag-container {
+                margin: 16px 0;
+            }
+
+            /* Embedded content */
+            .markdown-embed {
+                border: 1px solid var(--background-modifier-border);
+                border-radius: 8px;
+                margin: 16px 0;
+                padding: 16px;
+                background-color: var(--background-secondary);
+            }
+
+            .markdown-embed-title {
+                font-weight: 600;
+                margin-bottom: 8px;
+                font-size: 1.1em;
+            }
+
+            .markdown-embed-link {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            .markdown-embed-link:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            /* Navigation elements */
+            .nav-folder-children {
+                margin: 16px 0;
+            }
+
+            .nav-file {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--background-modifier-border);
+            }
+
+            .nav-file:last-child {
+                border-bottom: none;
+            }
+
+            .nav-file-title {
+                flex: 1;
+            }
+
+            .nav-file-title-content {
+                color: var(--text-normal);
+            }
+
+            .nav-file-tag {
+                margin-left: 12px;
+            }
+
+            /* Code */
+            code {
+                background-color: var(--background-secondary);
+                padding: 2px 4px;
+                border-radius: 4px;
+                font-family: "SF Mono", Monaco, "Roboto Mono", monospace;
+                font-size: 0.9em;
+                color: var(--text-normal);
+            }
+
+            pre {
+                background-color: var(--background-secondary);
+                padding: 16px;
+                border-radius: 8px;
+                overflow-x: auto;
+                border: 1px solid var(--background-modifier-border);
+            }
+
+            pre code {
+                background: none;
+                padding: 0;
+            }
+
+            /* Blockquotes */
+            blockquote {
+                border-left: 4px solid var(--text-accent);
+                padding-left: 16px;
+                margin: 16px 0;
+                font-style: italic;
+                color: var(--text-muted);
+                background-color: var(--background-secondary);
+                padding: 16px;
+                border-radius: 0 8px 8px 0;
+            }
+
+            /* Lists */
+            ul,
+            ol {
+                padding-left: 24px;
+            }
+
+            li {
+                margin: 4px 0;
+            }
+
+            /* Tables */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 16px 0;
+            }
+
+            th,
+            td {
+                border: 1px solid var(--background-modifier-border);
+                padding: 8px 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--background-secondary);
+                font-weight: 600;
+            }
+
+            /* Responsive design */
+            @media (max-width: 1200px) {
+                .markdown-rendered {
+                    max-width: 800px;
+                    padding: 40px 24px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .markdown-rendered {
+                    max-width: 100%;
+                    padding: 20px 16px;
+                }
+
+                .inline-title {
+                    font-size: 1.8em;
+                }
+            }
+        </style>
+
+        <!-- Load bundled default Obsidian CSS -->
+        <link rel="stylesheet" href="/css/obsidian-default.css" />
+
+        <!-- Load user-supplied Obsidian CSS with error handling -->
+        <link
+            rel="stylesheet"
+            href="/static&#x2F;obsidian.css"
+            onerror="this.onerror=null;console.warn('Custom Obsidian CSS not found - using default styles. You can add a custom Obsidian theme by saving it as static/obsidian.css in your blog directory.');"
+            onload="console.log('Custom Obsidian CSS loaded successfully');"
+        />
+
+        
+
+        <script>
+            // Wait for DOM to be ready
+            document.addEventListener("DOMContentLoaded", function () {
+                var mode =
+                    "auto";
+                var isDark =
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+                var body = document.body;
+
+                if (body) {
+                    if (mode === "auto") {
+                        body.classList.toggle("theme-dark", isDark);
+                        body.classList.toggle("theme-light", !isDark);
+                    } else {
+                        body.classList.add(
+                            mode === "dark" ? "theme-dark" : "theme-light",
+                        );
+                    }
+
+                    // Add Obsidian workspace classes
+                    body.classList.add(
+                        "mod-macos",
+                        "is-frameless",
+                        "is-hidden-frameless",
+                    );
+
+                    // Listen for system theme changes
+                    if (mode === "auto" && window.matchMedia) {
+                        window
+                            .matchMedia("(prefers-color-scheme: dark)")
+                            .addEventListener("change", function (e) {
+                                body.classList.toggle("theme-dark", e.matches);
+                                body.classList.toggle(
+                                    "theme-light",
+                                    !e.matches,
+                                );
+                            });
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body class="workspace-leaf-content">
+        <div class="app-container">
+            <div class="workspace">
+                <div class="workspace-split mod-vertical mod-root">
+                    <div class="workspace-leaf mod-active">
+                        <div class="workspace-leaf-content">
+                            <div class="view-content" style="width: 100%; display: flex; justify-content: center;">
+                                <div class="markdown-reading-view" style="width: 100%; display: flex; justify-content: center;">
+                                    <div
+                                        class="markdown-preview-view markdown-rendered"
+                                    >
+                                        <div class="markdown-preview-section">
+                                            
+<div class="markdown-preview-sizer markdown-preview-section">
+    <div
+        class="inline-title"
+        contenteditable="false"
+        spellcheck="false"
+        tabindex="-1"
+        enterkeyhint="done"
+    >
+        Archive
+    </div>
+
+    <div class="callout" data-callout="note">
+        <div class="callout-title">
+            <div class="callout-icon">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <polyline points="14,2 14,8 20,8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10,9 9,9 8,9" />
+                </svg>
+            </div>
+            <div class="callout-title-inner">Complete Archive</div>
+        </div>
+        <div class="callout-content">
+            <p>
+                All posts organized chronologically. Use <kbd>Cmd+F</kbd> to
+                search within this page.
+            </p>
+        </div>
+    </div>
+
+    <div class="nav-folder mod-root">
+        <div class="nav-folder-children">
             
-            <p class="site-subtitle">A blog by bahdotsh</p>
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;welcome.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Welcome to My Blog
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2025-09-20T00:00:00Z"
+                        >2025-09-20T00:00:00Z</time
+                    >
+                     
+                    <a
+                        href="&#x2F;tags&#x2F;welcome.html"
+                        class="tag"
+                        >#welcome</a
+                    >
+                    
+                    <a
+                        href="&#x2F;tags&#x2F;getting-started.html"
+                        class="tag"
+                        >#getting-started</a
+                    >
+                    
+                    <a
+                        href="&#x2F;tags&#x2F;first-post.html"
+                        class="tag"
+                        >#first-post</a
+                    >
+                     
+                </div>
+            </div>
             
-        </header>
-
-        <!-- Main content area -->
-        <main class="main-content">
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;about.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            About
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2025-09-20T00:00:00Z"
+                        >2025-09-20T00:00:00Z</time
+                    >
+                     
+                    <a
+                        href="&#x2F;tags&#x2F;about.html"
+                        class="tag"
+                        >#about</a
+                    >
+                    
+                    <a
+                        href="&#x2F;tags&#x2F;personal.html"
+                        class="tag"
+                        >#personal</a
+                    >
+                     
+                </div>
+            </div>
             
-<div class="archive-page">
-    <header class="archive-header">
-        <h1 class="archive-title">Archive</h1>
-        <p class="archive-subtitle">All posts from bah</p>
-    </header>
-
-    
-        <div class="archive-content">
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;giff.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            giff
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2024-08-06T00:00:00Z"
+                        >2024-08-06T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
             
-                
-                <section class="archive-year">
-                    <h2 class="year-title">2018</h2>
-                    <div class="year-posts">
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-11-21T00:00:00Z">
-                                    Nov 21
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/thejump.html">The Jump</a>
-                                </h3>
-                                
-                                <p class="post-description">Jump!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-10-15T00:00:00Z">
-                                    Oct 15
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/life.html">Life</a>
-                                </h3>
-                                
-                                <p class="post-description">Life!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-09-15T00:00:00Z">
-                                    Sep 15
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/theanswer.html">The answer</a>
-                                </h3>
-                                
-                                <p class="post-description">The answer!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-08-15T00:00:00Z">
-                                    Aug 15
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/bah.html">Beyond actual hues</a>
-                                </h3>
-                                
-                                <p class="post-description">bah</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-07-12T00:00:00Z">
-                                    Jul 12
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/night.html">The night</a>
-                                </h3>
-                                
-                                <p class="post-description">Night time!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-06-11T00:00:00Z">
-                                    Jun 11
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/death.html">Death</a>
-                                </h3>
-                                
-                                <p class="post-description">From the perspective of Death</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2018-05-16T00:00:00Z">
-                                    May 16
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/moth.html">The Moth</a>
-                                </h3>
-                                
-                                <p class="post-description">The moth&#x27;s perspective! </p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;termgpt.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Termgpt
+                        </a>
                     </div>
-                </section>
-                
-                <section class="archive-year">
-                    <h2 class="year-title">2020</h2>
-                    <div class="year-posts">
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-12-04T00:00:00Z">
-                                    Dec 04
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/art-time-life.html">Art, Time and Life</a>
-                                </h3>
-                                
-                                <p class="post-description">An essay on art, time and life. </p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-08-04T00:00:00Z">
-                                    Aug 04
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/thoughts.html">Are your thoughts really yours?</a>
-                                </h3>
-                                
-                                <p class="post-description">Are your thoughts really yours?</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-08-02T00:00:00Z">
-                                    Aug 02
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/how-does-blockchain-work-2.html">How does the blockchain work? Part 2</a>
-                                </h3>
-                                
-                                <p class="post-description">How does the blockchain work? Part 2</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-07-31T00:00:00Z">
-                                    Jul 31
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/how-does-blockchain-work-1.html">How does the blockchain work? Part 1</a>
-                                </h3>
-                                
-                                <p class="post-description">How does the blockchain work? Part 1</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-07-29T00:00:00Z">
-                                    Jul 29
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/blockchain-dictionary.html">The Blockchain Dictionary</a>
-                                </h3>
-                                
-                                <p class="post-description">Get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-07-27T00:00:00Z">
-                                    Jul 27
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/blockchain.html">Blockchain: A short sneak peek</a>
-                                </h3>
-                                
-                                <p class="post-description">A short sneak peek about blockchain</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2020-02-06T00:00:00Z">
-                                    Feb 06
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/silence.html">Random rant about silence</a>
-                                </h3>
-                                
-                                <p class="post-description">Rant about silence!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2023-05-07T00:00:00Z"
+                        >2023-05-07T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;why-i-built-zp.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Why I built zp!
+                        </a>
                     </div>
-                </section>
-                
-                <section class="archive-year">
-                    <h2 class="year-title">2023</h2>
-                    <div class="year-posts">
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2023-05-07T00:00:00Z">
-                                    May 07
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/termgpt.html">Termgpt</a>
-                                </h3>
-                                
-                                <p class="post-description">A programming and system administration assistant, powered by chatGPT!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2023-04-12T00:00:00Z">
-                                    Apr 12
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/why-i-built-zp.html">Why I built zp!</a>
-                                </h3>
-                                
-                                <p class="post-description">Talks about the process behind building zp!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2023-04-10T00:00:00Z">
-                                    Apr 10
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/zp.html">Zp</a>
-                                </h3>
-                                
-                                <p class="post-description">A cli tool to copy things!</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2023-04-12T00:00:00Z"
+                        >2023-04-12T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;zp.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Zp
+                        </a>
                     </div>
-                </section>
-                
-                <section class="archive-year">
-                    <h2 class="year-title">2024</h2>
-                    <div class="year-posts">
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2024-08-06T00:00:00Z">
-                                    Aug 06
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/giff.html">giff</a>
-                                </h3>
-                                
-                                <p class="post-description">git diff terminal visualizer</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2023-04-10T00:00:00Z"
+                        >2023-04-10T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;art-time-life.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Art, Time and Life
+                        </a>
                     </div>
-                </section>
-                
-                <section class="archive-year">
-                    <h2 class="year-title">2025</h2>
-                    <div class="year-posts">
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2025-09-20T00:00:00Z">
-                                    Sep 20
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/welcome.html">Welcome to My Blog</a>
-                                </h3>
-                                
-                                <p class="post-description">Welcome to bah! This is your first blog post to help you get started.</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                                <div class="post-tags">
-                                    
-                                    <a href="/tags/welcome.html" class="tag">#welcome</a>
-                                    
-                                    <a href="/tags/getting-started.html" class="tag">#getting-started</a>
-                                    
-                                    <a href="/tags/first-post.html" class="tag">#first-post</a>
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
-                        <article class="archive-post">
-                            <div class="post-date">
-                                <time datetime="2025-09-20T00:00:00Z">
-                                    Sep 20
-                                </time>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title">
-                                    <a href="/posts/about.html">About</a>
-                                </h3>
-                                
-                                <p class="post-description">Learn more about bahdotsh and bah</p>
-                                
-                                <div class="post-meta">
-                                    
-                                    <span class="post-author">by bahdotsh</span>
-                                    
-                                    
-                                </div>
-                                
-                                <div class="post-tags">
-                                    
-                                    <a href="/tags/about.html" class="tag">#about</a>
-                                    
-                                    <a href="/tags/personal.html" class="tag">#personal</a>
-                                    
-                                </div>
-                                
-                            </div>
-                        </article>
-                        
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-12-04T00:00:00Z"
+                        >2020-12-04T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;thoughts.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Are your thoughts really yours?
+                        </a>
                     </div>
-                </section>
-                
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-08-04T00:00:00Z"
+                        >2020-08-04T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;how-does-blockchain-work-2.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            How does the blockchain work? Part 2
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-08-02T00:00:00Z"
+                        >2020-08-02T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;how-does-blockchain-work-1.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            How does the blockchain work? Part 1
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-07-31T00:00:00Z"
+                        >2020-07-31T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;blockchain-dictionary.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            The Blockchain Dictionary
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-07-29T00:00:00Z"
+                        >2020-07-29T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;blockchain.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Blockchain: A short sneak peek
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-07-27T00:00:00Z"
+                        >2020-07-27T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;silence.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Random rant about silence
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2020-02-06T00:00:00Z"
+                        >2020-02-06T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;thejump.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            The Jump
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-11-21T00:00:00Z"
+                        >2018-11-21T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;life.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Life
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-10-15T00:00:00Z"
+                        >2018-10-15T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;theanswer.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            The answer
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-09-15T00:00:00Z"
+                        >2018-09-15T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;bah.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Beyond actual hues
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-08-15T00:00:00Z"
+                        >2018-08-15T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;night.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            The night
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-07-12T00:00:00Z"
+                        >2018-07-12T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;death.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            Death
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-06-11T00:00:00Z"
+                        >2018-06-11T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
+            
+            <div class="nav-file">
+                <div class="nav-file-title" draggable="true">
+                    <div class="nav-file-title-content">
+                        <a
+                            href="&#x2F;posts&#x2F;moth.html"
+                            class="internal-link"
+                            data-tooltip-position="top"
+                        >
+                            The Moth
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-file-tags">
+                    <time class="tag" datetime="2018-05-16T00:00:00Z"
+                        >2018-05-16T00:00:00Z</time
+                    >
+                    
+                </div>
+            </div>
             
         </div>
-    
+    </div>
 
-    <div class="archive-navigation">
-        <a href="/" class="back-home">← Home</a>
-        <a href="/tags/index.html" class="view-tags">View Tags →</a>
+    <!-- Navigation footer -->
+    <div class="callout" data-callout="tip">
+        <div class="callout-content">
+            <p>
+                Browse by
+                <a href="&#x2F;tags&#x2F;" class="internal-link"
+                    >tags</a
+                >
+                or return to
+                <a href="&#x2F;" class="internal-link">home</a>.
+            </p>
+        </div>
     </div>
 </div>
 
-        </main>
-
-        <!-- Minimal footer -->
-        <footer class="site-footer">
-            <div class="footer-content">
-                <p class="author-credit">bahdotsh</p>
-                <div class="footer-links">
-                    
-                    <a href="https://github.com/bahdotsh/blogr-blog" 
-                       target="_blank" rel="noopener" class="github-link">github</a>
-                    
-                    <span class="separator">·</span>
-                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
-
-    
-</body>
+        </div>
+        
+    </body>
 </html>

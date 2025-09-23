@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[bah]]></title>
-  <link href="https://bahdotsh.github.io/blogr-blog"/>
-  <link href="https://bahdotsh.github.io/blogr-blog/atom.xml" rel="self"/>
-  <id>https://bahdotsh.github.io/blogr-blog</id>
-  <updated>2025-09-23T11:24:47+0000</updated>
+  <link href="https://blog.gokuls.in"/>
+  <link href="https://blog.gokuls.in/atom.xml" rel="self"/>
+  <id>https://blog.gokuls.in</id>
+  <updated>2025-09-23T11:29:08+0000</updated>
   <subtitle><![CDATA[A blog by bahdotsh]]></subtitle>
   <generator>Blogr Static Site Generator</generator>
   <entry>
     <title><![CDATA[Welcome to My Blog]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/welcome.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/welcome.html</id>
+    <link href="https://blog.gokuls.in/posts/welcome.html"/>
+    <id>https://blog.gokuls.in/posts/welcome.html</id>
     <updated>2025-09-20T00:00:00+0000</updated>
     <summary><![CDATA[Welcome to bah! This is your first blog post to help you get started.]]></summary>
     <content type="html"><![CDATA[<h1>Welcome to bah!</h1>
@@ -138,8 +138,8 @@ show_author = true
   </entry>
   <entry>
     <title><![CDATA[About]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/about.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/about.html</id>
+    <link href="https://blog.gokuls.in/posts/about.html"/>
+    <id>https://blog.gokuls.in/posts/about.html</id>
     <updated>2025-09-20T00:00:00+0000</updated>
     <summary><![CDATA[Learn more about bahdotsh and bah]]></summary>
     <content type="html"><![CDATA[<h1>About Me</h1>
@@ -190,8 +190,8 @@ show_author = true
   </entry>
   <entry>
     <title><![CDATA[giff]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/giff.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/giff.html</id>
+    <link href="https://blog.gokuls.in/posts/giff.html"/>
+    <id>https://blog.gokuls.in/posts/giff.html</id>
     <updated>2024-08-06T00:00:00+0000</updated>
     <summary><![CDATA[git diff terminal visualizer]]></summary>
     <content type="html"><![CDATA[<h1>giff</h1>
@@ -235,8 +235,8 @@ cargo install --path .
   </entry>
   <entry>
     <title><![CDATA[Termgpt]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/termgpt.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/termgpt.html</id>
+    <link href="https://blog.gokuls.in/posts/termgpt.html"/>
+    <id>https://blog.gokuls.in/posts/termgpt.html</id>
     <updated>2023-05-07T00:00:00+0000</updated>
     <summary><![CDATA[A programming and system administration assistant, powered by chatGPT!]]></summary>
     <content type="html"><![CDATA[<!-- more -->
@@ -309,8 +309,8 @@ termgpt How can I change the permissions of a file or directory
   </entry>
   <entry>
     <title><![CDATA[Why I built zp!]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/why-i-built-zp.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/why-i-built-zp.html</id>
+    <link href="https://blog.gokuls.in/posts/why-i-built-zp.html"/>
+    <id>https://blog.gokuls.in/posts/why-i-built-zp.html</id>
     <updated>2023-04-12T00:00:00+0000</updated>
     <summary><![CDATA[Talks about the process behind building zp!]]></summary>
     <content type="html"><![CDATA[<p>For those of you who don't know, (which is going to be most of you), I recently published my very first crate; <a href="https://github.com/bahdotsh/zp">zp</a>. <code>zp</code> is just a simple tool to copy contents from a file. I built zp so that I can learn rust properly. And by properly, I mean learning something and understanding it in a way I can use it to build cool/useful things in the future.</p>
@@ -336,8 +336,8 @@ termgpt How can I change the permissions of a file or directory
   </entry>
   <entry>
     <title><![CDATA[Zp]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/zp.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/zp.html</id>
+    <link href="https://blog.gokuls.in/posts/zp.html"/>
+    <id>https://blog.gokuls.in/posts/zp.html</id>
     <updated>2023-04-10T00:00:00+0000</updated>
     <summary><![CDATA[A cli tool to copy things!]]></summary>
     <content type="html"><![CDATA[<h1>zp</h1>
@@ -382,8 +382,8 @@ cargo install --path .
   </entry>
   <entry>
     <title><![CDATA[Art, Time and Life]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/art-time-life.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/art-time-life.html</id>
+    <link href="https://blog.gokuls.in/posts/art-time-life.html"/>
+    <id>https://blog.gokuls.in/posts/art-time-life.html</id>
     <updated>2020-12-04T00:00:00+0000</updated>
     <summary><![CDATA[An essay on art, time and life. ]]></summary>
     <content type="html"><![CDATA[<p>He drew in haste. He had deadlines to meet. It was ridiculous. This is not how it was supposed to be. You can never rush art. But he had to. He was bringing art to the realm of time. And he knew that it would bounce. He had no choice. The world is moving fast and he had to keep up with it.</p>
@@ -397,8 +397,8 @@ cargo install --path .
   </entry>
   <entry>
     <title><![CDATA[Are your thoughts really yours?]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/thoughts.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/thoughts.html</id>
+    <link href="https://blog.gokuls.in/posts/thoughts.html"/>
+    <id>https://blog.gokuls.in/posts/thoughts.html</id>
     <updated>2020-08-04T00:00:00+0000</updated>
     <summary><![CDATA[Are your thoughts really yours?]]></summary>
     <content type="html"><![CDATA[<p>Are your thoughts really yours? You may be wondering why I’m asking such a bizarre question again and again. Of course, my thoughts are mine, you may say. But, are they? That may take some time. So, let’s just focus on “the how” part for now. How do you think? Well, all of us think in some kind of a language. Most probably our mother tongue. If you are someone whose mother tongue is English, then most probably you would be thinking in English, you just have 26 letters to form the words for your thoughts.</p>
@@ -419,8 +419,8 @@ cargo install --path .
   </entry>
   <entry>
     <title><![CDATA[How does the blockchain work? Part 2]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-2.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-2.html</id>
+    <link href="https://blog.gokuls.in/posts/how-does-blockchain-work-2.html"/>
+    <id>https://blog.gokuls.in/posts/how-does-blockchain-work-2.html</id>
     <updated>2020-08-02T00:00:00+0000</updated>
     <summary><![CDATA[How does the blockchain work? Part 2]]></summary>
     <content type="html"><![CDATA[<p>Before looking at Merkle trees, let’s see what a tree actually is when it comes to programming. In simple terms, trees are nothing but representations of how data is stored in the memory.</p>
@@ -456,8 +456,8 @@ cargo install --path .
   </entry>
   <entry>
     <title><![CDATA[How does the blockchain work? Part 1]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-1.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/how-does-blockchain-work-1.html</id>
+    <link href="https://blog.gokuls.in/posts/how-does-blockchain-work-1.html"/>
+    <id>https://blog.gokuls.in/posts/how-does-blockchain-work-1.html</id>
     <updated>2020-07-31T00:00:00+0000</updated>
     <summary><![CDATA[How does the blockchain work? Part 1]]></summary>
     <content type="html"><![CDATA[<p>Blockchain is a combination of several different technologies. For making it easier for you, I have broken it down into simpler parts. This is the first part of this series and it’s all about one of the most important technologies used in blockchain; <em><strong>cryptography</strong></em></p>
@@ -483,8 +483,8 @@ The prefix “crypt” means “hidden” and the suffix “graphy” means “w
   </entry>
   <entry>
     <title><![CDATA[The Blockchain Dictionary]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/blockchain-dictionary.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/blockchain-dictionary.html</id>
+    <link href="https://blog.gokuls.in/posts/blockchain-dictionary.html"/>
+    <id>https://blog.gokuls.in/posts/blockchain-dictionary.html</id>
     <updated>2020-07-29T00:00:00+0000</updated>
     <summary><![CDATA[Get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.]]></summary>
     <content type="html"><![CDATA[<p>Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our <a href="https://gokuls.in/blog/blockchain/">previous</a>  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.</p>
@@ -510,8 +510,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[Blockchain: A short sneak peek]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/blockchain.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/blockchain.html</id>
+    <link href="https://blog.gokuls.in/posts/blockchain.html"/>
+    <id>https://blog.gokuls.in/posts/blockchain.html</id>
     <updated>2020-07-27T00:00:00+0000</updated>
     <summary><![CDATA[A short sneak peek about blockchain]]></summary>
     <content type="html"><![CDATA[<p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?</p>
@@ -532,8 +532,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[Random rant about silence]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/silence.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/silence.html</id>
+    <link href="https://blog.gokuls.in/posts/silence.html"/>
+    <id>https://blog.gokuls.in/posts/silence.html</id>
     <updated>2020-02-06T00:00:00+0000</updated>
     <summary><![CDATA[Rant about silence!]]></summary>
     <content type="html"><![CDATA[<p>Can you hear it, the sound the sunlight make when it first hits the ground?</p>
@@ -546,8 +546,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[The Jump]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/thejump.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/thejump.html</id>
+    <link href="https://blog.gokuls.in/posts/thejump.html"/>
+    <id>https://blog.gokuls.in/posts/thejump.html</id>
     <updated>2018-11-21T00:00:00+0000</updated>
     <summary><![CDATA[Jump!]]></summary>
     <content type="html"><![CDATA[<p>His heart started beating faster as he climbed.</p>
@@ -613,8 +613,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[Life]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/life.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/life.html</id>
+    <link href="https://blog.gokuls.in/posts/life.html"/>
+    <id>https://blog.gokuls.in/posts/life.html</id>
     <updated>2018-10-15T00:00:00+0000</updated>
     <summary><![CDATA[Life!]]></summary>
     <content type="html"><![CDATA[<p>Smoke, Heavy head, Lights.</p>
@@ -643,8 +643,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[The answer]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/theanswer.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/theanswer.html</id>
+    <link href="https://blog.gokuls.in/posts/theanswer.html"/>
+    <id>https://blog.gokuls.in/posts/theanswer.html</id>
     <updated>2018-09-15T00:00:00+0000</updated>
     <summary><![CDATA[The answer!]]></summary>
     <content type="html"><![CDATA[<p>“And they lived happily ever after”</p>
@@ -677,8 +677,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[Beyond actual hues]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/bah.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/bah.html</id>
+    <link href="https://blog.gokuls.in/posts/bah.html"/>
+    <id>https://blog.gokuls.in/posts/bah.html</id>
     <updated>2018-08-15T00:00:00+0000</updated>
     <summary><![CDATA[bah]]></summary>
     <content type="html"><![CDATA[<p>green? red? yellow?</p>
@@ -707,8 +707,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[The night]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/night.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/night.html</id>
+    <link href="https://blog.gokuls.in/posts/night.html"/>
+    <id>https://blog.gokuls.in/posts/night.html</id>
     <updated>2018-07-12T00:00:00+0000</updated>
     <summary><![CDATA[Night time!]]></summary>
     <content type="html"><![CDATA[<p>Night.</p>
@@ -738,8 +738,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[Death]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/death.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/death.html</id>
+    <link href="https://blog.gokuls.in/posts/death.html"/>
+    <id>https://blog.gokuls.in/posts/death.html</id>
     <updated>2018-06-11T00:00:00+0000</updated>
     <summary><![CDATA[From the perspective of Death]]></summary>
     <content type="html"><![CDATA[<p>“Breathe! Breathe!”</p>
@@ -797,8 +797,8 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
   </entry>
   <entry>
     <title><![CDATA[The Moth]]></title>
-    <link href="https://bahdotsh.github.io/blogr-blog/posts/moth.html"/>
-    <id>https://bahdotsh.github.io/blogr-blog/posts/moth.html</id>
+    <link href="https://blog.gokuls.in/posts/moth.html"/>
+    <id>https://blog.gokuls.in/posts/moth.html</id>
     <updated>2018-05-16T00:00:00+0000</updated>
     <summary><![CDATA[The moth's perspective! ]]></summary>
     <content type="html"><![CDATA[<p>Nobody knows why,</p>

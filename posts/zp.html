@@ -1,72 +1,573 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zp - bah</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Zp - bah</title>
 
-    
-<meta name="description" content="A cli tool to copy things!">
-<meta name="author" content="bahdotsh">
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>"
+        />
 
+        
+<meta
+    name="description"
+    content="A cli tool to copy things!"
+/>
+<meta
+    name="author"
+    content="bahdotsh"
+/>
+<meta name="published" content="2023-04-10T00:00:00Z" />
+ 
 
-    <!-- Artistic Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <!-- Comprehensive fallback Obsidian-compatible styles -->
+        <style>
+            /* CSS Custom Properties for Obsidian theming */
+            :root {
+                --background-primary: #ffffff;
+                --background-secondary: #f2f3f5;
+                --background-modifier-border: #e9ecef;
+                --text-normal: #2e3338;
+                --text-muted: #7c7c7c;
+                --text-faint: #999999;
+                --text-accent: #7c3aed;
+                --text-accent-hover: #5b21b6;
+                --interactive-accent: #7c3aed;
+                --interactive-accent-hover: #5b21b6;
+                --background-modifier-hover: #f8f9fa;
+                --background-modifier-active: #e9ecef;
+                --tag-background: #e9ecef;
+                --tag-color: #6b7280;
+                --callout-info: #2196f3;
+                --callout-tip: #4caf50;
+                --callout-warning: #ff9800;
+                --callout-error: #f44336;
+                --callout-abstract: #00bcd4;
+                --callout-note: #ff9800;
+            }
 
-    <link rel="stylesheet" href="/css/style.css">
+            .theme-dark {
+                --background-primary: #202020;
+                --background-secondary: #161616;
+                --background-modifier-border: #2a2a2a;
+                --text-normal: #dcddde;
+                --text-muted: #999999;
+                --text-faint: #666666;
+                --text-accent: #a78bfa;
+                --text-accent-hover: #c4b5fd;
+                --interactive-accent: #a78bfa;
+                --interactive-accent-hover: #c4b5fd;
+                --background-modifier-hover: #2a2a2a;
+                --background-modifier-active: #333333;
+                --tag-background: #2a2a2a;
+                --tag-color: #999999;
+            }
 
-    
-</head>
-<body>
-    <div class="page-container">
-        <!-- Minimal header with just title -->
-        <header class="site-header">
-            <h1 class="site-title">
-                <a href="/">bah</a>
-            </h1>
-            
-            <p class="site-subtitle">A blog by bahdotsh</p>
-            
-        </header>
+            .theme-light {
+                --background-primary: #ffffff;
+                --background-secondary: #f2f3f5;
+                --background-modifier-border: #e9ecef;
+                --text-normal: #2e3338;
+                --text-muted: #7c7c7c;
+                --text-faint: #999999;
+            }
 
-        <!-- Main content area -->
-        <main class="main-content">
-            
-<article class="post-standalone">
-    <!-- Artistic header -->
-    <header class="post-standalone-header">
-        <div class="post-title-area">
-            <h1 class="post-standalone-title">Zp</h1>
-            
-            
-            <div class="post-standalone-description">
-                A cli tool to copy things!
-            </div>
-            
+            /* Base Obsidian structure */
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Oxygen, Ubuntu, Cantarell, sans-serif;
+                background-color: var(--background-primary);
+                color: var(--text-normal);
+                margin: 0;
+                padding: 0;
+                line-height: 1.6;
+            }
+
+            .app-container {
+                min-height: 100vh;
+                background-color: var(--background-primary);
+            }
+
+            .workspace {
+                display: flex;
+                width: 100%;
+                min-height: 100vh;
+            }
+
+            .workspace-leaf-content {
+                flex: 1;
+                background-color: var(--background-primary);
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .markdown-preview-view {
+                padding: 0;
+                background-color: var(--background-primary);
+                width: 100%;
+                max-width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .markdown-rendered {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 40px 20px;
+                font-size: 16px;
+                line-height: 1.6;
+                color: var(--text-normal);
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Typography */
+            .inline-title {
+                font-size: 2.25em;
+                font-weight: 700;
+                margin-bottom: 0.5em;
+                color: var(--text-normal);
+                border: none;
+                background: transparent;
+                display: block;
+                line-height: 1.2;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: var(--text-normal);
+                font-weight: 600;
+                margin-top: 1.5em;
+                margin-bottom: 0.5em;
+                line-height: 1.3;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.25em;
+            }
+            h4 {
+                font-size: 1.125em;
+            }
+            h5 {
+                font-size: 1em;
+            }
+            h6 {
+                font-size: 0.875em;
+            }
+
+            /* Links */
+            a {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            .internal-link {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            .internal-link:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            /* Callouts */
+            .callout {
+                padding: 16px;
+                margin: 16px 0;
+                border-radius: 8px;
+                border-left: 4px solid var(--interactive-accent);
+                background-color: var(--background-secondary);
+                position: relative;
+            }
+
+            .callout[data-callout="info"] {
+                border-left-color: var(--callout-info);
+            }
+
+            .callout[data-callout="tip"] {
+                border-left-color: var(--callout-tip);
+            }
+
+            .callout[data-callout="warning"] {
+                border-left-color: var(--callout-warning);
+            }
+
+            .callout[data-callout="error"] {
+                border-left-color: var(--callout-error);
+            }
+
+            .callout[data-callout="abstract"] {
+                border-left-color: var(--callout-abstract);
+            }
+
+            .callout[data-callout="note"] {
+                border-left-color: var(--callout-note);
+            }
+
+            .callout-title {
+                font-weight: 600;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .callout-content {
+                margin: 0;
+            }
+
+            /* Tags */
+            .tag {
+                background-color: var(--tag-background);
+                color: var(--tag-color);
+                padding: 4px 8px;
+                border-radius: 12px;
+                text-decoration: none;
+                font-size: 0.85em;
+                margin-right: 8px;
+                margin-bottom: 4px;
+                display: inline-block;
+                border: 1px solid var(--background-modifier-border);
+                transition: all 0.2s ease;
+            }
+
+            .tag:hover {
+                background-color: var(--interactive-accent);
+                color: white;
+                border-color: var(--interactive-accent);
+            }
+
+            .tag-container {
+                margin: 16px 0;
+            }
+
+            /* Embedded content */
+            .markdown-embed {
+                border: 1px solid var(--background-modifier-border);
+                border-radius: 8px;
+                margin: 16px 0;
+                padding: 16px;
+                background-color: var(--background-secondary);
+            }
+
+            .markdown-embed-title {
+                font-weight: 600;
+                margin-bottom: 8px;
+                font-size: 1.1em;
+            }
+
+            .markdown-embed-link {
+                color: var(--text-accent);
+                text-decoration: none;
+            }
+
+            .markdown-embed-link:hover {
+                color: var(--text-accent-hover);
+                text-decoration: underline;
+            }
+
+            /* Navigation elements */
+            .nav-folder-children {
+                margin: 16px 0;
+            }
+
+            .nav-file {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--background-modifier-border);
+            }
+
+            .nav-file:last-child {
+                border-bottom: none;
+            }
+
+            .nav-file-title {
+                flex: 1;
+            }
+
+            .nav-file-title-content {
+                color: var(--text-normal);
+            }
+
+            .nav-file-tag {
+                margin-left: 12px;
+            }
+
+            /* Code */
+            code {
+                background-color: var(--background-secondary);
+                padding: 2px 4px;
+                border-radius: 4px;
+                font-family: "SF Mono", Monaco, "Roboto Mono", monospace;
+                font-size: 0.9em;
+                color: var(--text-normal);
+            }
+
+            pre {
+                background-color: var(--background-secondary);
+                padding: 16px;
+                border-radius: 8px;
+                overflow-x: auto;
+                border: 1px solid var(--background-modifier-border);
+            }
+
+            pre code {
+                background: none;
+                padding: 0;
+            }
+
+            /* Blockquotes */
+            blockquote {
+                border-left: 4px solid var(--text-accent);
+                padding-left: 16px;
+                margin: 16px 0;
+                font-style: italic;
+                color: var(--text-muted);
+                background-color: var(--background-secondary);
+                padding: 16px;
+                border-radius: 0 8px 8px 0;
+            }
+
+            /* Lists */
+            ul,
+            ol {
+                padding-left: 24px;
+            }
+
+            li {
+                margin: 4px 0;
+            }
+
+            /* Tables */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 16px 0;
+            }
+
+            th,
+            td {
+                border: 1px solid var(--background-modifier-border);
+                padding: 8px 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--background-secondary);
+                font-weight: 600;
+            }
+
+            /* Responsive design */
+            @media (max-width: 1200px) {
+                .markdown-rendered {
+                    max-width: 800px;
+                    padding: 40px 24px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .markdown-rendered {
+                    max-width: 100%;
+                    padding: 20px 16px;
+                }
+
+                .inline-title {
+                    font-size: 1.8em;
+                }
+            }
+        </style>
+
+        <!-- Load bundled default Obsidian CSS -->
+        <link rel="stylesheet" href="/css/obsidian-default.css" />
+
+        <!-- Load user-supplied Obsidian CSS with error handling -->
+        <link
+            rel="stylesheet"
+            href="/static&#x2F;obsidian.css"
+            onerror="this.onerror=null;console.warn('Custom Obsidian CSS not found - using default styles. You can add a custom Obsidian theme by saving it as static/obsidian.css in your blog directory.');"
+            onload="console.log('Custom Obsidian CSS loaded successfully');"
+        />
+
+        
+
+        <script>
+            // Wait for DOM to be ready
+            document.addEventListener("DOMContentLoaded", function () {
+                var mode =
+                    "auto";
+                var isDark =
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+                var body = document.body;
+
+                if (body) {
+                    if (mode === "auto") {
+                        body.classList.toggle("theme-dark", isDark);
+                        body.classList.toggle("theme-light", !isDark);
+                    } else {
+                        body.classList.add(
+                            mode === "dark" ? "theme-dark" : "theme-light",
+                        );
+                    }
+
+                    // Add Obsidian workspace classes
+                    body.classList.add(
+                        "mod-macos",
+                        "is-frameless",
+                        "is-hidden-frameless",
+                    );
+
+                    // Listen for system theme changes
+                    if (mode === "auto" && window.matchMedia) {
+                        window
+                            .matchMedia("(prefers-color-scheme: dark)")
+                            .addEventListener("change", function (e) {
+                                body.classList.toggle("theme-dark", e.matches);
+                                body.classList.toggle(
+                                    "theme-light",
+                                    !e.matches,
+                                );
+                            });
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body class="workspace-leaf-content">
+        <div class="app-container">
+            <div class="workspace">
+                <div class="workspace-split mod-vertical mod-root">
+                    <div class="workspace-leaf mod-active">
+                        <div class="workspace-leaf-content">
+                            <div class="view-content" style="width: 100%; display: flex; justify-content: center;">
+                                <div class="markdown-reading-view" style="width: 100%; display: flex; justify-content: center;">
+                                    <div
+                                        class="markdown-preview-view markdown-rendered"
+                                    >
+                                        <div class="markdown-preview-section">
+                                            
+<div class="markdown-preview-sizer markdown-preview-section">
+    <!-- Obsidian-style navigation -->
+    <div class="nav-header">
+        <div class="nav-buttons-container">
+            <a
+                href="/"
+                class="nav-action-button"
+                aria-label="Back to home"
+            >
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                </svg>
+                Home
+            </a>
         </div>
+    </div>
 
-        <div class="post-standalone-meta">
-            <div class="meta-row">
-                <time class="post-date">April 10, 2023</time>
-                
-                
-                <span class="post-author">bahdotsh</span>
-                
-                
-                
-                <span class="reading-time">1 minute read</span>
-                
+    <!-- Post title in Obsidian style -->
+    <div
+        class="inline-title"
+        contenteditable="false"
+        spellcheck="false"
+        tabindex="-1"
+        enterkeyhint="done"
+    >
+        Zp
+    </div>
+
+    <!-- Post metadata in callout format -->
+    
+    <div class="callout" data-callout="abstract">
+        <div class="callout-title">
+            <div class="callout-icon">
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        d="M14.828 14.828a4 4 0 0 1-5.656 0M9 10h1m4 0h1m-6 4h8m-4-8V4m0 2v2"
+                    />
+                </svg>
             </div>
-
-            
+            <div class="callout-title-inner">Abstract</div>
         </div>
-    </header>
+        <div class="callout-content">
+            <p>A cli tool to copy things!</p>
+        </div>
+    </div>
+    
 
-    <!-- Content with artistic typography -->
-    <div class="post-standalone-content">
-        <h1>zp</h1>
+    <!-- Metadata bar -->
+    <div class="metadata-container">
+        <div class="frontmatter">
+            <div class="frontmatter-container">
+                <div class="frontmatter-section">
+                    <div class="frontmatter-alias-list">
+                        <div class="frontmatter-alias">
+                            <span class="frontmatter-alias-icon">📅</span>
+                            <time datetime="2023-04-10T00:00:00Z"
+                                >2023-04-10T00:00:00Z</time
+                            >
+                        </div>
+                        
+                        <div class="frontmatter-alias">
+                            <span class="frontmatter-alias-icon">👤</span>
+                            <span>bahdotsh</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tags in Obsidian style -->
+    
+
+    <!-- Post content with Obsidian editor styling -->
+    <div class="mod-cm6 is-readable-line-width">
+        <div class="cm-editor">
+            <div class="cm-scroller">
+                <div
+                    class="cm-content"
+                    contenteditable="false"
+                    style="tab-size: 4"
+                >
+                    <h1>zp</h1>
 <p><a href="https://github.com/bahdotsh/zp">zp</a> is a cli command to copy the contents of the source file or of the std output buffer to the clipboard. To use the <code>zp</code>,</p>
 <!-- more -->
 <p>simply open your terminal or command prompt (well install it first) and type <code>zp</code> followed by the name of the source file. For example:</p>
@@ -102,36 +603,40 @@ cat sample_file.txt | zp -s 2 -e 5
 cd zp
 cargo install --path .
 </code></pre>
-    </div>
-
-    <!-- Minimal footer -->
-    <footer class="post-standalone-footer">
-        <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
-            
-            
-        </div>
-    </footer>
-</article>
-
-        </main>
-
-        <!-- Minimal footer -->
-        <footer class="site-footer">
-            <div class="footer-content">
-                <p class="author-credit">bahdotsh</p>
-                <div class="footer-links">
-                    
-                    <a href="https://github.com/bahdotsh/blogr-blog" 
-                       target="_blank" rel="noopener" class="github-link">github</a>
-                    
-                    <span class="separator">·</span>
-                    <a href="https://github.com/bahdotsh/blogr" target="_blank" rel="noopener" class="blogr-link">blogr</a>
                 </div>
             </div>
-        </footer>
+        </div>
     </div>
 
-    
-</body>
+    <!-- Obsidian-style backlinks section -->
+    <div class="backlink-pane">
+        <div class="tree-item-self nav-folder-title">
+            <div class="tree-item-inner nav-folder-title-content">Related</div>
+        </div>
+        <div class="search-result-container">
+            <div class="search-result-file-matches">
+                <div class="search-result-file-title">
+                    <a
+                        href="/archive.html"
+                        class="internal-link"
+                        >All Posts</a
+                    >
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
 </html>
