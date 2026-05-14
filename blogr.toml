@@ -6,10 +6,29 @@ base_url = "https://bahdotsh.github.io/blogr-blog"
 language = "en"
 timezone = "UTC"
 
+[blog.domains]
+aliases = []
+enforce_https = true
+github_pages_domain = "blog.gokuls.in"
+
+[blog.domains.subdomain]
+prefix = "blog"
+base_domain = "gokuls.in"
+
 [theme]
 name = "minimal-retro"
 
 [theme.config]
+color_mode = "auto"
+secondary_color = "#F7931E"
+background_color = "#2D1B0F"
+expandable_posts = true
+font_family = "'Crimson Text', 'Playfair Display', Georgia, serif"
+primary_color = "#FF6B35"
+show_author = true
+accent_font = "'Space Mono', 'Courier Prime', monospace"
+obsidian_css = "static/obsidian.css"
+show_reading_time = true
 
 [github]
 username = "bahdotsh"
