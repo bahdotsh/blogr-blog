@@ -63,315 +63,6 @@
             <!-- Post Header -->
             
             <header class="post-entry-header" onclick="togglePost(1)">
-                <h2 class="post-entry-title">Welcome to My Blog</h2>
-            
-                
-                <div class="post-entry-meta">
-                    <time class="post-date">Sep 20, 2025</time>
-                    
-                    
-                    <span class="post-author">bahdotsh</span>
-                    
-                    
-                    
-                    <span class="reading-time">3min</span>
-                    
-                </div>
-
-                <!-- Tags as artistic elements -->
-                
-                <div class="post-tags-preview">
-                    
-                    <span class="tag-bubble">welcome</span>
-                    
-                    <span class="tag-bubble">getting-started</span>
-                    
-                    <span class="tag-bubble">first-post</span>
-                    
-                </div>
-                
-
-                <!-- Expand indicator -->
-                <div class="expand-indicator">
-                    <span class="expand-text">read</span>
-                    <span class="expand-arrow">↓</span>
-                </div>
-            </header>
-            
-
-            <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-1">
-                
-                <div class="post-description">
-                    Welcome to bah! This is your first blog post to help you get started.
-                </div>
-                
-                
-                <div class="post-full-content">
-                    <h1>Welcome to bah!</h1>
-<p>Congratulations! 🎉 You've successfully set up your new blog with <strong>Blogr</strong>. This is your first blog post, and it's here to help you understand how everything works.</p>
-<h2>What is Blogr?</h2>
-<p>Blogr is a modern CLI static site generator specifically designed for blogs. It focuses on:</p>
-<ul>
-<li><strong>Simplicity</strong> - Easy to use command-line interface</li>
-<li><strong>Speed</strong> - Fast builds and optimized output</li>
-<li><strong>Developer Experience</strong> - Live reload, hot reloading, and great tooling</li>
-<li><strong>Themes</strong> - Beautiful, customizable themes</li>
-<li><strong>GitHub Integration</strong> - Seamless deployment to GitHub Pages</li>
-</ul>
-<h2>Getting Started</h2>
-<p>Here are some commands to help you get started:</p>
-<h3>Create a New Post</h3>
-<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> new &quot;</span><span style="color:#a3be8c;">My Second Post</span><span style="color:#c0c5ce;">&quot;
-</span></code></pre>
-<p>This will create a new markdown file in your <code>posts/</code> directory with the proper front matter.</p>
-<h3>Start Development Server</h3>
-<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> serve
-</span></code></pre>
-<p>This starts a local development server with live reload. Any changes you make to your posts or configuration will automatically update in your browser.</p>
-<h3>Build Your Site</h3>
-<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> build
-</span></code></pre>
-<p>This generates the static files for your blog in the <code>dist/</code> directory.</p>
-<h3>Deploy to GitHub Pages</h3>
-<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> deploy
-</span></code></pre>
-<p>This builds and deploys your site to GitHub Pages automatically.</p>
-<h2>Writing Posts</h2>
-<p>All your blog posts go in the <code>posts/</code> directory as Markdown files. Each post needs <strong>front matter</strong> at the top with metadata:</p>
-<pre class="highlight"><code class="language-yaml"><span style="color:#c0c5ce;">---
-</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Your Post Title</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">date</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">2024-01-15</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">author</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Your Name</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">description</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Brief description for SEO and previews</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">tags</span><span style="color:#c0c5ce;">: [&quot;</span><span style="color:#a3be8c;">tag1</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">tag2</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">tag3</span><span style="color:#c0c5ce;">&quot;]
-</span><span style="color:#bf616a;">status</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">published</span><span style="color:#c0c5ce;">&quot;  </span><span style="color:#65737e;"># or &quot;draft&quot;
-</span><span style="color:#bf616a;">slug</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">url-friendly-slug</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">featured</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false      </span><span style="color:#65737e;"># Set to true for featured posts
-</span><span style="color:#c0c5ce;">---
-</span></code></pre>
-<h3>Supported Markdown Features</h3>
-<p>Blogr supports all standard Markdown features plus some extras:</p>
-<ul>
-<li><strong>Headers</strong> - Use <code>#</code>, <code>##</code>, <code>###</code>, etc.</li>
-<li><strong>Links</strong> - <code>[Link text](https://example.com)</code></li>
-<li><strong>Images</strong> - <code>![Alt text](path/to/image.png)</code></li>
-<li><strong>Code blocks</strong> - Syntax highlighting included</li>
-<li><strong>Tables</strong> - Standard markdown table syntax</li>
-<li><strong>Lists</strong> - Both ordered and unordered</li>
-</ul>
-<h3>Code Syntax Highlighting</h3>
-<p>Code blocks are automatically highlighted:</p>
-<pre class="highlight"><code class="language-rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
-</span><span style="color:#c0c5ce;">    println!(&quot;</span><span style="color:#a3be8c;">Hello, Blogr!</span><span style="color:#c0c5ce;">&quot;);
-</span><span style="color:#c0c5ce;">}
-</span></code></pre><pre class="highlight"><code class="language-javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">greet</span><span style="color:#c0c5ce;">(name) {
-</span><span style="color:#c0c5ce;">    console.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(`</span><span style="color:#a3be8c;">Hello, </span><span style="color:#c0c5ce;">${</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">}</span><span style="color:#a3be8c;">!</span><span style="color:#c0c5ce;">`);
-</span><span style="color:#c0c5ce;">}
-</span></code></pre><pre class="highlight"><code class="language-python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n</span><span style="color:#c0c5ce;">):
-</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">n &lt;= </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
-</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">n
-</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(n-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">) + </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(n-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)
-</span></code></pre>
-<h2>Customizing Your Blog</h2>
-<h3>Theme Configuration</h3>
-<p>Your blog uses the <strong>Minimal Retro</strong> theme. You can customize colors, fonts, and other settings in your <code>blogr.toml</code> file:</p>
-<pre class="highlight"><code class="language-toml"><span style="color:#c0c5ce;">[theme.config]
-</span><span style="color:#c0c5ce;">primary_color = &quot;#FF6B35&quot;
-</span><span style="color:#c0c5ce;">secondary_color = &quot;#F7931E&quot;
-</span><span style="color:#c0c5ce;">background_color = &quot;#2D1B0F&quot;
-</span><span style="color:#c0c5ce;">font_family = &quot;Monaco, &#39;Courier New&#39;, monospace&quot;
-</span><span style="color:#c0c5ce;">show_reading_time = true
-</span><span style="color:#c0c5ce;">show_author = true
-</span></code></pre>
-<h3>Static Files</h3>
-<p>Put images, custom CSS, JavaScript, and other static files in the <code>static/</code> directory. They'll be copied to your built site automatically.</p>
-<h2>Project Structure</h2>
-<pre class="highlight"><code>your-blog/
-├── blogr.toml          # Configuration
-├── posts/              # Your blog posts
-│   ├── welcome.md      # This post
-│   └── about.md        # About page
-├── static/             # Static assets
-│   ├── images/
-│   ├── css/
-│   └── js/
-├── themes/             # Custom theme files (optional)
-└── dist/               # Built site (generated)
-</code></pre>
-<h2>Tips for Blogging Success</h2>
-<ol>
-<li><strong>Write consistently</strong> - Regular posting keeps readers engaged</li>
-<li><strong>Use good titles</strong> - Make them descriptive and SEO-friendly</li>
-<li><strong>Add descriptions</strong> - These appear in previews and search results</li>
-<li><strong>Use tags wisely</strong> - Help readers find related content</li>
-<li><strong>Include images</strong> - Visual content makes posts more engaging</li>
-<li><strong>Preview before publishing</strong> - Use <code>blogr serve</code> to check how posts look</li>
-</ol>
-<h2>Next Steps</h2>
-<p>Now that you have Blogr set up, here are some things you might want to do:</p>
-<ol>
-<li><strong>Edit this post</strong> - Customize it or delete it entirely</li>
-<li><strong>Create your About page</strong> - Tell readers about yourself</li>
-<li><strong>Write your first real post</strong> - Share something you're passionate about</li>
-<li><strong>Customize your theme</strong> - Make it match your personal style</li>
-<li><strong>Set up deployment</strong> - Get your blog online for the world to see</li>
-</ol>
-<h2>Need Help?</h2>
-<ul>
-<li>Check out the <a href="https://github.com/bahdotsh/blogr">Blogr documentation</a></li>
-<li>Run <code>blogr --help</code> for command reference</li>
-<li>Use <code>blogr project check</code> to validate your setup</li>
-</ul>
-<hr />
-<p>Happy blogging! 🚀</p>
-<p><em>This post was automatically generated when you initialized your Blogr project. Feel free to edit or delete it.</em></p>
-
-                </div>
-
-                <!-- Post Footer with full tags -->
-                <footer class="post-entry-footer">
-                    
-                    <div class="post-tags-full">
-                        <span class="tags-label">tagged:</span>
-                        
-                        <a href="https://blog.gokuls.in/tags/welcome.html" class="tag-link">welcome</a>, 
-                        
-                        <a href="https://blog.gokuls.in/tags/getting-started.html" class="tag-link">getting-started</a>, 
-                        
-                        <a href="https://blog.gokuls.in/tags/first-post.html" class="tag-link">first-post</a>
-                        
-                    </div>
-                    
-
-                    <div class="post-actions">
-                        
-                        <a href="https://blog.gokuls.in/posts/welcome.html" class="permalink">permalink</a>
-                        
-                        <button class="collapse-btn" onclick="togglePost(1)">collapse</button>
-                    </div>
-                </footer>
-            </div>
-        </article>
-        
-        <article class="post-entry" data-post-id="2">
-            <!-- Post Header -->
-            
-            <header class="post-entry-header" onclick="togglePost(2)">
-                <h2 class="post-entry-title">About</h2>
-            
-                
-                <div class="post-entry-meta">
-                    <time class="post-date">Sep 20, 2025</time>
-                    
-                    
-                    <span class="post-author">bahdotsh</span>
-                    
-                    
-                    
-                    <span class="reading-time">1min</span>
-                    
-                </div>
-
-                <!-- Tags as artistic elements -->
-                
-                <div class="post-tags-preview">
-                    
-                    <span class="tag-bubble">about</span>
-                    
-                    <span class="tag-bubble">personal</span>
-                    
-                </div>
-                
-
-                <!-- Expand indicator -->
-                <div class="expand-indicator">
-                    <span class="expand-text">read</span>
-                    <span class="expand-arrow">↓</span>
-                </div>
-            </header>
-            
-
-            <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-2">
-                
-                <div class="post-description">
-                    Learn more about bahdotsh and bah
-                </div>
-                
-                
-                <div class="post-full-content">
-                    <h1>About Me</h1>
-<p>Hello! I'm <strong>bahdotsh</strong>, and welcome to <strong>bah</strong>.</p>
-<h2>Who Am I?</h2>
-<p><em>This is where you can introduce yourself to your readers. Consider including:</em></p>
-<ul>
-<li>Your background and experience</li>
-<li>What you're passionate about</li>
-<li>Why you started this blog</li>
-<li>What readers can expect to find here</li>
-</ul>
-<h2>What I Write About</h2>
-<p><em>Describe the topics you cover on your blog. For example:</em></p>
-<ul>
-<li>Technology and programming</li>
-<li>Personal experiences and lessons learned</li>
-<li>Industry insights and trends</li>
-<li>Tutorials and how-to guides</li>
-</ul>
-<h2>My Journey</h2>
-<p><em>Share your story - what led you to start blogging? What experiences shaped your perspective?</em></p>
-<h2>Connect With Me</h2>
-<p><em>Add your contact information and social media links:</em></p>
-<ul>
-<li>Email: your.email@example.com</li>
-<li>Twitter: <a href="https://twitter.com/yourusername">@yourusername</a></li>
-<li>LinkedIn: <a href="https://linkedin.com/in/yourprofile">Your Name</a></li>
-<li>GitHub: <a href="https://github.com/yourusername">@yourusername</a></li>
-</ul>
-<h2>About This Blog</h2>
-<p>This blog is built with <a href="https://github.com/bahdotsh/blogr">Blogr</a>, a modern CLI static site generator. The site uses the <strong>Minimal Retro</strong> theme, chosen for its clean design and focus on readability.</p>
-<h2>Fun Facts</h2>
-<p><em>Share some interesting or fun facts about yourself:</em></p>
-<ul>
-<li>I've been coding for X years</li>
-<li>I love coffee and usually drink X cups per day</li>
-<li>My favorite programming language is X</li>
-<li>When I'm not coding, I enjoy X</li>
-</ul>
-<hr />
-<p><em>Thanks for visiting! Feel free to reach out if you have any questions or just want to chat.</em></p>
-<p><strong>Last updated:</strong> 2025-09-20</p>
-
-                </div>
-
-                <!-- Post Footer with full tags -->
-                <footer class="post-entry-footer">
-                    
-                    <div class="post-tags-full">
-                        <span class="tags-label">tagged:</span>
-                        
-                        <a href="https://blog.gokuls.in/tags/about.html" class="tag-link">about</a>, 
-                        
-                        <a href="https://blog.gokuls.in/tags/personal.html" class="tag-link">personal</a>
-                        
-                    </div>
-                    
-
-                    <div class="post-actions">
-                        
-                        <a href="https://blog.gokuls.in/posts/about.html" class="permalink">permalink</a>
-                        
-                        <button class="collapse-btn" onclick="togglePost(2)">collapse</button>
-                    </div>
-                </footer>
-            </div>
-        </article>
-        
-        <article class="post-entry" data-post-id="3">
-            <!-- Post Header -->
-            
-            <header class="post-entry-header" onclick="togglePost(3)">
                 <h2 class="post-entry-title">giff</h2>
             
                 
@@ -405,7 +96,7 @@
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-3">
+            <div class="post-entry-content" id="post-content-1">
                 
                 <div class="post-description">
                     git diff terminal visualizer
@@ -464,16 +155,16 @@ cargo install --path .
                         
                         <a href="https://blog.gokuls.in/posts/giff.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(3)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(1)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="4">
+        <article class="post-entry" data-post-id="2">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(4)">
+            <header class="post-entry-header" onclick="togglePost(2)">
                 <h2 class="post-entry-title">Termgpt</h2>
             
                 
@@ -507,7 +198,7 @@ cargo install --path .
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-4">
+            <div class="post-entry-content" id="post-content-2">
                 
                 <div class="post-description">
                     A programming and system administration assistant, powered by chatGPT!
@@ -594,16 +285,16 @@ termgpt How can I change the permissions of a file or directory
                         
                         <a href="https://blog.gokuls.in/posts/termgpt.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(4)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(2)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="5">
+        <article class="post-entry" data-post-id="3">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(5)">
+            <header class="post-entry-header" onclick="togglePost(3)">
                 <h2 class="post-entry-title">Why I built zp!</h2>
             
                 
@@ -637,7 +328,7 @@ termgpt How can I change the permissions of a file or directory
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-5">
+            <div class="post-entry-content" id="post-content-3">
                 
                 <div class="post-description">
                     Talks about the process behind building zp!
@@ -678,16 +369,16 @@ The process was relatively simple than I expected and as everyone says, the toug
                         
                         <a href="https://blog.gokuls.in/posts/why-i-built-zp.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(5)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(3)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="6">
+        <article class="post-entry" data-post-id="4">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(6)">
+            <header class="post-entry-header" onclick="togglePost(4)">
                 <h2 class="post-entry-title">Zp</h2>
             
                 
@@ -721,7 +412,7 @@ The process was relatively simple than I expected and as everyone says, the toug
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-6">
+            <div class="post-entry-content" id="post-content-4">
                 
                 <div class="post-description">
                     A cli tool to copy things!
@@ -781,16 +472,16 @@ cargo install --path .
                         
                         <a href="https://blog.gokuls.in/posts/zp.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(6)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(4)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="7">
+        <article class="post-entry" data-post-id="5">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(7)">
+            <header class="post-entry-header" onclick="togglePost(5)">
                 <h2 class="post-entry-title">Art, Time and Life</h2>
             
                 
@@ -824,7 +515,7 @@ cargo install --path .
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-7">
+            <div class="post-entry-content" id="post-content-5">
                 
                 <div class="post-description">
                     An essay on art, time and life. 
@@ -853,16 +544,16 @@ You can never complete a work of art on time. Art never belonged to that dimensi
                         
                         <a href="https://blog.gokuls.in/posts/art-time-life.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(7)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(5)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="8">
+        <article class="post-entry" data-post-id="6">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(8)">
+            <header class="post-entry-header" onclick="togglePost(6)">
                 <h2 class="post-entry-title">Are your thoughts really yours?</h2>
             
                 
@@ -896,7 +587,7 @@ You can never complete a work of art on time. Art never belonged to that dimensi
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-8">
+            <div class="post-entry-content" id="post-content-6">
                 
                 <div class="post-description">
                     Are your thoughts really yours?
@@ -932,16 +623,16 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
                         
                         <a href="https://blog.gokuls.in/posts/thoughts.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(8)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(6)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="9">
+        <article class="post-entry" data-post-id="7">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(9)">
+            <header class="post-entry-header" onclick="togglePost(7)">
                 <h2 class="post-entry-title">How does the blockchain work? Part 2</h2>
             
                 
@@ -975,7 +666,7 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-9">
+            <div class="post-entry-content" id="post-content-7">
                 
                 <div class="post-description">
                     How does the blockchain work? Part 2
@@ -1026,16 +717,16 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
                         
                         <a href="https://blog.gokuls.in/posts/how-does-blockchain-work-2.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(9)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(7)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="10">
+        <article class="post-entry" data-post-id="8">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(10)">
+            <header class="post-entry-header" onclick="togglePost(8)">
                 <h2 class="post-entry-title">How does the blockchain work? Part 1</h2>
             
                 
@@ -1069,7 +760,7 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-10">
+            <div class="post-entry-content" id="post-content-8">
                 
                 <div class="post-description">
                     How does the blockchain work? Part 1
@@ -1110,6 +801,169 @@ The prefix “crypt” means “hidden” and the suffix “graphy” means “w
                         
                         <a href="https://blog.gokuls.in/posts/how-does-blockchain-work-1.html" class="permalink">permalink</a>
                         
+                        <button class="collapse-btn" onclick="togglePost(8)">collapse</button>
+                    </div>
+                </footer>
+            </div>
+        </article>
+        
+        <article class="post-entry" data-post-id="9">
+            <!-- Post Header -->
+            
+            <header class="post-entry-header" onclick="togglePost(9)">
+                <h2 class="post-entry-title">The Blockchain Dictionary</h2>
+            
+                
+                <div class="post-entry-meta">
+                    <time class="post-date">Jul 29, 2020</time>
+                    
+                    
+                    <span class="post-author">bahdotsh</span>
+                    
+                    
+                    
+                    <span class="reading-time">2min</span>
+                    
+                </div>
+
+                <!-- Tags as artistic elements -->
+                
+                <div class="post-tags-preview">
+                    
+                    <span class="tag-bubble">blockchain</span>
+                    
+                </div>
+                
+
+                <!-- Expand indicator -->
+                <div class="expand-indicator">
+                    <span class="expand-text">read</span>
+                    <span class="expand-arrow">↓</span>
+                </div>
+            </header>
+            
+
+            <!-- Expandable Content -->
+            <div class="post-entry-content" id="post-content-9">
+                
+                <div class="post-description">
+                    Get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.
+                </div>
+                
+                
+                <div class="post-full-content">
+                    <p>Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our <a href="https://gokuls.in/blog/blockchain/">previous</a>  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.</p>
+<h3>Cryptocoin or cryptocurrency</h3>
+<p>Cryptocurrency is a fancy word. But its meaning is boringly simple. It’s just money. The only difference is that this money is completely digital. Which means, it doesn’t exist out of your computer. And you can use it just as how you’d use the conventional money; to buy things.</p>
+<h3>Bitcoin</h3>
+<p>Bitcoin is one of the reasons why blockchain became a common term. Bitcoin is a cryptocurrency implemented using blockchain technology. It is the world’s first decentralized cryptocurrency. It was invented in 2008 by an unknown person or a group of people using the name Satoshi Nakamoto. There’s no central bank or any single intermediary administrator to control the issue and supply of bitcoins. This is one of the reasons why bitcoin became very famous.</p>
+<h3>Mining and Miners</h3>
+<p>For a transaction to occur inside the blockchain network it should be validated by a group of members inside the network. This group of people who validate each transactions are called Miners. And this process of validation is called Mining.</p>
+<h3>Smart Contract</h3>
+<p>A contract is an agreement between two or more parties to do something. A smart contract is the digital version of this contract. Smart contracts help you to exchange anything of value in a transparent, conflict-free way while avoiding the services of a middleman. It is a self-executing or self-enforcing agreement. Which means that, if the rules of the agreement are met, the agreement is automatically enforced.</p>
+<h3>Ethereum</h3>
+<p>Launched in 2015, Ethereum is an open-source, blockchain-based, decentralized software platform used for its own cryptocurrency, ether. It enables Smart Contracts and Distributed Applications (DApps) to be built and run without any downtime, fraud, control, or interference from a third party.</p>
+<p>Hyperledger
+Hyperledger is a blockchain framework to develop blockchain-based applications, mainly for enterprises.</p>
+<h3>Tokens</h3>
+<p>Tokens are digital assets in a blockchain network. Ok, don’t scratch your head. You have been to a gaming arcade, right? So what did you do there? You gave some money in the counter and got a card in which you can swipe on the gaming consoles of the games you wanted to play. That card acts like money in that particular arcade and you got to enjoy the games without any hassle and worry of payment. But if you take that card to Starbucks and demanded a caramel frappuccino the only thing you’d get would be a disappointment. This is exactly how a token works. They can act as a stand-in for money in a particular blockchain network. And outside that network, the tokens are basically worthless.</p>
+
+                </div>
+
+                <!-- Post Footer with full tags -->
+                <footer class="post-entry-footer">
+                    
+                    <div class="post-tags-full">
+                        <span class="tags-label">tagged:</span>
+                        
+                        <a href="https://blog.gokuls.in/tags/blockchain.html" class="tag-link">blockchain</a>
+                        
+                    </div>
+                    
+
+                    <div class="post-actions">
+                        
+                        <a href="https://blog.gokuls.in/posts/blockchain-dictionary.html" class="permalink">permalink</a>
+                        
+                        <button class="collapse-btn" onclick="togglePost(9)">collapse</button>
+                    </div>
+                </footer>
+            </div>
+        </article>
+        
+        <article class="post-entry" data-post-id="10">
+            <!-- Post Header -->
+            
+            <header class="post-entry-header" onclick="togglePost(10)">
+                <h2 class="post-entry-title">Blockchain: A short sneak peek</h2>
+            
+                
+                <div class="post-entry-meta">
+                    <time class="post-date">Jul 27, 2020</time>
+                    
+                    
+                    <span class="post-author">bahdotsh</span>
+                    
+                    
+                    
+                    <span class="reading-time">2min</span>
+                    
+                </div>
+
+                <!-- Tags as artistic elements -->
+                
+                <div class="post-tags-preview">
+                    
+                    <span class="tag-bubble">blockchain</span>
+                    
+                </div>
+                
+
+                <!-- Expand indicator -->
+                <div class="expand-indicator">
+                    <span class="expand-text">read</span>
+                    <span class="expand-arrow">↓</span>
+                </div>
+            </header>
+            
+
+            <!-- Expandable Content -->
+            <div class="post-entry-content" id="post-content-10">
+                
+                <div class="post-description">
+                    A short sneak peek about blockchain
+                </div>
+                
+                
+                <div class="post-full-content">
+                    <p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?
+To get an idea about all this first let’s understand how the “current Internet” shares information. We know that ,“<strong>the internet is a collection of computers that share information</strong>”. All the data shared in this network is centralized. This means that if we take an instance of data sharing inside this network, there will be only two participants. No computer acts as an observer or as a validator when two other computers are sharing data.</p>
+<p>Blockchain on the other hand is de-centralized. Which means that the exchange of information must be observed and validated (approved) by everyone on the network. If the validation doesn’t happen, then, the transactions(exchange of information) will be invalid.</p>
+<p><strong>This change is the revolution</strong>. This brings transparency, authenticity and immutability to the network ; everything which was missing from “the internet”.</p>
+<p>Now let’s see what a blockchain is. “Blockchain is a distributed, de-centralized, public ledger”. Nope, it’s not that difficult as this definition. Blockchain is literally just a chain of blocks. The blocks contains information about the various data transactions in the network and they are connected with each other through cryptographic chains.</p>
+<p>That was easier to understand, right? But then what kind of information does the block hold? We know that blockchain is all about transactions and the blocks are a way to register these transactions. Suppose both of us are inside a blockchain network and we engage in a transaction. The block that records our transaction will have the date and time of the transaction, both our names (our names recorded in the block won’t be our actual names but would be our corresponding “digital singnatures”). It will also have information about what the transaction was all about. This block will be validated by other members present in the network and if they approve, it will be added to the rest of the blocks already inside the network. So in simple terms a block is an instance of a transaction.</p>
+<p>As you can visualize the block now, imagine hashing the contents of the block using a hashing algorithm (SHA-256). But what the hell is this hashing? Don’t sweat your brows, hashing simply means that we are taking an input string of any length and giving out an output of a fixed length. The SHA-256 is an algorithm to achieve this. This is how the block exists in the network.</p>
+<p>We have just discussed about a single transaction. But in reality a block can hold upto 1 MB of data. This means that a single block can house a few thousand transactions(depending on the size of each transactions).</p>
+<p>This is just a basic introduction about blockchain. Let’s look into the working of blockchain and all it’s intricasies in the coming articles.</p>
+<p>While reading about this revolution you may come face to face with some interesting words. Bitcoin, Ethereum, Hyperledger, smart contracts etc. I will explain what some of these means in the articles which will drop soon.</p>
+
+                </div>
+
+                <!-- Post Footer with full tags -->
+                <footer class="post-entry-footer">
+                    
+                    <div class="post-tags-full">
+                        <span class="tags-label">tagged:</span>
+                        
+                        <a href="https://blog.gokuls.in/tags/blockchain.html" class="tag-link">blockchain</a>
+                        
+                    </div>
+                    
+
+                    <div class="post-actions">
+                        
+                        <a href="https://blog.gokuls.in/posts/blockchain.html" class="permalink">permalink</a>
+                        
                         <button class="collapse-btn" onclick="togglePost(10)">collapse</button>
                     </div>
                 </footer>
@@ -1136,7 +990,7 @@ The prefix “crypt” means “hidden” and the suffix “graphy” means “w
 let currentPage = 1;
 let isLoading = false;
 let hasMorePosts = true;
-let totalPosts = 20;
+let totalPosts = 18;
 let loadedPosts = 10;
 let maxPostId = 10;
 
