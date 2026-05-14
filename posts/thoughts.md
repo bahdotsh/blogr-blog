@@ -5,7 +5,7 @@ date: 2020-08-04
 author: "bahdotsh"
 status: "published"
 slug: "thoughts"
-tags: ["thoughts"]
+tags: ["thoughts", "essay", "philosophy", "language"]
 featured: false
 ---
 

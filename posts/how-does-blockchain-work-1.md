@@ -5,7 +5,7 @@ date: 2020-07-31
 author: "bahdotsh"
 status: "published"
 slug: "how-does-blockchain-work-1"
-tags: ["blockchain"]
+tags: ["blockchain", "cryptography", "tutorial"]
 featured: false
 ---
 

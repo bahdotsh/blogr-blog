@@ -5,7 +5,7 @@ date: 2018-05-16
 author: "bahdotsh"
 status: "published"
 slug: "moth"
-tags: ["poems"]
+tags: ["poems", "darkness", "perspective"]
 featured: false
 ---
 

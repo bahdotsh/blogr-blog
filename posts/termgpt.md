@@ -5,7 +5,7 @@ date: 2023-05-07
 author: "bahdotsh"
 status: "published"
 slug: "termgpt"
-tags: ["projects"]
+tags: ["projects", "rust", "cli", "ai", "open-source"]
 featured: false
 ---
 

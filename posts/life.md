@@ -5,7 +5,7 @@ date: 2018-10-15
 author: "bahdotsh"
 status: "published"
 slug: "life"
-tags: ["poems"]
+tags: ["poems", "life"]
 featured: false
 ---
 

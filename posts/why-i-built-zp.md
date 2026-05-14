@@ -5,7 +5,7 @@ date: 2023-04-12
 author: "bahdotsh"
 status: "published"
 slug: "why-i-built-zp"
-tags: ["projects"]
+tags: ["projects", "rust", "essay", "open-source"]
 featured: false
 ---
 

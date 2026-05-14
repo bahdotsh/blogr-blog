@@ -5,7 +5,7 @@ date: 2020-02-06
 author: "bahdotsh"
 status: "published"
 slug: "silence"
-tags: ["poems"]
+tags: ["poems", "silence", "mindfulness"]
 featured: false
 ---
 

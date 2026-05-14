@@ -5,7 +5,7 @@ date: 2023-04-10
 author: "bahdotsh"
 status: "published"
 slug: "zp"
-tags: ["projects"]
+tags: ["projects", "rust", "cli", "open-source"]
 featured: false
 ---
 

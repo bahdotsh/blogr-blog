@@ -5,7 +5,7 @@ date: 2024-08-06
 author: "bahdotsh"
 status: "published"
 slug: "giff"
-tags: ["projects"]
+tags: ["projects", "rust", "cli", "git", "open-source"]
 featured: false
 ---
 

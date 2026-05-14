@@ -5,7 +5,7 @@ date: 2018-11-21
 author: "bahdotsh"
 status: "published"
 slug: "thejump"
-tags: ["poems"]
+tags: ["poems", "fiction"]
 featured: false
 ---
 

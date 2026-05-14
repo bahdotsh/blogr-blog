@@ -5,7 +5,7 @@ date: 2020-07-27
 author: "bahdotsh"
 status: "published"
 slug: "blockchain"
-tags: ["blockchain"]
+tags: ["blockchain", "tutorial", "web3", "decentralization"]
 featured: false
 ---
 

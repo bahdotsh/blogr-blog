@@ -5,7 +5,7 @@ date: 2020-12-04
 author: "bahdotsh"
 status: "published"
 slug: "art-time-life"
-tags: ["poems"]
+tags: ["poems", "essay", "philosophy", "life"]
 featured: false
 ---
 

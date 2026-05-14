@@ -5,7 +5,7 @@ date: 2020-08-02
 author: "bahdotsh"
 status: "published"
 slug: "how-does-blockchain-work-2"
-tags: ["blockchain"]
+tags: ["blockchain", "cryptography", "tutorial", "data-structures"]
 featured: false
 ---
 

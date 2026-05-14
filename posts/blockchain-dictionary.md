@@ -5,7 +5,7 @@ date: 2020-07-29
 author: "bahdotsh"
 status: "published"
 slug: "blockchain-dictionary"
-tags: ["blockchain"]
+tags: ["blockchain", "bitcoin", "cryptocurrency", "tutorial"]
 featured: false
 ---
 

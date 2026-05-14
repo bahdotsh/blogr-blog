@@ -5,7 +5,7 @@ date: 2018-06-11
 author: "bahdotsh"
 status: "published"
 slug: "death"
-tags: ["poems"]
+tags: ["poems", "mortality", "fiction"]
 featured: false
 ---
 

@@ -5,7 +5,7 @@ date: 2018-07-12
 author: "bahdotsh"
 status: "published"
 slug: "night"
-tags: ["poems"]
+tags: ["poems", "nature"]
 featured: false
 ---
 
