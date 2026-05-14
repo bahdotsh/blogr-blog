@@ -15,7 +15,9 @@
         "slug": "silence",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "silence",
+          "mindfulness"
         ],
         "title": "Random rant about silence"
       },
@@ -34,7 +36,8 @@
         "slug": "thejump",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "fiction"
         ],
         "title": "The Jump"
       },
@@ -53,7 +56,8 @@
         "slug": "life",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "life"
         ],
         "title": "Life"
       },
@@ -72,7 +76,8 @@
         "slug": "theanswer",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "love"
         ],
         "title": "The answer"
       },
@@ -91,7 +96,8 @@
         "slug": "bah",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "life"
         ],
         "title": "Beyond actual hues"
       },
@@ -110,7 +116,8 @@
         "slug": "night",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "nature"
         ],
         "title": "The night"
       },
@@ -129,7 +136,9 @@
         "slug": "death",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "mortality",
+          "fiction"
         ],
         "title": "Death"
       },
@@ -148,7 +157,9 @@
         "slug": "moth",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "darkness",
+          "perspective"
         ],
         "title": "The Moth"
       },

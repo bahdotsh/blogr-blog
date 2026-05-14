@@ -15,7 +15,11 @@
         "slug": "giff",
         "status": "published",
         "tags": [
-          "projects"
+          "projects",
+          "rust",
+          "cli",
+          "git",
+          "open-source"
         ],
         "title": "giff"
       },
@@ -34,7 +38,11 @@
         "slug": "termgpt",
         "status": "published",
         "tags": [
-          "projects"
+          "projects",
+          "rust",
+          "cli",
+          "ai",
+          "open-source"
         ],
         "title": "Termgpt"
       },
@@ -53,7 +61,10 @@
         "slug": "why-i-built-zp",
         "status": "published",
         "tags": [
-          "projects"
+          "projects",
+          "rust",
+          "essay",
+          "open-source"
         ],
         "title": "Why I built zp!"
       },
@@ -72,7 +83,10 @@
         "slug": "zp",
         "status": "published",
         "tags": [
-          "projects"
+          "projects",
+          "rust",
+          "cli",
+          "open-source"
         ],
         "title": "Zp"
       },
@@ -91,7 +105,10 @@
         "slug": "art-time-life",
         "status": "published",
         "tags": [
-          "poems"
+          "poems",
+          "essay",
+          "philosophy",
+          "life"
         ],
         "title": "Art, Time and Life"
       },
@@ -110,7 +127,10 @@
         "slug": "thoughts",
         "status": "published",
         "tags": [
-          "thoughts"
+          "thoughts",
+          "essay",
+          "philosophy",
+          "language"
         ],
         "title": "Are your thoughts really yours?"
       },
@@ -129,7 +149,10 @@
         "slug": "how-does-blockchain-work-2",
         "status": "published",
         "tags": [
-          "blockchain"
+          "blockchain",
+          "cryptography",
+          "tutorial",
+          "data-structures"
         ],
         "title": "How does the blockchain work? Part 2"
       },
@@ -148,7 +171,9 @@
         "slug": "how-does-blockchain-work-1",
         "status": "published",
         "tags": [
-          "blockchain"
+          "blockchain",
+          "cryptography",
+          "tutorial"
         ],
         "title": "How does the blockchain work? Part 1"
       },
@@ -167,7 +192,10 @@
         "slug": "blockchain-dictionary",
         "status": "published",
         "tags": [
-          "blockchain"
+          "blockchain",
+          "bitcoin",
+          "cryptocurrency",
+          "tutorial"
         ],
         "title": "The Blockchain Dictionary"
       },
@@ -186,7 +214,10 @@
         "slug": "blockchain",
         "status": "published",
         "tags": [
-          "blockchain"
+          "blockchain",
+          "tutorial",
+          "web3",
+          "decentralization"
         ],
         "title": "Blockchain: A short sneak peek"
       },
