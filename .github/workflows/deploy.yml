@@ -10,6 +10,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -51,13 +53,8 @@ jobs:
     - name: Install Blogr CLI
       run: cargo install --git https://github.com/bahdotsh/blogr.git blogr-cli
 
-    - name: Build site
-      run: blogr build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Deploy to GitHub Pages
-      run: blogr deploy
+    - name: Build, hydrate, and deploy
+      run: scripts/deploy.sh
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
