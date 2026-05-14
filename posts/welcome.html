@@ -15,20 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://blog.gokuls.in/css/style.css">
 
+    <meta name="blogr-base" content="https://blog.gokuls.in/">
     
 </head>
 <body>
     <div class="page-container">
-        <!-- Minimal header with just title -->
+        <!-- Minimal header with title and search -->
         <header class="site-header">
             <h1 class="site-title">
-                <a href="/">bah</a>
+                <a href="https://blog.gokuls.in/">bah</a>
             </h1>
             
             <p class="site-subtitle">A blog by bahdotsh</p>
             
+            
+            <!-- Search form -->
+            <form id="search-form" class="search-form" role="search">
+                <div class="search-container">
+                    <input 
+                        id="search-input" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Search posts..." 
+                        autocomplete="off"
+                        aria-label="Search posts"
+                    />
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results" hidden></div>
+            </form>
         </header>
 
         <!-- Main content area -->
@@ -64,11 +86,11 @@
             <div class="post-tags-standalone">
                 <span class="tags-intro">exploring:</span>
                 
-                <a href="/tags/welcome.html" class="tag-link-standalone">welcome</a>, 
+                <a href="https://blog.gokuls.in/tags/welcome.html" class="tag-link-standalone">welcome</a>, 
                 
-                <a href="/tags/getting-started.html" class="tag-link-standalone">getting-started</a>, 
+                <a href="https://blog.gokuls.in/tags/getting-started.html" class="tag-link-standalone">getting-started</a>, 
                 
-                <a href="/tags/first-post.html" class="tag-link-standalone">first-post</a>
+                <a href="https://blog.gokuls.in/tags/first-post.html" class="tag-link-standalone">first-post</a>
                 
             </div>
             
@@ -91,34 +113,34 @@
 <h2>Getting Started</h2>
 <p>Here are some commands to help you get started:</p>
 <h3>Create a New Post</h3>
-<pre class="highlight"><code class="language-bash">blogr new &quot;My Second Post&quot;
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> new &quot;</span><span style="color:#a3be8c;">My Second Post</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre>
 <p>This will create a new markdown file in your <code>posts/</code> directory with the proper front matter.</p>
 <h3>Start Development Server</h3>
-<pre class="highlight"><code class="language-bash">blogr serve
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> serve
+</span></code></pre>
 <p>This starts a local development server with live reload. Any changes you make to your posts or configuration will automatically update in your browser.</p>
 <h3>Build Your Site</h3>
-<pre class="highlight"><code class="language-bash">blogr build
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> build
+</span></code></pre>
 <p>This generates the static files for your blog in the <code>dist/</code> directory.</p>
 <h3>Deploy to GitHub Pages</h3>
-<pre class="highlight"><code class="language-bash">blogr deploy
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">blogr</span><span style="color:#c0c5ce;"> deploy
+</span></code></pre>
 <p>This builds and deploys your site to GitHub Pages automatically.</p>
 <h2>Writing Posts</h2>
 <p>All your blog posts go in the <code>posts/</code> directory as Markdown files. Each post needs <strong>front matter</strong> at the top with metadata:</p>
-<pre class="highlight"><code class="language-yaml">---
-title: &quot;Your Post Title&quot;
-date: &quot;2024-01-15&quot;
-author: &quot;Your Name&quot;
-description: &quot;Brief description for SEO and previews&quot;
-tags: [&quot;tag1&quot;, &quot;tag2&quot;, &quot;tag3&quot;]
-status: &quot;published&quot;  # or &quot;draft&quot;
-slug: &quot;url-friendly-slug&quot;
-featured: false      # Set to true for featured posts
----
-</code></pre>
+<pre class="highlight"><code class="language-yaml"><span style="color:#c0c5ce;">---
+</span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Your Post Title</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">date</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">2024-01-15</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">author</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Your Name</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">description</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Brief description for SEO and previews</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">tags</span><span style="color:#c0c5ce;">: [&quot;</span><span style="color:#a3be8c;">tag1</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">tag2</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">tag3</span><span style="color:#c0c5ce;">&quot;]
+</span><span style="color:#bf616a;">status</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">published</span><span style="color:#c0c5ce;">&quot;  </span><span style="color:#65737e;"># or &quot;draft&quot;
+</span><span style="color:#bf616a;">slug</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">url-friendly-slug</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">featured</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false      </span><span style="color:#65737e;"># Set to true for featured posts
+</span><span style="color:#c0c5ce;">---
+</span></code></pre>
 <h3>Supported Markdown Features</h3>
 <p>Blogr supports all standard Markdown features plus some extras:</p>
 <ul>
@@ -131,32 +153,32 @@ featured: false      # Set to true for featured posts
 </ul>
 <h3>Code Syntax Highlighting</h3>
 <p>Code blocks are automatically highlighted:</p>
-<pre class="highlight"><code class="language-rust">fn main() {
-    println!(&quot;Hello, Blogr!&quot;);
-}
-</code></pre><pre class="highlight"><code class="language-javascript">function greet(name) {
-    console.log(`Hello, ${name}!`);
-}
-</code></pre><pre class="highlight"><code class="language-python">def fibonacci(n):
-    if n &lt;= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-</code></pre>
+<pre class="highlight"><code class="language-rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+</span><span style="color:#c0c5ce;">    println!(&quot;</span><span style="color:#a3be8c;">Hello, Blogr!</span><span style="color:#c0c5ce;">&quot;);
+</span><span style="color:#c0c5ce;">}
+</span></code></pre><pre class="highlight"><code class="language-javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">greet</span><span style="color:#c0c5ce;">(name) {
+</span><span style="color:#c0c5ce;">    console.</span><span style="color:#96b5b4;">log</span><span style="color:#c0c5ce;">(`</span><span style="color:#a3be8c;">Hello, </span><span style="color:#c0c5ce;">${</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">}</span><span style="color:#a3be8c;">!</span><span style="color:#c0c5ce;">`);
+</span><span style="color:#c0c5ce;">}
+</span></code></pre><pre class="highlight"><code class="language-python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">n</span><span style="color:#c0c5ce;">):
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">if </span><span style="color:#c0c5ce;">n &lt;= </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">        </span><span style="color:#b48ead;">return </span><span style="color:#c0c5ce;">n
+</span><span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">return </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(n-</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">) + </span><span style="color:#8fa1b3;">fibonacci</span><span style="color:#c0c5ce;">(n-</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">)
+</span></code></pre>
 <h2>Customizing Your Blog</h2>
 <h3>Theme Configuration</h3>
 <p>Your blog uses the <strong>Minimal Retro</strong> theme. You can customize colors, fonts, and other settings in your <code>blogr.toml</code> file:</p>
-<pre class="highlight"><code class="language-toml">[theme.config]
-primary_color = &quot;#FF6B35&quot;
-secondary_color = &quot;#F7931E&quot;
-background_color = &quot;#2D1B0F&quot;
-font_family = &quot;Monaco, 'Courier New', monospace&quot;
-show_reading_time = true
-show_author = true
-</code></pre>
+<pre class="highlight"><code class="language-toml"><span style="color:#c0c5ce;">[theme.config]
+</span><span style="color:#c0c5ce;">primary_color = &quot;#FF6B35&quot;
+</span><span style="color:#c0c5ce;">secondary_color = &quot;#F7931E&quot;
+</span><span style="color:#c0c5ce;">background_color = &quot;#2D1B0F&quot;
+</span><span style="color:#c0c5ce;">font_family = &quot;Monaco, &#39;Courier New&#39;, monospace&quot;
+</span><span style="color:#c0c5ce;">show_reading_time = true
+</span><span style="color:#c0c5ce;">show_author = true
+</span></code></pre>
 <h3>Static Files</h3>
 <p>Put images, custom CSS, JavaScript, and other static files in the <code>static/</code> directory. They'll be copied to your built site automatically.</p>
 <h2>Project Structure</h2>
-<pre class="highlight"><code class="language-">your-blog/
+<pre class="highlight"><code>your-blog/
 ├── blogr.toml          # Configuration
 ├── posts/              # Your blog posts
 │   ├── welcome.md      # This post
@@ -201,17 +223,17 @@ show_author = true
     <!-- Minimal footer -->
     <footer class="post-standalone-footer">
         <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
+            <a href="https://blog.gokuls.in/" class="nav-link">← all posts</a>
             
             
             <div class="related-tags">
                 <span class="related-label">more in:</span>
                 
-                <a href="/tags/welcome.html" class="related-tag">welcome</a>, 
+                <a href="https://blog.gokuls.in/tags/welcome.html" class="related-tag">welcome</a>, 
                 
-                <a href="/tags/getting-started.html" class="related-tag">getting-started</a>, 
+                <a href="https://blog.gokuls.in/tags/getting-started.html" class="related-tag">getting-started</a>, 
                 
-                <a href="/tags/first-post.html" class="related-tag">first-post</a>
+                <a href="https://blog.gokuls.in/tags/first-post.html" class="related-tag">first-post</a>
                 
             </div>
             
@@ -237,6 +259,11 @@ show_author = true
         </footer>
     </div>
 
+    <!-- Search functionality -->
+    <script src="https://blog.gokuls.in/js/vendor/minisearch.min.js"></script>
+    <script src="https://blog.gokuls.in/js/search.js"></script>
+    
+    
     
 </body>
 </html>

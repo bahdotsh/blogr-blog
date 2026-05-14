@@ -15,20 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://blog.gokuls.in/css/style.css">
 
+    <meta name="blogr-base" content="https://blog.gokuls.in/">
     
 </head>
 <body>
     <div class="page-container">
-        <!-- Minimal header with just title -->
+        <!-- Minimal header with title and search -->
         <header class="site-header">
             <h1 class="site-title">
-                <a href="/">bah</a>
+                <a href="https://blog.gokuls.in/">bah</a>
             </h1>
             
             <p class="site-subtitle">A blog by bahdotsh</p>
             
+            
+            <!-- Search form -->
+            <form id="search-form" class="search-form" role="search">
+                <div class="search-container">
+                    <input 
+                        id="search-input" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Search posts..." 
+                        autocomplete="off"
+                        aria-label="Search posts"
+                    />
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results" hidden></div>
+            </form>
         </header>
 
         <!-- Main content area -->
@@ -61,14 +83,20 @@
             </div>
 
             
+            <div class="post-tags-standalone">
+                <span class="tags-intro">exploring:</span>
+                
+                <a href="https://blog.gokuls.in/tags/projects.html" class="tag-link-standalone">projects</a>
+                
+            </div>
+            
         </div>
     </header>
 
     <!-- Content with artistic typography -->
     <div class="post-standalone-content">
-        <p>For those of you who don't know, (which is going to be most of you), I recently published my very first crate; <a href="https://github.com/bahdotsh/zp">zp</a>. <code>zp</code> is just a simple tool to copy contents from a file. I built zp so that I can learn rust properly. And by properly, I mean learning something and understanding it in a way I can use it to build cool/useful things in the future.</p>
-<!-- more -->
-<p>The process was relatively simple than I expected and as everyone says, the toughest thing was deciding what to build. Thankfully, I didn't overthink it this time and decided to build something not complex at all. My problem statement was simple, &quot;I need a tool to copy things from inside a file to the clipboard from my terminal&quot;. Since the problem statement was so clear, I was able to break it down into smaller parts and publish it in a day!</p>
+        <p>For those of you who don't know, (which is going to be most of you), I recently published my very first crate; <a href="https://github.com/bahdotsh/zp">zp</a>. <code>zp</code> is just a simple tool to copy contents from a file. I built zp so that I can learn rust properly. And by properly, I mean learning something and understanding it in a way I can use it to build cool/useful things in the future.
+The process was relatively simple than I expected and as everyone says, the toughest thing was deciding what to build. Thankfully, I didn't overthink it this time and decided to build something not complex at all. My problem statement was simple, "I need a tool to copy things from inside a file to the clipboard from my terminal". Since the problem statement was so clear, I was able to break it down into smaller parts and publish it in a day!</p>
 <p>I was really excited when the development reached the final stages as it was working exactly how I wanted it to work. I don't know if you know, but the following are the steps to publish your crate to <a href="https://crates.io/">crates.io</a> :</p>
 <ul>
 <li>Add a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">license</a> to your project.</li>
@@ -88,8 +116,15 @@
     <!-- Minimal footer -->
     <footer class="post-standalone-footer">
         <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
+            <a href="https://blog.gokuls.in/" class="nav-link">← all posts</a>
             
+            
+            <div class="related-tags">
+                <span class="related-label">more in:</span>
+                
+                <a href="https://blog.gokuls.in/tags/projects.html" class="related-tag">projects</a>
+                
+            </div>
             
         </div>
     </footer>
@@ -113,6 +148,11 @@
         </footer>
     </div>
 
+    <!-- Search functionality -->
+    <script src="https://blog.gokuls.in/js/vendor/minisearch.min.js"></script>
+    <script src="https://blog.gokuls.in/js/search.js"></script>
+    
+    
     
 </body>
 </html>

@@ -15,20 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://blog.gokuls.in/css/style.css">
 
+    <meta name="blogr-base" content="https://blog.gokuls.in/">
     
 </head>
 <body>
     <div class="page-container">
-        <!-- Minimal header with just title -->
+        <!-- Minimal header with title and search -->
         <header class="site-header">
             <h1 class="site-title">
-                <a href="/">bah</a>
+                <a href="https://blog.gokuls.in/">bah</a>
             </h1>
             
             <p class="site-subtitle">A blog by bahdotsh</p>
             
+            
+            <!-- Search form -->
+            <form id="search-form" class="search-form" role="search">
+                <div class="search-container">
+                    <input 
+                        id="search-input" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Search posts..." 
+                        autocomplete="off"
+                        aria-label="Search posts"
+                    />
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results" hidden></div>
+            </form>
         </header>
 
         <!-- Main content area -->
@@ -61,14 +83,20 @@
             </div>
 
             
+            <div class="post-tags-standalone">
+                <span class="tags-intro">exploring:</span>
+                
+                <a href="https://blog.gokuls.in/tags/thoughts.html" class="tag-link-standalone">thoughts</a>
+                
+            </div>
+            
         </div>
     </header>
 
     <!-- Content with artistic typography -->
     <div class="post-standalone-content">
-        <p>Are your thoughts really yours? You may be wondering why I’m asking such a bizarre question again and again. Of course, my thoughts are mine, you may say. But, are they? That may take some time. So, let’s just focus on “the how” part for now. How do you think? Well, all of us think in some kind of a language. Most probably our mother tongue. If you are someone whose mother tongue is English, then most probably you would be thinking in English, you just have 26 letters to form the words for your thoughts.</p>
-<!-- more -->
-<p>Why are there only 26 letters in the English alphabet? In my mother tongue, which is Malayalam, I have 52 letters to form the words for my thoughts. Does that mean I have the potential to think more(double) than what an English speaking folk can?</p>
+        <p>Are your thoughts really yours? You may be wondering why I’m asking such a bizarre question again and again. Of course, my thoughts are mine, you may say. But, are they? That may take some time. So, let’s just focus on “the how” part for now. How do you think? Well, all of us think in some kind of a language. Most probably our mother tongue. If you are someone whose mother tongue is English, then most probably you would be thinking in English, you just have 26 letters to form the words for your thoughts.
+Why are there only 26 letters in the English alphabet? In my mother tongue, which is Malayalam, I have 52 letters to form the words for my thoughts. Does that mean I have the potential to think more(double) than what an English speaking folk can?</p>
 <p>Now as we have messed up the ‘how’ part let’s move back to the ‘what’ part. Whatever your mother tongue is, it was taught to you by the people around you. Not only your mother tongue, whatever language you learn, somebody taught it to you. They taught you that language not to make you a poet or a writer, but to exchange their opinions and believes onto you.</p>
 <p>What does this mean? Your thoughts are not yours. Your thoughts are the byproduct of your interactions with an “educated” environment. You are getting influenced everyday. You are totally blind to what you are learning. You are only thinking what you are supposed to think. The reason you can’t think beyond the 26 letters of the English alphabets is only because you don’t have to. Everybody around you thinks with those 26 letters. You’re just thinking whatever you’re thinking only because you want to co-exist with the people around you.</p>
 <p>If our thoughts are not really ours, then what do we have?</p>
@@ -83,8 +111,15 @@
     <!-- Minimal footer -->
     <footer class="post-standalone-footer">
         <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
+            <a href="https://blog.gokuls.in/" class="nav-link">← all posts</a>
             
+            
+            <div class="related-tags">
+                <span class="related-label">more in:</span>
+                
+                <a href="https://blog.gokuls.in/tags/thoughts.html" class="related-tag">thoughts</a>
+                
+            </div>
             
         </div>
     </footer>
@@ -108,6 +143,11 @@
         </footer>
     </div>
 
+    <!-- Search functionality -->
+    <script src="https://blog.gokuls.in/js/vendor/minisearch.min.js"></script>
+    <script src="https://blog.gokuls.in/js/search.js"></script>
+    
+    
     
 </body>
 </html>

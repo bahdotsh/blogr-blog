@@ -15,20 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://blog.gokuls.in/css/style.css">
 
+    <meta name="blogr-base" content="https://blog.gokuls.in/">
     
 </head>
 <body>
     <div class="page-container">
-        <!-- Minimal header with just title -->
+        <!-- Minimal header with title and search -->
         <header class="site-header">
             <h1 class="site-title">
-                <a href="/">bah</a>
+                <a href="https://blog.gokuls.in/">bah</a>
             </h1>
             
             <p class="site-subtitle">A blog by bahdotsh</p>
             
+            
+            <!-- Search form -->
+            <form id="search-form" class="search-form" role="search">
+                <div class="search-container">
+                    <input 
+                        id="search-input" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Search posts..." 
+                        autocomplete="off"
+                        aria-label="Search posts"
+                    />
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results" hidden></div>
+            </form>
         </header>
 
         <!-- Main content area -->
@@ -61,59 +83,64 @@
             </div>
 
             
+            <div class="post-tags-standalone">
+                <span class="tags-intro">exploring:</span>
+                
+                <a href="https://blog.gokuls.in/tags/projects.html" class="tag-link-standalone">projects</a>
+                
+            </div>
+            
         </div>
     </header>
 
     <!-- Content with artistic typography -->
     <div class="post-standalone-content">
-        <!-- more -->
-<h2>Install</h2>
+        <h2>Install</h2>
 <h3>Cargo</h3>
-<pre class="highlight"><code class="language-bash">cargo install termgpt
-termgpt --help
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">cargo</span><span style="color:#c0c5ce;"> install termgpt
+</span><span style="color:#8fa1b3;">termgpt</span><span style="color:#bf616a;"> --help
+</span></code></pre>
 <h3>From source</h3>
-<pre class="highlight"><code class="language-bash">git clone git@github.com:bahdotsh/termgpt.git
-cd termgpt
-cargo install --path .
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">git</span><span style="color:#c0c5ce;"> clone git@github.com:bahdotsh/termgpt.git
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> termgpt
+</span><span style="color:#8fa1b3;">cargo</span><span style="color:#c0c5ce;"> install</span><span style="color:#bf616a;"> --path</span><span style="color:#c0c5ce;"> .
+</span></code></pre>
 <h2>Usage</h2>
 <p>For the first time you have to to enter your <a href="https://platform.openai.com/account/api-keys">OpenAI API key</a>.</p>
-<pre class="highlight"><code class="language-">termgpt --api &lt;your api-key&gt;
+<pre class="highlight"><code>termgpt --api &lt;your api-key&gt;
 </code></pre>
 <p>This key will then be saved to:</p>
-<pre class="highlight"><code class="language-">// Linux:   /home/alice/.config/termgpt
+<pre class="highlight"><code>// Linux:   /home/alice/.config/termgpt
 // Windows: C:\Users\Alice\AppData\Roaming\Foo Corp\termgpt
 // macOS:   /Users/Alice/Library/Application Support/termgpt
 </code></pre>
 <p>To be reused later</p>
 <h3>Questions</h3>
 <p>For now you can ask ChatGPT anything related to managing your operating system or writing code. Eventually you'll be able to ask any question to ChatGPT (couple more prompts to go) with termgpt (P.S try to avoid using '?' at the end of your questions for now).</p>
-<pre class="highlight"><code class="language-bash">termgpt &lt;any question&gt;
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">termgpt </span><span style="color:#c0c5ce;">&lt;any question&gt;
+</span></code></pre>
 <h3>Executing commands</h3>
 <p>You can ask to execute the generated command using <code>--exec</code> argument.</p>
-<pre class="highlight"><code class="language-bash">termgpt --exec list all the files in this folder
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">termgpt</span><span style="color:#bf616a;"> --exec</span><span style="color:#c0c5ce;"> list all the files in this folder
+</span></code></pre>
 <h3>Help message</h3>
-<pre class="highlight"><code class="language-bash">termgpt --help
-
-
-A cli tool to interact with ChatGPT
-
-Usage: termgpt [OPTIONS] [CHAT]...
-
-Arguments:
-  [CHAT]...
-
-Options:
-      --api &lt;API&gt;  Your API key for OpenAPI
-  -e, --exec       Execute the commands generated
-  -h, --help       Print help
-  -V, --version    Print version
-</code></pre>
+<pre class="highlight"><code class="language-bash"><span style="color:#8fa1b3;">termgpt</span><span style="color:#bf616a;"> --help
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">A</span><span style="color:#c0c5ce;"> cli tool to interact with ChatGPT
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">Usage:</span><span style="color:#c0c5ce;"> termgpt </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">OPTIONS</span><span style="color:#b48ead;">] [</span><span style="color:#c0c5ce;">CHAT</span><span style="color:#b48ead;">]</span><span style="color:#c0c5ce;">...
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">Arguments:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#8fa1b3;">[CHAT]...
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">Options:
+</span><span style="color:#c0c5ce;">      </span><span style="color:#8fa1b3;">--api </span><span style="color:#c0c5ce;">&lt;API&gt;  Your API key for OpenAPI
+</span><span style="color:#c0c5ce;">  </span><span style="color:#8fa1b3;">-e,</span><span style="color:#bf616a;"> --exec</span><span style="color:#c0c5ce;">       Execute the commands generated
+</span><span style="color:#c0c5ce;">  </span><span style="color:#8fa1b3;">-h,</span><span style="color:#bf616a;"> --help</span><span style="color:#c0c5ce;">       Print help
+</span><span style="color:#c0c5ce;">  </span><span style="color:#8fa1b3;">-V,</span><span style="color:#bf616a;"> --version</span><span style="color:#c0c5ce;">    Print version
+</span></code></pre>
 <h2>Example questions</h2>
-<pre class="highlight"><code class="language-">termgpt How do I list all files in the current directory
+<pre class="highlight"><code>termgpt How do I list all files in the current directory
 termgpt How can I find the number of lines in a file
 termgpt How do I create a new directory
 termgpt How can I check the available disk space
@@ -135,8 +162,15 @@ termgpt How can I change the permissions of a file or directory
     <!-- Minimal footer -->
     <footer class="post-standalone-footer">
         <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
+            <a href="https://blog.gokuls.in/" class="nav-link">← all posts</a>
             
+            
+            <div class="related-tags">
+                <span class="related-label">more in:</span>
+                
+                <a href="https://blog.gokuls.in/tags/projects.html" class="related-tag">projects</a>
+                
+            </div>
             
         </div>
     </footer>
@@ -160,6 +194,11 @@ termgpt How can I change the permissions of a file or directory
         </footer>
     </div>
 
+    <!-- Search functionality -->
+    <script src="https://blog.gokuls.in/js/vendor/minisearch.min.js"></script>
+    <script src="https://blog.gokuls.in/js/search.js"></script>
+    
+    
     
 </body>
 </html>

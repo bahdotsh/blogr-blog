@@ -15,20 +15,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://blog.gokuls.in/css/style.css">
 
+    <meta name="blogr-base" content="https://blog.gokuls.in/">
     
 </head>
 <body>
     <div class="page-container">
-        <!-- Minimal header with just title -->
+        <!-- Minimal header with title and search -->
         <header class="site-header">
             <h1 class="site-title">
-                <a href="/">bah</a>
+                <a href="https://blog.gokuls.in/">bah</a>
             </h1>
             
             <p class="site-subtitle">A blog by bahdotsh</p>
             
+            
+            <!-- Search form -->
+            <form id="search-form" class="search-form" role="search">
+                <div class="search-container">
+                    <input 
+                        id="search-input" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Search posts..." 
+                        autocomplete="off"
+                        aria-label="Search posts"
+                    />
+                    <button type="submit" class="search-button" aria-label="Search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results" hidden></div>
+            </form>
         </header>
 
         <!-- Main content area -->
@@ -61,14 +83,20 @@
             </div>
 
             
+            <div class="post-tags-standalone">
+                <span class="tags-intro">exploring:</span>
+                
+                <a href="https://blog.gokuls.in/tags/blockchain.html" class="tag-link-standalone">blockchain</a>
+                
+            </div>
+            
         </div>
     </header>
 
     <!-- Content with artistic typography -->
     <div class="post-standalone-content">
-        <p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?</p>
-<!-- more -->
-<p>To get an idea about all this first let’s understand how the “current Internet” shares information. We know that ,“<strong>the internet is a collection of computers that share information</strong>”. All the data shared in this network is centralized. This means that if we take an instance of data sharing inside this network, there will be only two participants. No computer acts as an observer or as a validator when two other computers are sharing data.</p>
+        <p>Blockchain is revolutionizing the Internet as we speak. From cryptographer David Chaum to Satoshi Nakamoto, a new door to fundamentally change the way Internet transactions can be implemented was opened. So, what is this blockchain and what is this revolution everybody is talking about?
+To get an idea about all this first let’s understand how the “current Internet” shares information. We know that ,“<strong>the internet is a collection of computers that share information</strong>”. All the data shared in this network is centralized. This means that if we take an instance of data sharing inside this network, there will be only two participants. No computer acts as an observer or as a validator when two other computers are sharing data.</p>
 <p>Blockchain on the other hand is de-centralized. Which means that the exchange of information must be observed and validated (approved) by everyone on the network. If the validation doesn’t happen, then, the transactions(exchange of information) will be invalid.</p>
 <p><strong>This change is the revolution</strong>. This brings transparency, authenticity and immutability to the network ; everything which was missing from “the internet”.</p>
 <p>Now let’s see what a blockchain is. “Blockchain is a distributed, de-centralized, public ledger”. Nope, it’s not that difficult as this definition. Blockchain is literally just a chain of blocks. The blocks contains information about the various data transactions in the network and they are connected with each other through cryptographic chains.</p>
@@ -83,8 +111,15 @@
     <!-- Minimal footer -->
     <footer class="post-standalone-footer">
         <div class="post-navigation">
-            <a href="/" class="nav-link">← all posts</a>
+            <a href="https://blog.gokuls.in/" class="nav-link">← all posts</a>
             
+            
+            <div class="related-tags">
+                <span class="related-label">more in:</span>
+                
+                <a href="https://blog.gokuls.in/tags/blockchain.html" class="related-tag">blockchain</a>
+                
+            </div>
             
         </div>
     </footer>
@@ -108,6 +143,11 @@
         </footer>
     </div>
 
+    <!-- Search functionality -->
+    <script src="https://blog.gokuls.in/js/vendor/minisearch.min.js"></script>
+    <script src="https://blog.gokuls.in/js/search.js"></script>
+    
+    
     
 </body>
 </html>
