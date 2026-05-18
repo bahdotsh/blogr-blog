@@ -63,6 +63,120 @@
             <!-- Post Header -->
             
             <header class="post-entry-header" onclick="togglePost(1)">
+                <h2 class="post-entry-title">Why I built wrkflw</h2>
+            
+                
+                <div class="post-entry-meta">
+                    <time class="post-date">May 18, 2026</time>
+                    
+                    
+                    <span class="post-author">bahdotsh</span>
+                    
+                    
+                    
+                    <span class="reading-time">6min</span>
+                    
+                </div>
+
+                <!-- Tags as artistic elements -->
+                
+                <div class="post-tags-preview">
+                    
+                    <span class="tag-bubble">projects</span>
+                    
+                    <span class="tag-bubble">rust</span>
+                    
+                    <span class="tag-bubble">github-actions</span>
+                    
+                    <span class="tag-bubble">cicd</span>
+                    
+                    <span class="tag-bubble">open-source</span>
+                    
+                </div>
+                
+
+                <!-- Expand indicator -->
+                <div class="expand-indicator">
+                    <span class="expand-text">read</span>
+                    <span class="expand-arrow">↓</span>
+                </div>
+            </header>
+            
+
+            <!-- Expandable Content -->
+            <div class="post-entry-content" id="post-content-1">
+                
+                <div class="post-description">
+                    I got tired of pushing &#x27;fix ci&#x27; commits, and somehow that turned into a local GitHub Actions runner.
+                </div>
+                
+                
+                <div class="post-full-content">
+                    <p>I didn't wake up one weekend and decide to build a local runner for GitHub Actions. I just got tired of typing <code>git commit -m "fix ci"</code>.</p>
+<p>If you have spent enough time around CI, you probably know the loop. Change one line in a workflow. Push. Wait for the runner. Watch the job fail for a reason that has nothing to do with the line you changed. Push again. A few rounds later, the real feature is tiny and your git history is mostly you arguing with YAML in public. <a href="https://github.com/bahdotsh/wrkflw">wrkflw</a> started because I wanted that whole loop to happen on my laptop instead of on GitHub's servers, and preferably without leaving a trail of embarrassing commits behind.</p>
+<p>Two years and more edge cases than I expected later, it has turned into a Cargo workspace with sixteen crates. It validates and runs GitHub Actions workflows locally, has a TUI, a proper expression evaluator, four runtime modes, watch mode, secrets, artifacts, cache, reusable workflows, and even a GitLab pipeline parser because apparently I don't know how to leave a side project alone. This post is mostly my attempt to answer the questions people keep asking me: why not just use <code>act</code>, why Rust, and what part was actually hard?</p>
+<h2>Why not just use act?</h2>
+<p>This is the first thing everyone asks, which is fair. The honest answer is that <a href="https://github.com/nektos/act">act</a> is good, and I used it for a while. The thing that pushed me to build my own tool was simpler than some big philosophical disagreement: act depends on Docker, even if all you want to do is validate the YAML.</p>
+<p>That validator was the part I cared about most. Most of my "fix ci" commits were not about complex runtime bugs. They were boring mistakes: a typo, a missing key, a wrong input name. If Docker isn't running, or you're on a machine where you can't run Docker at all, act doesn't really help with that use case.</p>
+<p>So the main design goal became pretty clear: containers should be optional, not the thing everything else depends on. <code>wrkflw validate</code> doesn't even import the runtime crate. It parses the workflow, lints it, cross-checks composite-action inputs against their call sites, and exits with a code that CI can use. <code>wrkflw run</code> uses Docker by default if it's available, falls back to Podman if it isn't, and if you have neither, you can still run jobs with <code>--runtime emulation</code> or <code>--runtime secure-emulation</code>. Same CLI, four runtimes.</p>
+<p>The other way it drifted away from act was plain old scope creep. wrkflw now evaluates <code>${{ ... }}</code> expressions properly, so <code>toJSON(needs)</code> gives you a real nested object instead of a stringified blob, and <code>matrix.os</code> resolves against the actual matrix combination instead of the YAML literal. It runs composite actions end to end, supports reusable workflows both local (<code>./.github/workflows/shared.yml</code>) and remote (<code>owner/repo/path@ref</code>), handles <code>upload-artifact</code> / <code>download-artifact</code> and the GitHub cache protocol under emulation, and has a <code>watch</code> subcommand that reruns only the workflows whose <code>paths:</code> filter matches the files you changed.</p>
+<p>None of that was part of the original plan. It just kept happening the way side projects usually do. I'd hit some gap between "works on GitHub" and "doesn't work locally," get annoyed by it, and then go build the missing piece.</p>
+<h2>Why Rust?</h2>
+<p>There are two reasons:</p>
+<p>The practical one is that I wanted a single static binary. Something you can install with <code>cargo install wrkflw</code> or <code>brew install wrkflw</code> and just run. No Python environment, no Node setup, no JVM warming up in the background. The CLI starts in milliseconds, which matters when a file watcher is calling it over and over. The TUI is built on <a href="https://github.com/ratatui/ratatui">ratatui</a>, which is genuinely fun to work with once the immediate-mode model clicks.</p>
+<p>The more honest reason is that I wanted to learn Rust properly. I <a href="/blog/why-i-built-zp">said something similar when I wrote about <code>zp</code> a few years ago</a>. That was my first crate, and it was mostly an excuse to stop fighting the borrow checker and actually understand it. wrkflw is what happened when I picked a problem big enough to force me into the parts of Rust you can't fake for long: lifetimes in the expression evaluator, async boundaries between the executor and the runtime, error types that make sense across crate boundaries, and refactors that don't break people who installed the tool last month.</p>
+<p>Those aren't things you really learn from a tutorial. You learn them by building something large enough that the design starts to sag a little, and then figuring out how to make it hold together again without throwing the whole thing away.</p>
+<p>If you're thinking about a Rust side project, my advice is simple: pick something where the type system earns its keep. CI tooling is great for that. Workflow files can go wrong in a hundred different ways, and the compiler will usually catch a surprising number of them before you even run a test.</p>
+<h2>The hardest part: running workflows with no container at all</h2>
+<p>The piece I'm proudest of, and the one that took the longest to get right, is <code>--runtime secure-emulation</code>.</p>
+<p>The problem it solves is pretty straightforward. Sometimes you want to run a GitHub Actions workflow locally, but you don't have Docker, and the workflow is from a third-party repo or a PR you haven't reviewed yet. Plain <code>--runtime emulation</code> will run every <code>run:</code> step directly on your machine with your user's permissions. That's fine for your own code. It's absolutely not fine for code you don't trust.</p>
+<p>The careful answer is "just install Docker," but I wanted there to be something in the middle. Not as strong as a real container boundary, but still much better than "hope this shell script behaves itself."</p>
+<p>That's what secure emulation tries to be. Every <code>run:</code> step still executes on the host, so you don't need a container runtime, but it goes through a sandbox layer first. That layer does a few things:</p>
+<ul>
+<li>It keeps a command whitelist and blocklist. Normal CI commands like <code>echo</code>, <code>git</code>, <code>cargo</code>, <code>node</code>, <code>npm</code>, <code>python</code>, <code>go</code>, and <code>tar</code> are fine. Obvious foot-guns like <code>rm</code>, <code>dd</code>, <code>mkfs</code>, <code>mount</code>, <code>sudo</code>, <code>kill</code>, <code>systemctl</code>, and <code>reboot</code> aren't.</li>
+<li>It checks commands for dangerous patterns. Allowing <code>bash</code> is one thing; allowing <code>bash -c "rm -rf /"</code> is another. So before anything runs, the command is matched against patterns for things like <code>rm -rf /</code>, <code>dd ... of=/dev/...</code>, <code>curl | sh</code>, <code>wget | sh</code>, and the classic fork bomb.</li>
+<li>It strips environment variables that can be used to hijack execution, including <code>LD_PRELOAD</code>, <code>LD_LIBRARY_PATH</code>, <code>DYLD_INSERT_LIBRARIES</code>, <code>DYLD_LIBRARY_PATH</code>, and even <code>PATH</code>, <code>HOME</code>, and <code>SHELL</code>.</li>
+<li>It puts a ceiling on resource usage: five-minute timeout per step, capped processes, and no network by default.</li>
+</ul>
+<p>The most important part, though, is being honest about what it does <em>not</em> do. It doesn't give you filesystem isolation. Absolute paths still point at the host filesystem. If you need a real boundary, you should use Docker or Podman.</p>
+<p>I went back and forth on whether to ship secure emulation at all, because half-measures in security are how people get burned. What changed my mind was realizing that the real alternative was not "people will just use Docker instead." A lot of the time, the alternative was "people will run it with plain <code>--runtime emulation</code> and zero checks because Docker isn't available." In that world, a sandbox that rejects <code>rm -rf /</code> and refuses <code>curl | sh</code> is a real improvement, as long as the README and the doc comments are very loud about the limits.</p>
+<p>Writing it ended up being an exercise in restraint. My first version had path rewriting, a private workspace, and a bunch of clever machinery that mostly just broke the artifact handler. The version that shipped is much more boring: validate the command, strip the environment, set a timeout, run in place. A lot of security work is just slowly deleting your most impressive bad ideas.</p>
+
+                </div>
+
+                <!-- Post Footer with full tags -->
+                <footer class="post-entry-footer">
+                    
+                    <div class="post-tags-full">
+                        <span class="tags-label">tagged:</span>
+                        
+                        <a href="https://blog.gokuls.in/tags/projects.html" class="tag-link">projects</a>, 
+                        
+                        <a href="https://blog.gokuls.in/tags/rust.html" class="tag-link">rust</a>, 
+                        
+                        <a href="https://blog.gokuls.in/tags/github-actions.html" class="tag-link">github-actions</a>, 
+                        
+                        <a href="https://blog.gokuls.in/tags/cicd.html" class="tag-link">cicd</a>, 
+                        
+                        <a href="https://blog.gokuls.in/tags/open-source.html" class="tag-link">open-source</a>
+                        
+                    </div>
+                    
+
+                    <div class="post-actions">
+                        
+                        <a href="https://blog.gokuls.in/posts/why-i-built-wrkflw.html" class="permalink">permalink</a>
+                        
+                        <button class="collapse-btn" onclick="togglePost(1)">collapse</button>
+                    </div>
+                </footer>
+            </div>
+        </article>
+        
+        <article class="post-entry" data-post-id="2">
+            <!-- Post Header -->
+            
+            <header class="post-entry-header" onclick="togglePost(2)">
                 <h2 class="post-entry-title">giff</h2>
             
                 
@@ -104,7 +218,7 @@
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-1">
+            <div class="post-entry-content" id="post-content-2">
                 
                 <div class="post-description">
                     git diff terminal visualizer
@@ -171,16 +285,16 @@ cargo install --path .
                         
                         <a href="https://blog.gokuls.in/posts/giff.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(1)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(2)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="2">
+        <article class="post-entry" data-post-id="3">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(2)">
+            <header class="post-entry-header" onclick="togglePost(3)">
                 <h2 class="post-entry-title">Termgpt</h2>
             
                 
@@ -222,7 +336,7 @@ cargo install --path .
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-2">
+            <div class="post-entry-content" id="post-content-3">
                 
                 <div class="post-description">
                     A programming and system administration assistant, powered by chatGPT!
@@ -317,16 +431,16 @@ termgpt How can I change the permissions of a file or directory
                         
                         <a href="https://blog.gokuls.in/posts/termgpt.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(2)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(3)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="3">
+        <article class="post-entry" data-post-id="4">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(3)">
+            <header class="post-entry-header" onclick="togglePost(4)">
                 <h2 class="post-entry-title">Why I built zp!</h2>
             
                 
@@ -366,7 +480,7 @@ termgpt How can I change the permissions of a file or directory
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-3">
+            <div class="post-entry-content" id="post-content-4">
                 
                 <div class="post-description">
                     Talks about the process behind building zp!
@@ -413,16 +527,16 @@ The process was relatively simple than I expected and as everyone says, the toug
                         
                         <a href="https://blog.gokuls.in/posts/why-i-built-zp.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(3)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(4)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="4">
+        <article class="post-entry" data-post-id="5">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(4)">
+            <header class="post-entry-header" onclick="togglePost(5)">
                 <h2 class="post-entry-title">Zp</h2>
             
                 
@@ -462,7 +576,7 @@ The process was relatively simple than I expected and as everyone says, the toug
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-4">
+            <div class="post-entry-content" id="post-content-5">
                 
                 <div class="post-description">
                     A cli tool to copy things!
@@ -528,16 +642,16 @@ cargo install --path .
                         
                         <a href="https://blog.gokuls.in/posts/zp.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(4)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(5)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="5">
+        <article class="post-entry" data-post-id="6">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(5)">
+            <header class="post-entry-header" onclick="togglePost(6)">
                 <h2 class="post-entry-title">Art, Time and Life</h2>
             
                 
@@ -577,7 +691,7 @@ cargo install --path .
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-5">
+            <div class="post-entry-content" id="post-content-6">
                 
                 <div class="post-description">
                     An essay on art, time and life. 
@@ -612,16 +726,16 @@ You can never complete a work of art on time. Art never belonged to that dimensi
                         
                         <a href="https://blog.gokuls.in/posts/art-time-life.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(5)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(6)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="6">
+        <article class="post-entry" data-post-id="7">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(6)">
+            <header class="post-entry-header" onclick="togglePost(7)">
                 <h2 class="post-entry-title">Are your thoughts really yours?</h2>
             
                 
@@ -661,7 +775,7 @@ You can never complete a work of art on time. Art never belonged to that dimensi
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-6">
+            <div class="post-entry-content" id="post-content-7">
                 
                 <div class="post-description">
                     Are your thoughts really yours?
@@ -703,16 +817,16 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
                         
                         <a href="https://blog.gokuls.in/posts/thoughts.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(6)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(7)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="7">
+        <article class="post-entry" data-post-id="8">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(7)">
+            <header class="post-entry-header" onclick="togglePost(8)">
                 <h2 class="post-entry-title">How does the blockchain work? Part 2</h2>
             
                 
@@ -752,7 +866,7 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-7">
+            <div class="post-entry-content" id="post-content-8">
                 
                 <div class="post-description">
                     How does the blockchain work? Part 2
@@ -809,16 +923,16 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
                         
                         <a href="https://blog.gokuls.in/posts/how-does-blockchain-work-2.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(7)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(8)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="8">
+        <article class="post-entry" data-post-id="9">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(8)">
+            <header class="post-entry-header" onclick="togglePost(9)">
                 <h2 class="post-entry-title">How does the blockchain work? Part 1</h2>
             
                 
@@ -856,7 +970,7 @@ Why are there only 26 letters in the English alphabet? In my mother tongue, whic
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-8">
+            <div class="post-entry-content" id="post-content-9">
                 
                 <div class="post-description">
                     How does the blockchain work? Part 1
@@ -901,16 +1015,16 @@ The prefix “crypt” means “hidden” and the suffix “graphy” means “w
                         
                         <a href="https://blog.gokuls.in/posts/how-does-blockchain-work-1.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(8)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(9)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="9">
+        <article class="post-entry" data-post-id="10">
             <!-- Post Header -->
             
-            <header class="post-entry-header" onclick="togglePost(9)">
+            <header class="post-entry-header" onclick="togglePost(10)">
                 <h2 class="post-entry-title">The Blockchain Dictionary</h2>
             
                 
@@ -950,7 +1064,7 @@ The prefix “crypt” means “hidden” and the suffix “graphy” means “w
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-9">
+            <div class="post-entry-content" id="post-content-10">
                 
                 <div class="post-description">
                     Get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.
@@ -997,16 +1111,16 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
                         
                         <a href="https://blog.gokuls.in/posts/blockchain-dictionary.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(9)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(10)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="10">
+    
+        <article class="post-entry" data-post-id="11">
             <!-- Post Header -->
-            
-            <header class="post-entry-header" onclick="togglePost(10)">
+            <header class="post-entry-header" onclick="togglePost(11)">
                 <h2 class="post-entry-title">Blockchain: A short sneak peek</h2>
             
                 
@@ -1025,7 +1139,6 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
                 <!-- Tags as artistic elements -->
                 
                 <div class="post-tags-preview">
-                    
                     <span class="tag-bubble">blockchain</span>
                     
                     <span class="tag-bubble">tutorial</span>
@@ -1046,7 +1159,7 @@ Hyperledger is a blockchain framework to develop blockchain-based applications, 
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-10">
+            <div class="post-entry-content" id="post-content-11">
                 
                 <div class="post-description">
                     A short sneak peek about blockchain
@@ -1074,11 +1187,8 @@ To get an idea about all this first let’s understand how the “current Intern
                         <span class="tags-label">tagged:</span>
                         
                         <a href="https://blog.gokuls.in/tags/blockchain.html" class="tag-link">blockchain</a>, 
-                        
                         <a href="https://blog.gokuls.in/tags/tutorial.html" class="tag-link">tutorial</a>, 
-                        
                         <a href="https://blog.gokuls.in/tags/web3.html" class="tag-link">web3</a>, 
-                        
                         <a href="https://blog.gokuls.in/tags/decentralization.html" class="tag-link">decentralization</a>
                         
                     </div>
@@ -1088,16 +1198,15 @@ To get an idea about all this first let’s understand how the “current Intern
                         
                         <a href="https://blog.gokuls.in/posts/blockchain.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(10)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(11)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-    
-        <article class="post-entry" data-post-id="11">
+        <article class="post-entry" data-post-id="12">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(11)">
+            <header class="post-entry-header" onclick="togglePost(12)">
                 <h2 class="post-entry-title">Random rant about silence</h2>
             
                 
@@ -1134,7 +1243,7 @@ To get an idea about all this first let’s understand how the “current Intern
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-11">
+            <div class="post-entry-content" id="post-content-12">
                 
                 <div class="post-description">
                     Rant about silence!
@@ -1164,15 +1273,15 @@ Or the sound the raindrops make, when they gently kiss your forehead? Can’t yo
                         
                         <a href="https://blog.gokuls.in/posts/silence.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(11)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(12)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="12">
+        <article class="post-entry" data-post-id="13">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(12)">
+            <header class="post-entry-header" onclick="togglePost(13)">
                 <h2 class="post-entry-title">The Jump</h2>
             
                 
@@ -1207,7 +1316,7 @@ Or the sound the raindrops make, when they gently kiss your forehead? Can’t yo
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-12">
+            <div class="post-entry-content" id="post-content-13">
                 
                 <div class="post-description">
                     Jump!
@@ -1289,15 +1398,15 @@ The walk to the edge was the toughest.</p>
                         
                         <a href="https://blog.gokuls.in/posts/thejump.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(12)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(13)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="13">
+        <article class="post-entry" data-post-id="14">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(13)">
+            <header class="post-entry-header" onclick="togglePost(14)">
                 <h2 class="post-entry-title">Life</h2>
             
                 
@@ -1332,7 +1441,7 @@ The walk to the edge was the toughest.</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-13">
+            <div class="post-entry-content" id="post-content-14">
                 
                 <div class="post-description">
                     Life!
@@ -1377,15 +1486,15 @@ Focused and unfocused at the same time,</p>
                         
                         <a href="https://blog.gokuls.in/posts/life.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(13)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(14)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="14">
+        <article class="post-entry" data-post-id="15">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(14)">
+            <header class="post-entry-header" onclick="togglePost(15)">
                 <h2 class="post-entry-title">The answer</h2>
             
                 
@@ -1420,7 +1529,7 @@ Focused and unfocused at the same time,</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-14">
+            <div class="post-entry-content" id="post-content-15">
                 
                 <div class="post-description">
                     The answer!
@@ -1469,15 +1578,15 @@ The thought echoed.</p>
                         
                         <a href="https://blog.gokuls.in/posts/theanswer.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(14)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(15)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="15">
+        <article class="post-entry" data-post-id="16">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(15)">
+            <header class="post-entry-header" onclick="togglePost(16)">
                 <h2 class="post-entry-title">Beyond actual hues</h2>
             
                 
@@ -1512,7 +1621,7 @@ The thought echoed.</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-15">
+            <div class="post-entry-content" id="post-content-16">
                 
                 <div class="post-description">
                     bah
@@ -1557,15 +1666,15 @@ a dream!?</p>
                         
                         <a href="https://blog.gokuls.in/posts/bah.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(15)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(16)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="16">
+        <article class="post-entry" data-post-id="17">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(16)">
+            <header class="post-entry-header" onclick="togglePost(17)">
                 <h2 class="post-entry-title">The night</h2>
             
                 
@@ -1600,7 +1709,7 @@ a dream!?</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-16">
+            <div class="post-entry-content" id="post-content-17">
                 
                 <div class="post-description">
                     Night time!
@@ -1646,15 +1755,15 @@ A lively night.</p>
                         
                         <a href="https://blog.gokuls.in/posts/night.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(16)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(17)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="17">
+        <article class="post-entry" data-post-id="18">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(17)">
+            <header class="post-entry-header" onclick="togglePost(18)">
                 <h2 class="post-entry-title">Death</h2>
             
                 
@@ -1691,7 +1800,7 @@ A lively night.</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-17">
+            <div class="post-entry-content" id="post-content-18">
                 
                 <div class="post-description">
                     From the perspective of Death
@@ -1766,15 +1875,15 @@ A lively night.</p>
                         
                         <a href="https://blog.gokuls.in/posts/death.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(17)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(18)">collapse</button>
                     </div>
                 </footer>
             </div>
         </article>
         
-        <article class="post-entry" data-post-id="18">
+        <article class="post-entry" data-post-id="19">
             <!-- Post Header -->
-            <header class="post-entry-header" onclick="togglePost(18)">
+            <header class="post-entry-header" onclick="togglePost(19)">
                 <h2 class="post-entry-title">The Moth</h2>
             
                 
@@ -1811,7 +1920,7 @@ A lively night.</p>
             
 
             <!-- Expandable Content -->
-            <div class="post-entry-content" id="post-content-18">
+            <div class="post-entry-content" id="post-content-19">
                 
                 <div class="post-description">
                     The moth&#x27;s perspective! 
@@ -1865,7 +1974,7 @@ But no,</p>
                         
                         <a href="https://blog.gokuls.in/posts/moth.html" class="permalink">permalink</a>
                         
-                        <button class="collapse-btn" onclick="togglePost(18)">collapse</button>
+                        <button class="collapse-btn" onclick="togglePost(19)">collapse</button>
                     </div>
                 </footer>
             </div>
@@ -1890,7 +1999,7 @@ But no,</p>
 let currentPage = 1;
 let isLoading = false;
 let hasMorePosts = false;
-let totalPosts = 18;
+let totalPosts = 19;
 let loadedPosts = 10;
 let maxPostId = 10;
 

@@ -4,9 +4,49 @@
   <link href="https://blog.gokuls.in"/>
   <link href="https://blog.gokuls.in/atom.xml" rel="self"/>
   <id>https://blog.gokuls.in</id>
-  <updated>2026-05-14T09:23:12+0000</updated>
+  <updated>2026-05-18T13:36:09+0000</updated>
   <subtitle><![CDATA[A blog by bahdotsh]]></subtitle>
   <generator>Blogr Static Site Generator</generator>
+  <entry>
+    <title><![CDATA[Why I built wrkflw]]></title>
+    <link href="https://blog.gokuls.in/posts/why-i-built-wrkflw.html"/>
+    <id>https://blog.gokuls.in/posts/why-i-built-wrkflw.html</id>
+    <updated>2026-05-18T00:00:00+0000</updated>
+    <summary><![CDATA[I got tired of pushing 'fix ci' commits, and somehow that turned into a local GitHub Actions runner.]]></summary>
+    <content type="html"><![CDATA[<p>I didn't wake up one weekend and decide to build a local runner for GitHub Actions. I just got tired of typing <code>git commit -m "fix ci"</code>.</p>
+<p>If you have spent enough time around CI, you probably know the loop. Change one line in a workflow. Push. Wait for the runner. Watch the job fail for a reason that has nothing to do with the line you changed. Push again. A few rounds later, the real feature is tiny and your git history is mostly you arguing with YAML in public. <a href="https://github.com/bahdotsh/wrkflw">wrkflw</a> started because I wanted that whole loop to happen on my laptop instead of on GitHub's servers, and preferably without leaving a trail of embarrassing commits behind.</p>
+<p>Two years and more edge cases than I expected later, it has turned into a Cargo workspace with sixteen crates. It validates and runs GitHub Actions workflows locally, has a TUI, a proper expression evaluator, four runtime modes, watch mode, secrets, artifacts, cache, reusable workflows, and even a GitLab pipeline parser because apparently I don't know how to leave a side project alone. This post is mostly my attempt to answer the questions people keep asking me: why not just use <code>act</code>, why Rust, and what part was actually hard?</p>
+<h2>Why not just use act?</h2>
+<p>This is the first thing everyone asks, which is fair. The honest answer is that <a href="https://github.com/nektos/act">act</a> is good, and I used it for a while. The thing that pushed me to build my own tool was simpler than some big philosophical disagreement: act depends on Docker, even if all you want to do is validate the YAML.</p>
+<p>That validator was the part I cared about most. Most of my "fix ci" commits were not about complex runtime bugs. They were boring mistakes: a typo, a missing key, a wrong input name. If Docker isn't running, or you're on a machine where you can't run Docker at all, act doesn't really help with that use case.</p>
+<p>So the main design goal became pretty clear: containers should be optional, not the thing everything else depends on. <code>wrkflw validate</code> doesn't even import the runtime crate. It parses the workflow, lints it, cross-checks composite-action inputs against their call sites, and exits with a code that CI can use. <code>wrkflw run</code> uses Docker by default if it's available, falls back to Podman if it isn't, and if you have neither, you can still run jobs with <code>--runtime emulation</code> or <code>--runtime secure-emulation</code>. Same CLI, four runtimes.</p>
+<p>The other way it drifted away from act was plain old scope creep. wrkflw now evaluates <code>${{ ... }}</code> expressions properly, so <code>toJSON(needs)</code> gives you a real nested object instead of a stringified blob, and <code>matrix.os</code> resolves against the actual matrix combination instead of the YAML literal. It runs composite actions end to end, supports reusable workflows both local (<code>./.github/workflows/shared.yml</code>) and remote (<code>owner/repo/path@ref</code>), handles <code>upload-artifact</code> / <code>download-artifact</code> and the GitHub cache protocol under emulation, and has a <code>watch</code> subcommand that reruns only the workflows whose <code>paths:</code> filter matches the files you changed.</p>
+<p>None of that was part of the original plan. It just kept happening the way side projects usually do. I'd hit some gap between "works on GitHub" and "doesn't work locally," get annoyed by it, and then go build the missing piece.</p>
+<h2>Why Rust?</h2>
+<p>There are two reasons:</p>
+<p>The practical one is that I wanted a single static binary. Something you can install with <code>cargo install wrkflw</code> or <code>brew install wrkflw</code> and just run. No Python environment, no Node setup, no JVM warming up in the background. The CLI starts in milliseconds, which matters when a file watcher is calling it over and over. The TUI is built on <a href="https://github.com/ratatui/ratatui">ratatui</a>, which is genuinely fun to work with once the immediate-mode model clicks.</p>
+<p>The more honest reason is that I wanted to learn Rust properly. I <a href="/blog/why-i-built-zp">said something similar when I wrote about <code>zp</code> a few years ago</a>. That was my first crate, and it was mostly an excuse to stop fighting the borrow checker and actually understand it. wrkflw is what happened when I picked a problem big enough to force me into the parts of Rust you can't fake for long: lifetimes in the expression evaluator, async boundaries between the executor and the runtime, error types that make sense across crate boundaries, and refactors that don't break people who installed the tool last month.</p>
+<p>Those aren't things you really learn from a tutorial. You learn them by building something large enough that the design starts to sag a little, and then figuring out how to make it hold together again without throwing the whole thing away.</p>
+<p>If you're thinking about a Rust side project, my advice is simple: pick something where the type system earns its keep. CI tooling is great for that. Workflow files can go wrong in a hundred different ways, and the compiler will usually catch a surprising number of them before you even run a test.</p>
+<h2>The hardest part: running workflows with no container at all</h2>
+<p>The piece I'm proudest of, and the one that took the longest to get right, is <code>--runtime secure-emulation</code>.</p>
+<p>The problem it solves is pretty straightforward. Sometimes you want to run a GitHub Actions workflow locally, but you don't have Docker, and the workflow is from a third-party repo or a PR you haven't reviewed yet. Plain <code>--runtime emulation</code> will run every <code>run:</code> step directly on your machine with your user's permissions. That's fine for your own code. It's absolutely not fine for code you don't trust.</p>
+<p>The careful answer is "just install Docker," but I wanted there to be something in the middle. Not as strong as a real container boundary, but still much better than "hope this shell script behaves itself."</p>
+<p>That's what secure emulation tries to be. Every <code>run:</code> step still executes on the host, so you don't need a container runtime, but it goes through a sandbox layer first. That layer does a few things:</p>
+<ul>
+<li>It keeps a command whitelist and blocklist. Normal CI commands like <code>echo</code>, <code>git</code>, <code>cargo</code>, <code>node</code>, <code>npm</code>, <code>python</code>, <code>go</code>, and <code>tar</code> are fine. Obvious foot-guns like <code>rm</code>, <code>dd</code>, <code>mkfs</code>, <code>mount</code>, <code>sudo</code>, <code>kill</code>, <code>systemctl</code>, and <code>reboot</code> aren't.</li>
+<li>It checks commands for dangerous patterns. Allowing <code>bash</code> is one thing; allowing <code>bash -c "rm -rf /"</code> is another. So before anything runs, the command is matched against patterns for things like <code>rm -rf /</code>, <code>dd ... of=/dev/...</code>, <code>curl | sh</code>, <code>wget | sh</code>, and the classic fork bomb.</li>
+<li>It strips environment variables that can be used to hijack execution, including <code>LD_PRELOAD</code>, <code>LD_LIBRARY_PATH</code>, <code>DYLD_INSERT_LIBRARIES</code>, <code>DYLD_LIBRARY_PATH</code>, and even <code>PATH</code>, <code>HOME</code>, and <code>SHELL</code>.</li>
+<li>It puts a ceiling on resource usage: five-minute timeout per step, capped processes, and no network by default.</li>
+</ul>
+<p>The most important part, though, is being honest about what it does <em>not</em> do. It doesn't give you filesystem isolation. Absolute paths still point at the host filesystem. If you need a real boundary, you should use Docker or Podman.</p>
+<p>I went back and forth on whether to ship secure emulation at all, because half-measures in security are how people get burned. What changed my mind was realizing that the real alternative was not "people will just use Docker instead." A lot of the time, the alternative was "people will run it with plain <code>--runtime emulation</code> and zero checks because Docker isn't available." In that world, a sandbox that rejects <code>rm -rf /</code> and refuses <code>curl | sh</code> is a real improvement, as long as the README and the doc comments are very loud about the limits.</p>
+<p>Writing it ended up being an exercise in restraint. My first version had path rewriting, a private workspace, and a bunch of clever machinery that mostly just broke the artifact handler. The version that shipped is much more boring: validate the command, strip the environment, set a timeout, run in place. A lot of security work is just slowly deleting your most impressive bad ideas.</p>
+]]></content>
+    <author>
+      <name>bahdotsh</name>
+    </author>
+  </entry>
   <entry>
     <title><![CDATA[giff]]></title>
     <link href="https://blog.gokuls.in/posts/giff.html"/>
