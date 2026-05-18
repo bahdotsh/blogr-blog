@@ -9,7 +9,7 @@ tags: ["blockchain", "bitcoin", "cryptocurrency", "tutorial"]
 featured: false
 ---
 
-Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our [previous](https://gokuls.in/blog/blockchain/)  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.
+Bitcoin prices blew up in 2017, reaching a peak of a whopping $20,000. After that, the entire planet was talking about this new technology called blockchain. We saw in our [previous](/posts/blockchain.html)  article what this blockchain actually is. Now let’s get familiar with some of the terms we may repeatedly come in close contact with; every time we talk blockchain.
 ### Cryptocoin or cryptocurrency
 Cryptocurrency is a fancy word. But its meaning is boringly simple. It’s just money. The only difference is that this money is completely digital. Which means, it doesn’t exist out of your computer. And you can use it just as how you’d use the conventional money; to buy things.
 
